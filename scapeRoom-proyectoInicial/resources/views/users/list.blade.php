@@ -30,6 +30,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>{{ optional($user->role)->nom() }}</td>
                                 <td style="display: flex">
 
                                         <a href="{{ route('user.edit', ['id' => $user->id]) }}">

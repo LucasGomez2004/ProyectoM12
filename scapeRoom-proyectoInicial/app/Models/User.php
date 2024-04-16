@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function adminlte_profile_url(){
         return 'profile';
     }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
 }
