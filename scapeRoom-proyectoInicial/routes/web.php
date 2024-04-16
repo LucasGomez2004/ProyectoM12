@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -74,7 +75,20 @@ Route::get('/google-callback', function () {
     return redirect('/dashboard');
 });
 
+// CALENDARIO
+
 Route::get('/calendario', [ReservationController::class, 'index'])->name('calendar.calendar');
+
+// USERS 
+
+Route::match(['get', 'post'], '/users', [UserController::class, 'list'])->name('user.list');
+
+
+Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name('user.new');
+
+Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+
+Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 
 require __DIR__.'/auth.php';
 

@@ -311,6 +311,11 @@ return [
             'text' => 'search',
         ],
         [
+            'text' => 'Users',
+            'route' => 'user.list',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
