@@ -311,6 +311,11 @@ return [
             'text' => 'search',
         ],
         [
+            'text' => 'EscapeRoom',
+            'route' => 'escaperoom.list',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'Users',
             'route' => 'user.list',
             'icon' => 'fas fa-fw fa-user',

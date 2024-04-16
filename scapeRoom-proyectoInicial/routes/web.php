@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EscapeRoomController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -89,6 +90,10 @@ Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name
 Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+
+// LOCALITAT
+
+Route::match(['get', 'post'], '/escaperoom', [EscapeRoomController::class, 'list'])->name('escaperoom.list');
 
 require __DIR__.'/auth.php';
 

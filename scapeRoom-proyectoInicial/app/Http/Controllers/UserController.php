@@ -25,6 +25,7 @@ class UserController extends BaseController
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->role_id = 2;
 
             $user->save();
 
