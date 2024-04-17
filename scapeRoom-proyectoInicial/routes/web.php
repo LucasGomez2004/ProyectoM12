@@ -91,6 +91,8 @@ Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit']
 
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 
+Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+
 // LOCALITAT
 
 Route::match(['get', 'post'], '/escaperoom', [EscapeRoomController::class, 'list'])->name('escaperoom.list');

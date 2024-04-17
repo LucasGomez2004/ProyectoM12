@@ -57,5 +57,11 @@ class UserController extends BaseController
         return redirect()->route('user.list')->with('status', 'User '.$user->name.' eliminat!');
     }
 
+    function profile($id)
+    {
+        $user = User::find($id);
+
+        return view('users.profile', compact('user'));
+    }
 
 }

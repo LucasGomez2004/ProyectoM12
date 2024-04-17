@@ -48,7 +48,7 @@ class EscapeRoomController extends BaseController
         return redirect()->route('escaperoom.list')->with('status', 'escaperoom '.$escaperoom->name.' modificat!');
     }
     $locations = Location::all();
-    return view('escaperoom.edit', ['escaperoom'=>$escaperoom, 'locations'=>$locations]);
+    return view('escaperoom.edit', ['escaperoom' =>$escaperoom, 'locations'=>$locations]);
     }
 
     function delete($id) 
