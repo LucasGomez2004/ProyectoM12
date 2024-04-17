@@ -99,7 +99,7 @@ Route::match(['get', 'post'], '/escaperoom/new', [EscapeRoomController::class, '
 
 Route::match(['get', 'post'], '/escaperoom/edit/{id}', [EscapeRoomController::class, 'edit'])->name('escaperoom.edit');
 
-Route::get('/user/delete/{id}', [EscapeRoomController::class, 'delete'])->name('escaperoom.delete');
+Route::get('/escaperoom/delete/{id}', [EscapeRoomController::class, 'delete'])->name('escaperoom.delete');
 
 require __DIR__.'/auth.php';
 
