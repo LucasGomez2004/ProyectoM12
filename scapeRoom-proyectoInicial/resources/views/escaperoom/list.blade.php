@@ -36,7 +36,8 @@
                         @foreach ($escaperoom as $escape)
                             <tr>
                                 <td>{{$escape->name}}</td>
-                                <td>{{$escape->location_id}}</td>
+                                <td>@isset($escape->location) {{ $escape->location->nom() }} @endisset</td>
+                                
                                 <td style="display: flex">
 
                                 <a href="{{ route('escaperoom.edit', ['id' => $escape->id]) }}">

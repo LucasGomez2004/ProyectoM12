@@ -33,10 +33,15 @@
                             <label for="name">Name</label>
                             <input type="text" name="name" value="{{ $escaperoom->name }}"/>
                         </div>
-                        <div>            
-                            <label for="location">Location</label>
-                            <input type="text" name="location" value="{{ $escaperoom->location->nom() }}"/>
-                        </div>
+                        <div>
+                            <label for="location_id">Location</label>
+                            <select name="location_id">
+                            <option value="">-- selecciona un location --</option>
+                                @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}" @if ($location->id == $escaperoom->location_id) selected @endif>{{ $location->nom() }}</option>
+                                @endforeach
+                            </select>
+                        <div>
                         <button type="submit">Modificat Escape Room</button>
                     </form>
                 </div>

@@ -38,6 +38,8 @@ class EscapeRoomController extends BaseController
 
     function edit(Request $request, $id) 
     {
+        $escaperoom = EscapeRoom::find($id);
+        
         if ($request->isMethod('post')) {
         $escaperoom = EscapeRoom::find($id);
 
