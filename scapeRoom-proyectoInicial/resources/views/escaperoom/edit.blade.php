@@ -11,7 +11,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">ESCAPE ROOM</h1>
+        <h1 class="h3 mb-0 text-gray-800">Escaperoom</h1>
         <a href="{{route('escaperoom.new')}}" class="btn btn-sm btn-primary" >
             <i class="fas fa-plus"></i> Add New
         </a> 
@@ -20,38 +20,37 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
-            
+            <h6 class="m-0 font-weight-bold text-primary">All Escape Room</h6>
         </div>
         <div class="card-body">
+            <a href="{{ route('escaperoom.list') }}" class="btn btn-primary float-right">&laquo; Back to EscapeRoom List</a>
             <div class="table-responsive">
-            <a href="{{ route('escaperoom.list') }}">&laquo; Torna</a>
-                <div style="margin-top: 20px">
-                    <form method="POST" action="{{ route('escaperoom.edit', ['id' => $escaperoom->id])}}">
+                <div style="margin-top: 20px;">
+                    <form method="POST" action="{{ route('escaperoom.edit', ['id' => $escaperoom->id])}}" enctype="multipart/form-data">
                         @csrf
-                        <div>
-                            <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $escaperoom->name }}"/>
-                        </div>
-                        <div>
+                        <div class="form-group row">
+                            <div class="col-lg-6 mb-3 mb-sm-0">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{ $escaperoom->name }}"/>
+                            </div>
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
                             <label for="location_id">Location</label>
-                            <select name="location_id">
-                            <option value="">-- selecciona un location --</option>
-                                @foreach ($locations as $location)
-                                    <option value="{{ $location->id }}" @if ($location->id == $escaperoom->location_id) selected @endif>{{ $location->nom() }}</option>
-                                @endforeach
-                            </select>
-                        <div>
-                        <button type="submit">Modificat Escape Room</button>
+                        <select class="form-control" name="location_id">
+                            @foreach ($locations as $location)
+                                <option value="{{ $location->id }}" {{ $escaperoom->location_id == $location->id ? 'selected' : '' }}>{{ $location->name }}</option>
+                            @endforeach
+                        </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-user btn-block">
+                            Edit EscapeRoom
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
-
 @stop
 
 @section('css')

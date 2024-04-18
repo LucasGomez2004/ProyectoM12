@@ -23,71 +23,41 @@ class ServiceController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
-            $user = new User;
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->role_id = 2;
+            $service = new Service;
+            $service->name = $request->name;
+            $service->description = $request->description;
+            $service->price = $request->price;
 
-            if (isset($request->eliminarimatge)) {
-                $filename = $request->avatar;
-                File::delete(public_path('uploads/imatges'), $filename);
-                $user->avatar = null;
-            }if($request->file('avatar')){
-                $file = $request->file('avatar');
-                $filename = $user->name . "." . $file->extension();
-                $file->move(public_path('uploads/imatges'), $filename);
-                $user->avatar = $filename;
-            }
+            $service->save();
 
-            $user->save();
-
-        return redirect()->route('user.list')->with('status', 'Nou User '.$user->name.' creat!');
+        return redirect()->route('service.list')->with('status', 'Nou Service '.$service->name.' creat!');
         }
-        return view('users.new');
+        return view('services.new');
     }
 
     function edit(Request $request, $id) 
     {
         if ($request->isMethod('post')) {
-        $user = User::find($id);
+        $service = Service::find($id);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->price = $request->price;
 
-        if (isset($request->eliminarimatge)) {
-            $filename = $request->avatar;
-            File::delete(public_path('uploads/imatges'), $filename);
-            $user->avatar = null;
-        }if($request->file('avatar')){
-            $file = $request->file('avatar');
-            $filename = $user->name . "." . $file->extension();
-            $file->move(public_path('uploads/imatges'), $filename);
-            $user->avatar = $filename;
-        }
+        $service->save();
 
-        $user->save();
-
-        return redirect()->route('user.list')->with('status', 'User '.$user->name.' modificat!');
+        return redirect()->route('service.list')->with('status', 'Service '.$service->name.' modificat!');
     }
-    $user = User::find($id);
-    return view('users.edit', ['user'=>$user]);
+    $service = Service::find($id);
+    return view('services.edit', ['service'=>$service]);
     }
 
     function delete($id) 
     { 
-        $user = User::find($id);
-        $user->delete();
+        $service = Service::find($id);
+        $service->delete();
 
-        return redirect()->route('user.list')->with('status', 'User '.$user->name.' eliminat!');
-    }
-
-    function profile($id)
-    {
-        $user = User::find($id);
-
-        return view('users.profile', compact('user'));
+        return redirect()->route('service.list')->with('status', 'Service '.$service->name.' eliminat!');
     }
 
 }
