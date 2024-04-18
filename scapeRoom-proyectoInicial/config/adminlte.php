@@ -313,12 +313,17 @@ return [
         [
             'text' => 'EscapeRoom',
             'route' => 'escaperoom.list',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-home',
         ],
         [
             'text' => 'Users',
             'route' => 'user.list',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Services',
+            'route' => 'service.list',
+            'icon' => 'fas fa-fw fa-service',
         ],
         [
             'text' => 'blog',

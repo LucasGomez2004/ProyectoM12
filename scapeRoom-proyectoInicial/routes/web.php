@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\EscapeRoomController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -102,6 +103,17 @@ Route::match(['get', 'post'], '/escaperoom/new', [EscapeRoomController::class, '
 Route::match(['get', 'post'], '/escaperoom/edit/{id}', [EscapeRoomController::class, 'edit'])->name('escaperoom.edit');
 
 Route::get('/escaperoom/delete/{id}', [EscapeRoomController::class, 'delete'])->name('escaperoom.delete');
+
+// SERVICES 
+
+Route::match(['get', 'post'], '/services', [ServiceController::class, 'list'])->name('service.list');
+
+
+Route::match(['get', 'post'], '/service/new', [ServiceController::class, 'new'])->name('service.new');
+
+Route::match(['get', 'post'], '/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+
+Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
 
 require __DIR__.'/auth.php';
 
