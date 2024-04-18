@@ -21,32 +21,46 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
-            
         </div>
         <div class="card-body">
+            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
             <div class="table-responsive">
-            <a href="{{ route('user.list') }}">&laquo; Torna</a>
-                <div style="margin-top: 20px">
-                    <form method="POST" action="{{ route('user.edit', ['id' => $user->id])}}">
+                <div style="margin-top: 20px;">
+                    <form method="POST" action="{{ route('user.edit', ['id' => $user->id])}}" enctype="multipart/form-data">
                         @csrf
-                        <div>
-                            <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $user->name }}"/>
+                        <div class="form-group row">
+                            <div class="col-lg-6 mb-3 mb-sm-0">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
+                            </div>
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" value="{{ $user->email }}"/>
+                            </div>
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
+                                <label for="password">Contrasenya</label>
+                                <input type="text" class="form-control" name="password" value="{{ $user->password }}"/>
+                            </div>
+                            <div>
+                                @if ($user->imatge)
+                                <label>Imatge actual: <strong>{{ $user->avatar }}</strong></label>
+                                @endif            
+                                <br>
+                                <label for="avatar">Avatar</label>
+                                <input type="file" name="avatar"/>
+                                <br>
+                                <input type="checkbox" name="eliminarimatge">Eliminar la imatge</input>
+                            </div>
                         </div>
-                        <div>            
-                            <label for="email">Email</label>
-                            <input type="text" name="email" value="{{ $user->email }}"/>
-                        </div>
-                        <button type="submit">Modificat User</button>
+                        <button type="submit" class="btn btn-success btn-user btn-block">
+                            Edit User
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
-
 @stop
 
 @section('css')

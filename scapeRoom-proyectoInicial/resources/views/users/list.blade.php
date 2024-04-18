@@ -29,7 +29,9 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Contrasenya</th>
                             <th>Role</th>
+                            <th>Avatar</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -38,7 +40,11 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{ optional($user->role)->nom() }}</td>
+                                <td>{{$user->password}}</td>
+                                <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
+                                <td>
+                                    <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 100px; ">
+                                </td>
                                 <td style="display: flex">
                                 <a href="{{ route('user.profile', ['id' => $user->id]) }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">

@@ -14,10 +14,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Add New User</h6>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{route('user.new')}}">
+            <form method="POST" action="{{route('user.new')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
-
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Name</label>
@@ -50,12 +49,44 @@
                         @enderror
                     </div>
 
-                </div>
+                    {{-- Password --}}
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <span style="color:red;">*</span>Contrasenya</label>
+                        <input type="text" 
+                            class="form-control form-control-user @error('password') is-invalid @enderror" 
+                            id="examplePassword"
+                            placeholder="Password" 
+                            name="password" 
+                            value="{{ old('password') }}">
 
+                        @error('password')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    
+                    {{-- Avatar --}}
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <span style="color:red;">*</span>Avatar</label>
+                        <input type="file" 
+                            class="form-control form-control-user @error('avatar') is-invalid @enderror" 
+                            id="exampleAvatar"
+                            placeholder="Avatar" 
+                            name="avatar" 
+                            value="{{ old('avatar') }}">
+
+                        @error('avatar')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                
+
+                </div>
                 {{-- Save Button --}}
                 <button type="submit" class="btn btn-success btn-user btn-block">
                     Save
                 </button>
+                <br>
+                <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
 
             </form>
         </div>

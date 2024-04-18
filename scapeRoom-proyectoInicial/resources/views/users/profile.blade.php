@@ -13,25 +13,27 @@
             <h6 class="m-0 font-weight-bold text-primary">User Details</h6>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="userDetailsTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ optional($user->role)->nom() }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <p>{{ $user->name }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <p>{{ $user->email }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Contrasenya:</label>
+                        <p>{{ $user->password }}</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Role:</label>
+                        <p>@isset($user->role) {{ $user->role->nom() }} @endisset</p>
+                    </div>
+                </div>
             </div>
-            <a href="{{ route('user.list') }}" class="btn btn-primary">Back to Users List</a>
+            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">Volver a la lista de usuarios</a>
         </div>
     </div>
 </div>
