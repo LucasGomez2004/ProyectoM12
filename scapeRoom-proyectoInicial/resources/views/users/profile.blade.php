@@ -14,7 +14,13 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Avatar</label><br>
+                        <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 400px; height: auto;" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-9">
                     <div class="form-group">
                         <label>Name:</label>
                         <p>{{ $user->name }}</p>
@@ -24,7 +30,7 @@
                         <p>{{ $user->email }}</p>
                     </div>
                     <div class="form-group">
-                        <label>Contrasenya:</label>
+                        <label>Password:</label>
                         <p>{{ $user->password }}</p>
                     </div>
                     <div class="form-group">
