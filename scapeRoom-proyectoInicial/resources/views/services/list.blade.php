@@ -11,16 +11,33 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Services</h1>
-        <a href="{{ route('service.new') }}">    
-            <i class="fas fa-plus"></i> Add New
-        </a>
     </div>
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4" >
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
-            
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
+                    <span class="m-0 font-weight-bold text-primary">All Services</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
+                    <a href="{{ route('service.new') }}">    
+                        <i class="fas fa-plus"></i> Add New
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                    <form action="{{ route('service.list') }}" method="GET">
+                        <div class="mb-3 row">
+                            <div class="col-sm-9">
+                                <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-primary text-secondary">
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-info">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">

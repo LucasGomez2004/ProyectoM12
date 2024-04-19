@@ -14,8 +14,12 @@ class EscapeRoomController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function list(){
-        $escaperoom = EscapeRoom::all();
+    function list(Request $request){
+
+        $filterValue = $request->input("filterValue");
+        $scapesRoomFilter = EscapeRoom::where('name', 'LIKE', '%'.$filterValue.'%');
+
+        $escaperoom = $scapesRoomFilter->simplePaginate(5);
 
         return view('escaperoom.list' , ['escaperoom' => $escaperoom]);
     }

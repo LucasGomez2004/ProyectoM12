@@ -14,8 +14,12 @@ class UserController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function list(){
-        $users = User::all();
+    function list(Request $request){
+
+        $filterValue = $request->input("filterValue");
+        $usersFilter = User::where('name', 'LIKE', '%'.$filterValue.'%');
+
+        $users = $usersFilter->simplePaginate(5);
 
         return view('users.list' , ['users' => $users]);
     }

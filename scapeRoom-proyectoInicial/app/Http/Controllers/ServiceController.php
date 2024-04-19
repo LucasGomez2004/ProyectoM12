@@ -14,8 +14,12 @@ class ServiceController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function list(){
-        $services = Service::all();
+    function list(Request $request){
+
+        $filterValue = $request->input("filterValue");
+        $servicesFilter = Service::where('name', 'LIKE', '%'.$filterValue.'%');
+
+        $services = $servicesFilter->simplePaginate(5);
 
         return view('services.list' , ['services' => $services]);
     }
