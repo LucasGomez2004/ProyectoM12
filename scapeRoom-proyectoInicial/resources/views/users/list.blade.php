@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Users</h1>
+        <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
     </div>
     
     <!-- DataTales Example -->
@@ -38,12 +38,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Nombre</th>
                             <th>Email</th>
                             <th>Contrasenya</th>
-                            <th>Role</th>
-                            <th>Avatar</th>
-                            <th>Action</th>
+                            <th>Rol</th>
+                            <th>Foto de Perfil</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

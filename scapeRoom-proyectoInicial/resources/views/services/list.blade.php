@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="text-center mt-3">
-        {{ $locations->links()}}
+        {{ $services->links()}}
     </div>
     </div>
 

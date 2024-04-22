@@ -38,6 +38,14 @@
                                 <label for="password">Contrasenya</label>
                                 <input type="text" class="form-control" name="password" value="{{ $user->password }}"/>
                             </div>
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
+                            <label for="role_id">Roles</label>
+                        <select class="form-control" name="role_id">
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+                            </div>
                             <div>
                                 @if ($user->imatge)
                                 <label>Imatge actual: <strong>{{ $user->avatar }}</strong></label>
@@ -50,13 +58,13 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success btn-user btn-block">
-                            Edit User
+                            Editar
                         </button>
                     </form>
                 </div>
             </div>
             <br>
-            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
+            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Usuarios</a>
         </div>
     </div>
 </div>

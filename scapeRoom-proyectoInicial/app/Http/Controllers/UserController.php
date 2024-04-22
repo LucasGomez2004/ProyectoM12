@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -31,7 +32,7 @@ class UserController extends BaseController
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = $request->password;
-            $user->role_id = 2;
+            $user->role_id = $request->role_id;
 
             if (isset($request->eliminarimatge)) {
                 $filename = $request->avatar;
@@ -48,7 +49,8 @@ class UserController extends BaseController
 
         return redirect()->route('user.list')->with('status', 'Nou User '.$user->name.' creat!');
         }
-        return view('users.new');
+        $roles = Role::all();
+        return view('users.new',['roles' => $roles]);
     }
 
     function edit(Request $request, $id) 
@@ -59,6 +61,7 @@ class UserController extends BaseController
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
+        $user->role_id = $request->role_id;
 
         if (isset($request->eliminarimatge)) {
             $filename = $request->avatar;
@@ -76,7 +79,8 @@ class UserController extends BaseController
         return redirect()->route('user.list')->with('status', 'User '.$user->name.' modificat!');
     }
     $user = User::find($id);
-    return view('users.edit', ['user'=>$user]);
+    $roles = Role::all();
+        return view('users.edit',['roles' => $roles,'user' => $user]);
     }
 
     function delete($id) 
