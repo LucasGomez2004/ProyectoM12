@@ -10,33 +10,26 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Services</h1>
+        <h1 class="h3 mb-0 text-gray-800">Servicios</h1>
     </div>
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4" >
-        <div class="card-header py-3">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
-                    <span class="m-0 font-weight-bold text-primary">All Services</span>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
-                    <a href="{{ route('service.new') }}">    
-                        <i class="fas fa-plus"></i> Add New
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
-                    <form action="{{ route('service.list') }}" method="GET">
-                        <div class="mb-3 row">
-                            <div class="col-sm-9">
-                                <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-primary text-secondary">
-                            </div>
-                            <div class="col-sm-3">
-                                <button type="submit" class="btn btn-info">Buscar</button>
-                            </div>
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <a href="{{ route('service.new') }}">    
+                    <i class="fas fa-plus"></i> Añadir Servicio
+                </a>
+            </div>
+            <div class="ml-auto">
+                <form action="{{ route('service.list') }}" method="GET" class="d-flex">
+                    <div class="input-group">
+                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-primary text-secondary">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-info">Buscar</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="card-body">
@@ -44,10 +37,10 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Descripcion</th>
-                            <th>Preu</th>
-                            <th>Action</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

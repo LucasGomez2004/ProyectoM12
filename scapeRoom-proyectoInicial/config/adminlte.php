@@ -331,6 +331,11 @@ return [
             'icon' => 'fas fa-fw fa-book',
         ],
         [
+            'text' => 'Localidades',
+            'route' => 'location.list',
+            'icon' => 'fas fa-fw fa-map',
+        ],
+        [
             'text' => 'Calendario',
             'route' => 'calendar.calendar',
             'icon' => 'fas fa-fw fa-calendar',

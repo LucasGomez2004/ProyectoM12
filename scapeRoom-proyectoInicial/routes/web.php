@@ -5,6 +5,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\EscapeRoomController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -94,7 +95,7 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.d
 
 Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
 
-// LOCALITAT
+// ESCAPE ROOM
 
 Route::match(['get', 'post'], '/escaperoom', [EscapeRoomController::class, 'list'])->name('escaperoom.list');
 
@@ -114,6 +115,17 @@ Route::match(['get', 'post'], '/service/new', [ServiceController::class, 'new'])
 Route::match(['get', 'post'], '/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
 
 Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
+
+// LOCATION 
+
+Route::match(['get', 'post'], '/locations', [LocationController::class, 'list'])->name('location.list');
+
+
+Route::match(['get', 'post'], '/location/new', [LocationController::class, 'new'])->name('location.new');
+
+Route::match(['get', 'post'], '/location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
+
+Route::get('/location/delete/{id}', [LocationController::class, 'delete'])->name('location.delete');
 
 require __DIR__.'/auth.php';
 

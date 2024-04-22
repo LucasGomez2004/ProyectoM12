@@ -7,17 +7,57 @@ use App\Models\Location;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\File;
 
 
 class LocationController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function list(){
-        $locations = Location::all();
+    function list(Request $request){
+
+        $filterValue = $request->input("filterValue");
+        $locationsFilter = Location::where('name', 'LIKE', '%'.$filterValue.'%');
+
+        $locations = $locationsFilter->simplePaginate(5);
 
         return view('location.list' , ['locations' => $locations]);
     }
 
-    
+    function new(Request $request) 
+    {
+        if ($request->isMethod('post')) {
+            $location = new Location;
+            $location->name = $request->name;
+
+            $location->save();
+
+        return redirect()->route('location.list')->with('status', 'Nova Localitat '.$location->name.' Creada!');
+        }
+        return view('location.new');
+    }
+
+    function edit(Request $request, $id) 
+    {
+        if ($request->isMethod('post')) {
+        $location = Location::find($id);
+
+        $location->name = $request->name;
+
+        $location->save();
+
+        return redirect()->route('location.list')->with('status', 'Localitat '.$location->name.' modificat!');
+    }
+    $location = Location::find($id);
+    return view('location.edit', ['location'=>$location]);
+    }
+
+    function delete($id) 
+    { 
+        $location = Location::find($id);
+        $location->delete();
+
+        return redirect()->route('location.list')->with('status', 'Localitat '.$location->name.' eliminat!');
+    }
+
 }

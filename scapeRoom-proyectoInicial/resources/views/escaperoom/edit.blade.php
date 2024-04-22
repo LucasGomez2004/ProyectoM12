@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class='text-center'><b>Users</b></h1>
+    <br>
 @stop
 
 @section('content')
@@ -11,21 +11,17 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Escaperoom</h1>
-        <a href="{{route('escaperoom.new')}}" class="btn btn-sm btn-primary" >
-            <i class="fas fa-plus"></i> Add New
-        </a> 
+        <h1 class="h3 mb-0 text-gray-800">Editar Escape Room</h1> 
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Escape Room</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detalles del Escape Room</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route('escaperoom.list') }}" class="btn btn-primary float-right">&laquo; Back to EscapeRoom List</a>
-            <div class="table-responsive">
-                <div style="margin-top: 20px;">
+            <div>
+                <div>
                     <form method="POST" action="{{ route('escaperoom.edit', ['id' => $escaperoom->id])}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
@@ -43,11 +39,13 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success btn-user btn-block">
-                            Edit EscapeRoom
+                            Editar Escape Room
                         </button>
                     </form>
                 </div>
             </div>
+            <br>
+            <a href="{{ route('escaperoom.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Escape Rooms</a>
         </div>
     </div>
 </div>

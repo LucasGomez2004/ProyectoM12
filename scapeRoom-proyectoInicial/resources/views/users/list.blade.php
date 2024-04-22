@@ -14,34 +14,25 @@
     </div>
     
     <!-- DataTales Example -->
-    <div class="card shadow mb-4" >
-        <div class="card-header py-3">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
-                    <span class="m-0 font-weight-bold text-primary">All Users</span>
-                </div>
-                <div class="col-lg-3 col-md-7 col-sm-12 mt-3">
-                    <a href="{{ route('user.new') }}">    
-                        <i class="fas fa-plus"></i> Add New
-                    </a>
-                </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <a href="{{ route('user.new') }}">    
+                    <i class="fas fa-plus"></i> Añadir Usuario
+                </a>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
-                    <form action="{{ route('user.list') }}" method="GET">
-                        <div class="mb-3 row">
-                            <div class="col-sm-9">
-                                <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-primary text-secondary">
-                            </div>
-                            <div class="col-sm-3">
-                                <button type="submit" class="btn btn-info">Buscar</button>
-                            </div>
+            <div class="ml-auto">
+                <form action="{{ route('user.list') }}" method="GET" class="d-flex">
+                    <div class="input-group">
+                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-primary text-secondary">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-info">Buscar</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+        
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -63,35 +54,38 @@
                                 <td>{{$user->password}}</td>
                                 <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
                                 <td>
-                                    <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 100px; ">
+                                    @if($user->avatar)
+                                        <img src="{{ $user->avatar }}" alt="Imatge del client" style="width: 50px; border-radius: 30px; ">
+                                    @else
+                                        No tiene imagen
+                                    @endif
                                 </td>
-                                <td style="display: flex">
-                                <a href="{{ route('user.profile', ['id' => $user->id]) }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                                </svg>
-                                </a>
-                                &nbsp &nbsp
-                                <a href="{{ route('user.edit', ['id' => $user->id]) }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/> 
-                                    </svg> 
-                                </a>
-                                &nbsp &nbsp
-                                <a href="{{ route('user.delete', ['id' => $user->id]) }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                                            </svg>
-                                </a>
-                               </td>
-                           </tr>
-                       @endforeach
+                                <td>
+                                    <a href="{{ route('user.profile', ['id' => $user->id]) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                        </svg>
+                                    </a>
+                                    &nbsp &nbsp
+                                    <a href="{{ route('user.edit', ['id' => $user->id]) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/> 
+                                        </svg> 
+                                    </a>
+                                    &nbsp &nbsp
+                                    <a href="{{ route('user.delete', ['id' => $user->id]) }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </div>
 @stop

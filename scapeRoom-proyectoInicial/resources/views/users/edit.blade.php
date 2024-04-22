@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class='text-center'><b>Users</b></h1>
+    <br>
 @stop
 
 @section('content')
@@ -11,26 +11,23 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Users</h1>
-        <a href="{{route('user.new')}}" class="btn btn-sm btn-primary" >
-            <i class="fas fa-plus"></i> Add New
-        </a> 
+        <h1 class="h3 mb-0 text-gray-800">Editar Usuario</h1>
+         
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detalles del Usuario</h6>
         </div>
         <div class="card-body">
-            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
-            <div class="table-responsive">
-                <div style="margin-top: 20px;">
+            <div>
+                <div>
                     <form method="POST" action="{{ route('user.edit', ['id' => $user->id])}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <div class="col-lg-6 mb-3 mb-sm-0">
-                                <label for="name">Name</label>
+                                <label for="name">Nombre</label>
                                 <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
@@ -46,10 +43,10 @@
                                 <label>Imatge actual: <strong>{{ $user->avatar }}</strong></label>
                                 @endif            
                                 <br>
-                                <label for="avatar">Avatar</label>
+                                <label for="avatar">Imagen de Perfil</label>
                                 <input type="file" name="avatar"/>
                                 <br>
-                                <input type="checkbox" name="eliminarimatge">Eliminar la imatge</input>
+                                <input type="checkbox" name="eliminarimatge">Eliminar la imagen</input>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-success btn-user btn-block">
@@ -58,6 +55,8 @@
                     </form>
                 </div>
             </div>
+            <br>
+            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
         </div>
     </div>
 </div>

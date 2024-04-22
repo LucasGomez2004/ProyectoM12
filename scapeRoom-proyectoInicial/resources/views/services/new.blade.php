@@ -3,15 +3,19 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1 class='text-center'><b>Service</b></h1>
+    <br>
 @stop
 
 @section('content')
 <div class="container-fluid">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Añadir Servicio</h1> 
+    </div>
 
 <div class="card shadow mb-4">
+    
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add New Service</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detalles del Servicio</h6>
         </div>
         <div class="card-body">
             <form method="POST" action="{{route('service.new')}}" enctype="multipart/form-data">
@@ -19,12 +23,12 @@
                 <div class="form-group row">
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Name</label>
+                        <span style="color:red;">*</span>Nombre</label>
                         <input 
                             type="text" 
                             class="form-control form-control-user @error('name') is-invalid @enderror" 
                             id="exampleName"
-                            placeholder="Name" 
+                            placeholder="Nombre" 
                             name="name" 
                             value="{{ old('name') }}">
 
@@ -36,11 +40,11 @@
 
                     {{-- Description --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Description</label>
+                        <span style="color:red;">*</span>Descripción</label>
                         <input type="text" 
                             class="form-control form-control-user @error('description') is-invalid @enderror" 
                             id="exampleDescription"
-                            placeholder="Description" 
+                            placeholder="Descripción" 
                             name="description" 
                             value="{{ old('description') }}">
 
@@ -51,11 +55,11 @@
 
                     {{-- Preu --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Preu</label>
+                        <span style="color:red;">*</span>Precio</label>
                         <input type="text" 
                             class="form-control form-control-user @error('password') is-invalid @enderror" 
                             id="examplePrice"
-                            placeholder="Price" 
+                            placeholder="Precio" 
                             name="price" 
                             value="{{ old('price') }}">
 
@@ -67,10 +71,10 @@
                 </div>
                 {{-- Save Button --}}
                 <button type="submit" class="btn btn-success btn-user btn-block">
-                    Save
+                    Guardar
                 </button>
                 <br>
-                <a href="{{ route('service.list') }}" class="btn btn-primary float-right">&laquo; Back to User List</a>
+                <a href="{{ route('service.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Servicios</a>
 
             </form>
         </div>
