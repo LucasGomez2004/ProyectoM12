@@ -20,11 +20,14 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
                     <span class="m-0 font-weight-bold text-primary">All Users</span>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
+                <div class="col-lg-3 col-md-7 col-sm-12 mt-3">
                     <a href="{{ route('user.new') }}">    
                         <i class="fas fa-plus"></i> Add New
                     </a>
                 </div>
+            </div>
+            <br>
+            <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                     <form action="{{ route('user.list') }}" method="GET">
                         <div class="mb-3 row">
