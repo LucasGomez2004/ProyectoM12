@@ -316,6 +316,11 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Roles',
+            'route' => 'role.list',
+            'icon' => 'fas fa-fw fa-wrench',
+        ],
+        [
             'text' => 'EscapeRoom',
             'route' => 'escaperoom.list',
             'icon' => 'fas fa-fw fa-home',
@@ -323,7 +328,7 @@ return [
         [
             'text' => 'Users',
             'route' => 'user.list',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Services',

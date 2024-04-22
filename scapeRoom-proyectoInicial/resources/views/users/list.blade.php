@@ -87,5 +87,8 @@
             </div>
         </div>
     </div>
+    <div class="text-center mt-3">
+        {{ $users->links()}}
+    </div>
 </div>
 @stop

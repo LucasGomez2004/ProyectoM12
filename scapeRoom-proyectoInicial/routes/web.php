@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\EscapeRoomController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
@@ -126,6 +127,18 @@ Route::match(['get', 'post'], '/location/new', [LocationController::class, 'new'
 Route::match(['get', 'post'], '/location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
 
 Route::get('/location/delete/{id}', [LocationController::class, 'delete'])->name('location.delete');
+
+// Roles 
+
+Route::match(['get', 'post'], '/roles', [RoleController::class, 'list'])->name('role.list');
+
+
+Route::match(['get', 'post'], '/role/new', [RoleController::class, 'new'])->name('role.new');
+
+Route::match(['get', 'post'], '/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+
+Route::get('/role/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+
 
 require __DIR__.'/auth.php';
 
