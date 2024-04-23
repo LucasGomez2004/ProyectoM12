@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">User Details</h6>
+            <h6 class="m-0 font-weight-bold text-danger">User Details</h6>
         </div>
         <div class="card-body">
             <div class="row">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('user.list') }}" class="btn btn-primary float-right">Volver a la lista de usuarios</a>
+            <a href="{{ route('user.list') }}" class="btn btn-danger float-right">&laquo; Volver a la lista de usuarios</a>
         </div>
     </div>
 </div>

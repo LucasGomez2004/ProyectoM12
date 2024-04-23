@@ -17,7 +17,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Detalles del Escape Room</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Detalles del Escape Room</h6>
         </div>
         <div class="card-body">
             <div>
@@ -26,11 +26,11 @@
                         @csrf
                         <div class="form-group row">
                             <div class="col-lg-6 mb-3 mb-sm-0">
-                                <label for="name">Name</label>
+                                <label for="name">Nombre</label>
                                 <input type="text" class="form-control" name="name" value="{{ $escaperoom->name }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
-                            <label for="location_id">Location</label>
+                            <label for="location_id">Localidad</label>
                         <select class="form-control" name="location_id">
                             @foreach ($locations as $location)
                                 <option value="{{ $location->id }}" {{ $escaperoom->location_id == $location->id ? 'selected' : '' }}>{{ $location->name }}</option>
@@ -38,14 +38,14 @@
                         </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-user btn-block">
+                        <button type="submit" class="btn btn-danger btn-user btn-block">
                             Editar Escape Room
                         </button>
                     </form>
                 </div>
             </div>
             <br>
-            <a href="{{ route('escaperoom.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Escape Rooms</a>
+            <a href="{{ route('escaperoom.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Escape Rooms</a>
         </div>
     </div>
 </div>

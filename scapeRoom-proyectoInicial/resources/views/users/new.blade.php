@@ -13,7 +13,7 @@
     </div>
 <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> Crear Usuario</h6>
+            <h6 class="m-0 font-weight-bold text-danger"> Crear Usuario</h6>
         </div>
         <div class="card-body">
             <form method="POST" action="{{route('user.new')}}" enctype="multipart/form-data">
@@ -21,12 +21,12 @@
                 <div class="form-group row">
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Name</label>
+                        <span style="color:red;">*</span>Nombre</label>
                         <input 
                             type="text" 
                             class="form-control form-control-user @error('name') is-invalid @enderror" 
                             id="exampleName"
-                            placeholder="Name" 
+                            placeholder="Nombre" 
                             name="name" 
                             value="{{ old('name') }}">
 
@@ -57,7 +57,7 @@
                         <input type="text" 
                             class="form-control form-control-user @error('password') is-invalid @enderror" 
                             id="examplePassword"
-                            placeholder="Password" 
+                            placeholder="Contrasenya" 
                             name="password" 
                             value="{{ old('password') }}">
 
@@ -68,11 +68,11 @@
                     
                     {{-- Avatar --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Avatar</label>
+                        <span style="color:red;">*</span>Imagen</label>
                         <input type="file" 
                             class="form-control form-control-user @error('avatar') is-invalid @enderror" 
                             id="exampleAvatar"
-                            placeholder="Avatar" 
+                            placeholder="Imagen" 
                             name="avatar" 
                             value="{{ old('avatar') }}">
 
@@ -99,11 +99,11 @@
 
                 </div>
                 {{-- Save Button --}}
-                <button type="submit" class="btn btn-success btn-user btn-block">
+                <button type="submit" class="btn btn-danger btn-user btn-block">
                     Crear
                 </button>
                 <br>
-                <a href="{{ route('user.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Usuarios</a>
+                <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Usuarios</a>
 
             </form>
         </div>

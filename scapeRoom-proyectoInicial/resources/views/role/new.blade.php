@@ -15,7 +15,7 @@
 <div class="card shadow mb-4">
     
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Detalles del Rol</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Detalles del Rol</h6>
         </div>
         <div class="card-body">
             <form method="POST" action="{{route('role.new')}}" enctype="multipart/form-data">
@@ -38,11 +38,11 @@
                     </div>
                 </div>
                 {{-- Save Button --}}
-                <button type="submit" class="btn btn-success btn-user btn-block">
+                <button type="submit" class="btn btn-danger btn-user btn-block">
                     Guardar
                 </button>
                 <br>
-                <a href="{{ route('role.list') }}" class="btn btn-primary float-right">&laquo; Volver a la lista de Servicios</a>
+                <a href="{{ route('role.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Servicios</a>
 
             </form>
         </div>

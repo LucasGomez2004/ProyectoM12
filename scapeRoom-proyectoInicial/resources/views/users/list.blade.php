@@ -42,7 +42,7 @@
                             <th>Email</th>
                             <th>Contrasenya</th>
                             <th>Rol</th>
-                            <th>Foto de Perfil</th>
+                            <th>Imagen</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
