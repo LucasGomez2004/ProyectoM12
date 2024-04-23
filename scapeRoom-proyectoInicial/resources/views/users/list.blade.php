@@ -55,7 +55,7 @@
                                 <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
                                 <td>
                                     @if($user->avatar)
-                                        <img src="{{ $user->avatar }}" alt="Imatge del client" style="width: 50px; border-radius: 30px; ">
+                                        <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 50px; border-radius: 50px; ">
                                     @else
                                         No tiene imagen
                                     @endif

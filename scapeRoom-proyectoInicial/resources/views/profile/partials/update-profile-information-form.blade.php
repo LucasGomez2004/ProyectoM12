@@ -13,20 +13,20 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div>
-            @if (Auth::user()->google_id)
-                <div style="display:flex; align-items:center">
-                    <img src="{{ Auth::user()->avatar }}" class="h-12 w-12 rounded-full" alt="Avatar del usuario">
-                </div>
-            @else
-                <!-- Muestra una imagen de avatar predeterminada para usuarios de Laravel -->
-                <div style="display:flex; align-items:center">
-                    <img src="{{ asset('images/carasilueta.png') }}" class="h-12 w-12 rounded-full" alt="Avatar predeterminado">
-                </div>
-            @endif
+                @if($user->avatar)
+                    <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;>
+                @else
+                    <img src="{{ asset('uploads/imatges/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado" style="width:50px;">
+                @endif
+        </div>
+        <br>
+        <div class="mb-3">
+            <x-input-label class="text-dark" for="name" :value="__('Foto de Perfil')" />
+            <input class="form-control" type="file" id="avatar" name="avatar">
         </div>
 
         <div>
