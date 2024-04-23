@@ -33,6 +33,12 @@
             </div>
         </div>
         <div class="card-body">
+            @if (session('status'))
+                <div id="status-message" class="alert" style="background-color: green; color: white; width: 100%; transition: opacity 2s ease;">
+                    {{ session('status') }}
+                </div>
+                <script src="{{ asset('js/welcome.js') }}"></script>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

@@ -34,7 +34,7 @@ class ServiceController extends BaseController
 
             $service->save();
 
-        return redirect()->route('service.list')->with('status', 'Nou Service '.$service->name.' creat!');
+        return redirect()->route('service.list')->with('status', 'Nuevo Servicio '.$service->name.' Creado!');
         }
         return view('services.new');
     }
@@ -50,7 +50,7 @@ class ServiceController extends BaseController
 
         $service->save();
 
-        return redirect()->route('service.list')->with('status', 'Service '.$service->name.' modificat!');
+        return redirect()->route('service.list')->with('status', 'Servicio '.$service->name.' Modificado!');
     }
     $service = Service::find($id);
     return view('services.edit', ['service'=>$service]);
@@ -61,7 +61,7 @@ class ServiceController extends BaseController
         $service = Service::find($id);
         $service->delete();
 
-        return redirect()->route('service.list')->with('status', 'Service '.$service->name.' eliminat!');
+        return redirect()->route('service.list')->with('status', 'Servicio '.$service->name.' Eliminado!');
     }
 
 }

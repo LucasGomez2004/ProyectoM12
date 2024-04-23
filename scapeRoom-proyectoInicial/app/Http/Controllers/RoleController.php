@@ -46,7 +46,7 @@ class RoleController extends BaseController
 
         $role->save();
 
-        return redirect()->route('role.list')->with('status', 'Rol '.$role->name.' modificat!');
+        return redirect()->route('role.list')->with('status', 'Rol '.$role->name.' Modificado!');
     }
     $role = Role::find($id);
     return view('role.edit', ['role'=>$role]);
@@ -57,7 +57,7 @@ class RoleController extends BaseController
         $role = Role::find($id);
         $role->delete();
 
-        return redirect()->route('role.list')->with('status', 'Rol '.$role->name.' eliminat!');
+        return redirect()->route('role.list')->with('status', 'Rol '.$role->name.' Eliminado!');
     }
 
 }

@@ -33,7 +33,7 @@ class EscapeRoomController extends BaseController
 
             $escaperoom->save();
 
-        return redirect()->route('escaperoom.list')->with('status', 'Nou escaperoom '.$escaperoom->name.' creat!');
+        return redirect()->route('escaperoom.list')->with('status', 'Nuevo EscapeRoom '.$escaperoom->name.' Creado!');
         }
         $locations = Location::all();
         return view('escaperoom.new', ['locations'=>$locations]);
@@ -51,7 +51,7 @@ class EscapeRoomController extends BaseController
         $escaperoom->location_id = $request->location_id;
         $escaperoom->save();
 
-        return redirect()->route('escaperoom.list')->with('status', 'escaperoom '.$escaperoom->name.' modificat!');
+        return redirect()->route('escaperoom.list')->with('status', 'EscapeRoom '.$escaperoom->name.' Modificado!');
     }
     $locations = Location::all();
     return view('escaperoom.edit', ['escaperoom' =>$escaperoom, 'locations'=>$locations]);
@@ -62,6 +62,6 @@ class EscapeRoomController extends BaseController
         $escaperoom = EscapeRoom::find($id);
         $escaperoom->delete();
 
-        return redirect()->route('escaperoom.list')->with('status', 'escaperoom '.$escaperoom->name.' eliminat!');
+        return redirect()->route('escaperoom.list')->with('status', 'EscapeRoom '.$escaperoom->name.' Eliminado!');
     }
 }

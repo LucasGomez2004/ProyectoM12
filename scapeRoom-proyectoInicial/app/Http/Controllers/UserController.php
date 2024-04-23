@@ -47,7 +47,7 @@ class UserController extends BaseController
 
             $user->save();
 
-        return redirect()->route('user.list')->with('status', 'Nou User '.$user->name.' creat!');
+        return redirect()->route('user.list')->with('status', 'Nuevo Usuario '.$user->name.' Creado!');
         }
         $roles = Role::all();
         return view('users.new',['roles' => $roles]);
@@ -76,10 +76,10 @@ class UserController extends BaseController
 
         $user->save();
 
-        return redirect()->route('user.list')->with('status', 'User '.$user->name.' modificat!');
+        return redirect()->route('user.list')->with('status', 'Usuario '.$user->name.' Modificado!');
     }
-    $user = User::find($id);
-    $roles = Role::all();
+        $user = User::find($id);
+        $roles = Role::all();
         return view('users.edit',['roles' => $roles,'user' => $user]);
     }
 
@@ -88,7 +88,7 @@ class UserController extends BaseController
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('user.list')->with('status', 'User '.$user->name.' eliminat!');
+        return redirect()->route('user.list')->with('status', 'Usuario '.$user->name.' Eliminado!');
     }
 
     function profile($id)

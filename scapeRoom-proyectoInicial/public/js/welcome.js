@@ -21,4 +21,11 @@ window.addEventListener("resize", () => {
   responsiveDesign();
 });
 
+setTimeout(function() {
+  document.getElementById('status-message').style.opacity = '0';
+  setTimeout(function() {
+      document.getElementById('status-message').style.display = 'none';
+  }, 2000);
+}, 3000);
+
 responsiveDesign();

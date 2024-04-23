@@ -32,7 +32,7 @@ class LocationController extends BaseController
 
             $location->save();
 
-        return redirect()->route('location.list')->with('status', 'Nova Localitat '.$location->name.' Creada!');
+        return redirect()->route('location.list')->with('status', 'Nuevo Localidad '.$location->name.' Creado!');
         }
         return view('location.new');
     }
@@ -46,7 +46,7 @@ class LocationController extends BaseController
 
         $location->save();
 
-        return redirect()->route('location.list')->with('status', 'Localitat '.$location->name.' modificat!');
+        return redirect()->route('location.list')->with('status', 'Localidad '.$location->name.' Modificado!');
     }
     $location = Location::find($id);
     return view('location.edit', ['location'=>$location]);
@@ -57,7 +57,7 @@ class LocationController extends BaseController
         $location = Location::find($id);
         $location->delete();
 
-        return redirect()->route('location.list')->with('status', 'Localitat '.$location->name.' eliminat!');
+        return redirect()->route('location.list')->with('status', 'Localidad '.$location->name.' Eliminado!');
     }
 
 }

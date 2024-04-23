@@ -63,13 +63,15 @@
             <x-primary-button class="bg-dark">{{ __('Guardar') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
-                <p
+                <div 
+                    style="background-color: green; width: 500px; height: 30px; color: white; text-align: center; border-radius: 5px;"
                     x-data="{ show: true }"
                     x-show="show"
                     x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-success-600 dark:text-dark-400"
-                >{{ __('Saved.') }}</p>
+                    x-init="setTimeout(() => show = false, 5000)"
+                >
+                    {{ __('Guardado correctamente') }}
+                </div>
             @endif
         </div>
     </form>
