@@ -9,7 +9,9 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\File;
-
+use App\Exports\ExportUser;
+use App\Imports\ImportUser;
+use Excel;
 
 class UserController extends BaseController
 {
@@ -96,6 +98,21 @@ class UserController extends BaseController
         $user = User::find($id);
 
         return view('users.profile', compact('user'));
+    }
+
+    public function export(){
+        return Excel::download(new ExportUser, 'users.xlsx');
+    }
+
+    public function importView()
+    {
+        return view('import');
+    }
+ 
+    public function import(Request $request)
+    {
+      Excel::import(new ImportUser,$request->file('file'));
+     return redirect()->route('user.list')->withSuccess('Excel Import Successfully!!');
     }
 
 }

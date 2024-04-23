@@ -20,6 +20,10 @@
                 <a href="{{ route('user.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir Usuario
                 </a>
+                &nbsp &nbsp
+                <a href="{{ route('export') }}" class="btn btn-outline-danger">Exportar</a>
+                &nbsp &nbsp
+                <a href="{{ route('import.view') }}" class="btn btn-outline-warning">Importar</a>
             </div>
             <div class="ml-auto">
                 <form action="{{ route('user.list') }}" method="GET" class="d-flex">

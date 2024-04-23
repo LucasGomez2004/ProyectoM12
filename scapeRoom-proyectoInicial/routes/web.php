@@ -139,6 +139,10 @@ Route::match(['get', 'post'], '/role/edit/{id}', [RoleController::class, 'edit']
 
 Route::get('/role/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
 
+//excel import export 
+Route::get('/excel-export', [UserController::class,'export'])->name('export');
+Route::get('/excel-import', [UserController::class,'importView'])->name('import.view');
+Route::post('/excel-import', [UserController::class,'import'])->name('import');
 
 require __DIR__.'/auth.php';
 
