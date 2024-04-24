@@ -20,7 +20,7 @@ class UserController extends BaseController
         $filterValue = $request->input("filterValue");
         $usersFilter = User::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $users = $usersFilter->simplePaginate(5);
+        $users = $usersFilter->paginate(5);
 
         return view('users.list' , ['users' => $users]);
     }

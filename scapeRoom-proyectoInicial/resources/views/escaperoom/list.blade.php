@@ -42,7 +42,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="bg-danger">
-                            <th>Name</th>
+                            <th>Nombre</th>
                             <th>Localitat</th>
                             <th>Action</th>
                         </tr>
@@ -73,10 +73,10 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="text-center mt-3">
+            <div class="text-center mt-3">
         {{ $escaperoom->links()}}
     </div>
+        </div>
     </div>
 
 </div>

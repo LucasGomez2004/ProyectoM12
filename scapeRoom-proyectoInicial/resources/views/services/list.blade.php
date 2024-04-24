@@ -75,10 +75,10 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="text-center mt-3">
+            <div class="text-center mt-3">
         {{ $services->links()}}
     </div>
+        </div>
     </div>
 
 </div>

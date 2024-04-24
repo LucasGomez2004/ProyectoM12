@@ -19,7 +19,7 @@ class EscapeRoomController extends BaseController
         $filterValue = $request->input("filterValue");
         $scapesRoomFilter = EscapeRoom::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $escaperoom = $scapesRoomFilter->simplePaginate(5);
+        $escaperoom = $scapesRoomFilter->paginate(5);
 
         return view('escaperoom.list' , ['escaperoom' => $escaperoom]);
     }

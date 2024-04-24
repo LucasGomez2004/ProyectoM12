@@ -19,7 +19,7 @@ class ServiceController extends BaseController
         $filterValue = $request->input("filterValue");
         $servicesFilter = Service::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $services = $servicesFilter->simplePaginate(5);
+        $services = $servicesFilter->paginate(5);
 
         return view('services.list' , ['services' => $services]);
     }

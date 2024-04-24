@@ -19,7 +19,7 @@ class LocationController extends BaseController
         $filterValue = $request->input("filterValue");
         $locationsFilter = Location::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $locations = $locationsFilter->simplePaginate(5);
+        $locations = $locationsFilter->paginate(5);
 
         return view('location.list' , ['locations' => $locations]);
     }

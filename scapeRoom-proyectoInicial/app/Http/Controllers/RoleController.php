@@ -19,7 +19,7 @@ class RoleController extends BaseController
         $filterValue = $request->input("filterValue");
         $rolesFilter = Role::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $roles = $rolesFilter->simplePaginate(5);
+        $roles = $rolesFilter->paginate(5);
 
         return view('role.list' , ['roles' => $roles]);
     }
