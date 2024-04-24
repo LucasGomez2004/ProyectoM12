@@ -42,8 +42,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="bg-danger">
-                            <th>Name</th>
-                            <th>Localitat</th>
+                            <th>Nombre</th>
+                            <th>Localidad</th>
                             <th>Action</th>
                         </tr>
                     </thead>
