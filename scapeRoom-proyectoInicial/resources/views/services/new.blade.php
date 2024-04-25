@@ -41,9 +41,6 @@
                             name="name" 
                             value="{{ old('name') }}">
 
-                        @error('name')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
 
@@ -57,9 +54,7 @@
                             name="description" 
                             value="{{ old('description') }}">
 
-                        @error('description')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
+                    
                     </div>
 
                     {{-- Preu --}}
@@ -72,9 +67,6 @@
                             name="price" 
                             value="{{ old('price') }}">
 
-                        @error('price')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
                 </div>

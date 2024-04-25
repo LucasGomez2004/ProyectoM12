@@ -39,10 +39,6 @@
                             placeholder="Nombre" 
                             name="name" 
                             value="{{ old('name') }}">
-
-                        @error('name')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
                     {{-- Location --}}
@@ -56,9 +52,6 @@
                                 </option>
                             @endforeach
                         </select>
-                        @error('location_id')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
 

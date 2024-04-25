@@ -41,9 +41,6 @@
                             name="name" 
                             value="{{ old('name') }}">
 
-                        @error('name')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
                 </div>
                 {{-- Save Button --}}
