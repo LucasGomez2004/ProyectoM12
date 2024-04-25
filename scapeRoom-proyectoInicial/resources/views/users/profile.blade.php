@@ -17,7 +17,13 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Avatar</label><br>
-                        <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 400px; height: auto;" class="img-fluid">
+                                    @if($user->google_id)
+                                        <img src="{{ $user->avatar }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;">
+                                    @elseif ($user->avatar )
+                                        <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;">
+                                    @else
+                                        No tiene imagen
+                                    @endif
                     </div>
                 </div>
                 <div class="col-md-9">
