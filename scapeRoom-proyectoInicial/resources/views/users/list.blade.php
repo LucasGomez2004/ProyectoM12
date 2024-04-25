@@ -60,11 +60,13 @@
                                 <td>{{$user->password}}</td>
                                 <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
                                 <td>
-                                    @if($user->avatar)
-                                        <img src="{{ asset('uploads/imatges/'. $user->avatar) }}" alt="Imatge del client" style="width: 50px; border-radius: 50px; ">
-                                    @else
-                                        No tiene imagen
-                                    @endif
+                                @if($user->google_id)
+                                    <img src="{{ $user->avatar }}" class="avatar" alt="Avatar del usuario"  style="width: 50px; border-radius: 50px;">
+                                @elseif ($user->avatar )
+                                    <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario"  style="width: 50px; border-radius: 50px;">
+                                @else
+                                    no tiene imagen
+                                @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('user.profile', ['id' => $user->id]) }}">
