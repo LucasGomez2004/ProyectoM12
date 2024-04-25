@@ -62,10 +62,8 @@
                 </button>
                 <br>
                 <a href="{{ route('escaperoom.list') }}" class="btn btn-dark float-right">&laquo; Volver a la Lista de Escape Rooms</a>
-
             </form>
         </div>
     </div>
-
 </div>
 @stop
