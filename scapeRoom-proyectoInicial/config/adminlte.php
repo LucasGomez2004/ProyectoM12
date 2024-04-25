@@ -339,6 +339,11 @@ return [
             'icon' => 'fas fa-fw fa-map',
         ],
         [
+            'text' => 'Reservas',
+            'route' => 'reservation.list',
+            'icon' => 'fas fa-fw fa-map',
+        ],
+        [
             'text' => 'Calendario',
             'route' => 'calendar.calendar',
             'icon' => 'fas fa-fw fa-calendar',

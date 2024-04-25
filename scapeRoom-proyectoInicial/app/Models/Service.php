@@ -9,4 +9,7 @@ class Service extends Model
 {
     use HasFactory;
 
+    function nom(){
+        return ($this->name);
+    }
 }

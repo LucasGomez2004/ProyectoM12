@@ -33,7 +33,7 @@ class UserController extends BaseController
             $request->validate([
                 'name' => 'required|alpha',
                 'email' => 'required|email',
-                'password' => 'required|string|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
+                'password' => 'required|min:8',
             ]);
 
             $user = new User;
@@ -69,7 +69,7 @@ class UserController extends BaseController
             $request->validate([
                 'name' => 'required|alpha',
                 'email' => 'required|email',
-                'password' => 'required|string|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
+                'password' => 'required|min:8',
             ]);
 
         

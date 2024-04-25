@@ -132,13 +132,17 @@ Route::get('/location/delete/{id}', [LocationController::class, 'delete'])->name
 
 Route::match(['get', 'post'], '/roles', [RoleController::class, 'list'])->name('role.list');
 
-
 Route::match(['get', 'post'], '/role/new', [RoleController::class, 'new'])->name('role.new');
 
 Route::match(['get', 'post'], '/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
 
 Route::get('/role/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
 
+// Reservation
+
+Route::match(['get', 'post'], '/reservation', [ReservationController::class, 'list'])->name('reservation.list');
+
+Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
 
 require __DIR__.'/auth.php';
 
