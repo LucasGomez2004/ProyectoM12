@@ -27,6 +27,12 @@ class EscapeRoomController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+                'location_id' => 'required|exists:location,id',
+            ]);
+
             $escaperoom = new EscapeRoom;
             $escaperoom->name = $request->name;
             $escaperoom->location_id = $request->location_id;
@@ -45,6 +51,12 @@ class EscapeRoomController extends BaseController
         $escaperoom = EscapeRoom::find($id);
         
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+                'location_id' => 'required|exists:location,id',
+            ]);
+            
         $escaperoom = EscapeRoom::find($id);
 
         $escaperoom->name = $request->name;

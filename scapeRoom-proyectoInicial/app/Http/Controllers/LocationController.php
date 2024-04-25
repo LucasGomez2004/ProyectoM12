@@ -27,6 +27,11 @@ class LocationController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+            ]);
+
             $location = new Location;
             $location->name = $request->name;
 
@@ -40,6 +45,10 @@ class LocationController extends BaseController
     function edit(Request $request, $id) 
     {
         if ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required|alpha',
+            ]);
+            
         $location = Location::find($id);
 
         $location->name = $request->name;

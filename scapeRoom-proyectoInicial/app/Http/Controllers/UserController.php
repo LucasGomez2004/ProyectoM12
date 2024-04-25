@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rule;
 
 
 class UserController extends BaseController
@@ -28,6 +29,13 @@ class UserController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+                'email' => 'required|email',
+                'password' => 'required|string|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
+            ]);
+
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
@@ -50,13 +58,21 @@ class UserController extends BaseController
         return redirect()->route('user.list')->with('status', 'Nuevo Usuario '.$user->name.' Creado!');
         }
         $roles = Role::all();
-        return view('users.new',['roles' => $roles]);
+        return view('users.new',['roles' => $roles, 'defaultRoleId' => 2]);
     }
 
     function edit(Request $request, $id) 
     {
-        if ($request->isMethod('post')) {
         $user = User::find($id);
+        if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+                'email' => 'required|email',
+                'password' => 'required|string|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
+            ]);
+
+        
 
         $user->name = $request->name;
         $user->email = $request->email;

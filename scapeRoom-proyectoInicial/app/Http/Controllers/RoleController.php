@@ -27,6 +27,11 @@ class RoleController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+            ]);
+
             $role = new Role;
             $role->name = $request->name;
 
@@ -40,6 +45,11 @@ class RoleController extends BaseController
     function edit(Request $request, $id) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+            ]);
+            
         $role = Role::find($id);
 
         $role->name = $request->name;

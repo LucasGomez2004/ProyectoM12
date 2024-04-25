@@ -27,6 +27,13 @@ class ServiceController extends BaseController
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {
+
+            $request->validate([
+                'name' => 'required|alpha',
+                'description' => 'required|max:255',
+                'price' => 'required|numeric',
+            ]);
+
             $service = new Service;
             $service->name = $request->name;
             $service->description = $request->description;
@@ -44,6 +51,12 @@ class ServiceController extends BaseController
         if ($request->isMethod('post')) {
         $service = Service::find($id);
 
+        $request->validate([
+            'name' => 'required|alpha',
+            'description' => 'required|max:255',
+            'price' => 'required|numeric',
+        ]);
+        
         $service->name = $request->name;
         $service->description = $request->description;
         $service->price = $request->price;

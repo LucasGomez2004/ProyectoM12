@@ -15,6 +15,15 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-danger"> Crear Usuario</h6>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card-body">
             <form method="POST" action="{{route('user.new')}}" enctype="multipart/form-data">
                 @csrf
@@ -29,10 +38,6 @@
                             placeholder="Nombre" 
                             name="name" 
                             value="{{ old('name') }}">
-
-                        @error('name')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
 
@@ -46,9 +51,6 @@
                             name="email" 
                             value="{{ old('email') }}">
 
-                        @error('email')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
                     {{-- Password --}}
@@ -60,25 +62,17 @@
                             placeholder="Contrasenya" 
                             name="password" 
                             value="{{ old('password') }}">
-
-                        @error('password')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
                     
                     {{-- Avatar --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Imagen</label>
+                        &nbsp Imagen</label>
                         <input type="file" 
                             class="form-control form-control-user @error('avatar') is-invalid @enderror" 
                             id="exampleAvatar"
                             placeholder="Imagen" 
                             name="avatar" 
                             value="{{ old('avatar') }}">
-
-                        @error('avatar')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
                 
                     {{-- rol --}}
@@ -87,14 +81,11 @@
                         <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
                             <option value="">-- Selecciona un Rol --</option>
                             @foreach ($roles as $role)
-                                <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : '' }}>
+                                <option value="{{ $role->id }}" {{ $defaultRoleId == $role->id ? 'selected' : '' }}>
                                     {{ $role->name }}
                                 </option>
                             @endforeach
                         </select>
-                        @error('role_id')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
                     </div>
 
                 </div>

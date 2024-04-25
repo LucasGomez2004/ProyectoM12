@@ -16,6 +16,15 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-danger">Añadir Nuevo Escape Room</h6>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card-body">
             <form method="POST" action="{{route('escaperoom.new')}}" enctype="multipart/form-data">
                 @csrf

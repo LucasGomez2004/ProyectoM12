@@ -17,6 +17,15 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-danger">Detalles del Servicio</h6>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card-body">
             <form method="POST" action="{{route('service.new')}}" enctype="multipart/form-data">
                 @csrf
@@ -57,13 +66,13 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Precio</label>
                         <input type="text" 
-                            class="form-control form-control-user @error('password') is-invalid @enderror" 
+                            class="form-control form-control-user @error('price') is-invalid @enderror" 
                             id="examplePrice"
                             placeholder="Precio" 
                             name="price" 
                             value="{{ old('price') }}">
 
-                        @error('password')
+                        @error('price')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
