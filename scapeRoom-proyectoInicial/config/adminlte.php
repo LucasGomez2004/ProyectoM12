@@ -317,36 +317,43 @@ return [
             'text' => 'Roles',
             'route' => 'role.list',
             'icon' => 'fas fa-fw fa-wrench',
+            'can' => 'admin'
         ],
         [
             'text' => 'EscapeRoom',
             'route' => 'escaperoom.list',
             'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin'
         ],
         [
             'text' => 'Users',
             'route' => 'user.list',
             'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin'
         ],
         [
             'text' => 'Services',
             'route' => 'service.list',
             'icon' => 'fas fa-fw fa-book',
+            'can' => 'admin'
         ],
         [
             'text' => 'Localidades',
             'route' => 'location.list',
             'icon' => 'fas fa-fw fa-map',
+            'can' => 'admin'
         ],
         [
             'text' => 'Reservas',
             'route' => 'reservation.list',
             'icon' => 'fas fa-fw fa-map',
+            'can' => 'admin'
         ],
         [
             'text' => 'Calendario',
             'route' => 'calendar.calendar',
             'icon' => 'fas fa-fw fa-calendar',
+            'can' => 'admin'
         ],
     ],
 

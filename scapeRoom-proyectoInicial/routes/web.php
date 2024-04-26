@@ -38,7 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//  Route::get('/inicio', [AdminController::class, 'index'])->name('admin.index');
 
 // LOGIN GOOGLE
 
@@ -69,6 +68,7 @@ Route::get('/google-callback', function () {
             'email' => $user_google->email,
             'google_id' => $user_google->id,
             'avatar' => $user_google->avatar,
+            'role_id' => 2,
             // Puedes agregar más campos aquí si deseas
         ]);
 
@@ -80,69 +80,51 @@ Route::get('/google-callback', function () {
 });
 
 // CALENDARIO
-
-Route::get('/calendario', [ReservationController::class, 'index'])->name('calendar.calendar');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::get('/calendario', [ReservationController::class, 'index'])->name('calendar.calendar');
+});
 // USERS 
-
-Route::match(['get', 'post'], '/users', [UserController::class, 'list'])->name('user.list');
-
-
-Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name('user.new');
-
-Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-
-Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
-
-Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/users', [UserController::class, 'list'])->name('user.list');
+    Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name('user.new');
+    Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+    Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+});
 // ESCAPE ROOM
-
-Route::match(['get', 'post'], '/escaperoom', [EscapeRoomController::class, 'list'])->name('escaperoom.list');
-
-Route::match(['get', 'post'], '/escaperoom/new', [EscapeRoomController::class, 'new'])->name('escaperoom.new');
-
-Route::match(['get', 'post'], '/escaperoom/edit/{id}', [EscapeRoomController::class, 'edit'])->name('escaperoom.edit');
-
-Route::get('/escaperoom/delete/{id}', [EscapeRoomController::class, 'delete'])->name('escaperoom.delete');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/escaperoom', [EscapeRoomController::class, 'list'])->name('escaperoom.list');
+    Route::match(['get', 'post'], '/escaperoom/new', [EscapeRoomController::class, 'new'])->name('escaperoom.new');
+    Route::match(['get', 'post'], '/escaperoom/edit/{id}', [EscapeRoomController::class, 'edit'])->name('escaperoom.edit');
+    Route::get('/escaperoom/delete/{id}', [EscapeRoomController::class, 'delete'])->name('escaperoom.delete');
+});
 // SERVICES 
-
-Route::match(['get', 'post'], '/services', [ServiceController::class, 'list'])->name('service.list');
-
-
-Route::match(['get', 'post'], '/service/new', [ServiceController::class, 'new'])->name('service.new');
-
-Route::match(['get', 'post'], '/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
-
-Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/services', [ServiceController::class, 'list'])->name('service.list');
+    Route::match(['get', 'post'], '/service/new', [ServiceController::class, 'new'])->name('service.new');
+    Route::match(['get', 'post'], '/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
+});
 // LOCATION 
-
-Route::match(['get', 'post'], '/locations', [LocationController::class, 'list'])->name('location.list');
-
-
-Route::match(['get', 'post'], '/location/new', [LocationController::class, 'new'])->name('location.new');
-
-Route::match(['get', 'post'], '/location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
-
-Route::get('/location/delete/{id}', [LocationController::class, 'delete'])->name('location.delete');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/locations', [LocationController::class, 'list'])->name('location.list');
+    Route::match(['get', 'post'], '/location/new', [LocationController::class, 'new'])->name('location.new');
+    Route::match(['get', 'post'], '/location/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
+    Route::get('/location/delete/{id}', [LocationController::class, 'delete'])->name('location.delete');
+});
 // Roles 
 
-Route::match(['get', 'post'], '/roles', [RoleController::class, 'list'])->name('role.list');
-
-Route::match(['get', 'post'], '/role/new', [RoleController::class, 'new'])->name('role.new');
-
-Route::match(['get', 'post'], '/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
-
-Route::get('/role/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/roles', [RoleController::class, 'list'])->name('role.list');
+    Route::match(['get', 'post'], '/role/new', [RoleController::class, 'new'])->name('role.new');
+    Route::match(['get', 'post'], '/role/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::get('/role/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+});
 
 // Reservation
-
-Route::match(['get', 'post'], '/reservation', [ReservationController::class, 'list'])->name('reservation.list');
-
-Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
-
+Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::match(['get', 'post'], '/reservation', [ReservationController::class, 'list'])->name('reservation.list');
+    Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
+});
 require __DIR__.'/auth.php';
 
