@@ -90,6 +90,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
     Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+    Route::match(['get', 'post'], '/user/pdf', [UserController::class, 'pdf'])->name('user.pdf');
 });
 // ESCAPE ROOM
 Route::middleware(['auth', 'can:admin'])->group(function () {

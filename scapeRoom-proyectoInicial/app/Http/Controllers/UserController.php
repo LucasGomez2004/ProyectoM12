@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class UserController extends BaseController
@@ -114,4 +115,9 @@ class UserController extends BaseController
         return view('users.profile', compact('user'));
     }
 
+    public function pdf(){
+        $users = User::all();
+        $pdf = Pdf::loadView('users.pdf', compact('users'));
+        return $pdf->stream();
+    }
 }

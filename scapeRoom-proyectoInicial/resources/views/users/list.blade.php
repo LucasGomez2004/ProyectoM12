@@ -21,6 +21,13 @@
                     <i class="fas fa-plus"></i> Añadir Usuario
                 </a>
             </div>
+            &nbsp
+            &nbsp
+            <div>
+                <a href="{{ route('user.pdf') }}" class="btn btn-danger">    
+                    PDF
+                </a>
+            </div>
             <div class="ml-auto">
                 <form action="{{ route('user.list') }}" method="GET" class="d-flex">
                     <div class="input-group">
