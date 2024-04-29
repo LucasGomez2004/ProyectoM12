@@ -31,7 +31,7 @@
             <div class="ml-auto">
                 <form action="{{ route('user.list') }}" method="GET" class="d-flex">
                     <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-danger">
+                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-danger ">Buscar</button>
                         </div>

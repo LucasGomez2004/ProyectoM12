@@ -16,15 +16,10 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <div>
-            <a href="{{ route('reservation.new') }}" class="text-danger">    
-                    <i class="fas fa-plus"></i> Añadir Reserva
-                </a>
-            </div>
             <div class="ml-auto">
                 <form action="{{ route('reservation.list') }}" method="GET" class="d-flex">
                     <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-danger">
+                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-danger ">Buscar</button>
                         </div>

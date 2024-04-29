@@ -44,11 +44,11 @@
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">
                                 <label for="start_date">Fecha de inicio</label>
-                                <input type="datetime-local" class="form-control" name="start_date" value="{{ $reservation->start_date }}"/>
+                                <input type="datetime-local" class="form-control" name="start_date" id="start_date" value="{{ $reservation->start_date }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
                                 <label for="end_date">Fecha de final</label>
-                                <input type="datetime-local" class="form-control" name="end_date" value="{{ $reservation->end_date }}"/>
+                                <input type="datetime-local" class="form-control" name="end_date" id="end_date" value="{{ $reservation->end_date }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
                                 <label for="service_id">Servicio</label>
@@ -78,13 +78,33 @@
         </div>
     </div>
 </div>
-@stop
 
-@section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@stop
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var start_date = document.getElementById('start_date');
+        var end_date = document.getElementById('end_date');
 
-@section('js')
-    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+        function roundMinutesToNearest30(date) {
+            var minutes = date.getMinutes();
+            var roundedMinutes = minutes < 30 ? 0 : 30; 
+            date.setMinutes(roundedMinutes);
+            return date;
+        }
+
+        function convertToBrowserTimezone(date) {
+            var offset = date.getTimezoneOffset();
+            var newDate = new Date(date.getTime() - (offset * 60 * 1000));
+            return newDate;
+        }
+
+        [start_date, end_date].forEach(function (input) {
+            input.addEventListener('input', function () {
+                var selectedDate = new Date(input.value);
+                var browserTimezoneDate = convertToBrowserTimezone(selectedDate);
+                var roundedDate = roundMinutesToNearest30(browserTimezoneDate);
+                input.value = roundedDate.toISOString().slice(0, 16);
+            });
+        });
+    });
+</script>
 @stop

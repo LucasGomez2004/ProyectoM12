@@ -47,8 +47,7 @@
                         <span style="color:red;">*</span>Fecha de inicio</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('start_date') is-invalid @enderror" 
-                            id="exampleStart_date"
-                            placeholder="Start_date" 
+                            id="start_date"
                             name="start_date" 
                             value="{{ old('start_date') }}">
 
@@ -59,8 +58,7 @@
                         <span style="color:red;">*</span>Fecha de final</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('end_date') is-invalid @enderror" 
-                            id="exampleEnd_date"
-                            placeholder="Contrasenya" 
+                            id="end_date"
                             name="end_date" 
                             value="{{ old('end_date') }}">
                     </div>
@@ -97,11 +95,43 @@
                     Crear
                 </button>
                 <br>
-                <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Usuarios</a>
+                <a href="{{ route('calendar.calendar') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Reservas</a>
 
             </form>
         </div>
     </div>
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var start_date = document.getElementById('start_date');
+        var end_date = document.getElementById('end_date');
+
+        function roundMinutesToNearest30(date) {
+            var minutes = date.getMinutes();
+            var roundedMinutes = minutes < 30 ? 0 : 30; 
+            date.setMinutes(roundedMinutes);
+            return date;
+        }
+
+        function convertToBrowserTimezone(date) {
+            var offset = date.getTimezoneOffset();
+            var newDate = new Date(date.getTime() - (offset * 60 * 1000));
+            return newDate;
+        }
+
+        [start_date, end_date].forEach(function (input) {
+            input.addEventListener('input', function () {
+                var selectedDate = new Date(input.value);
+                var browserTimezoneDate = convertToBrowserTimezone(selectedDate);
+                var roundedDate = roundMinutesToNearest30(browserTimezoneDate);
+                input.value = roundedDate.toISOString().slice(0, 16);
+            });
+        });
+    });
+</script>
+
+
+
 @stop
