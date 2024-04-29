@@ -27,11 +27,11 @@ class ReservationController extends Controller
     function list(Request $request){
 
         $filterValue = $request->input("filterValue");
-        $reservationFilter = Reservation::where('user_id', 'LIKE', '%'.$filterValue.'%');
+        $reservationFilter = Reservation::select('reservations.*')
+        ->join('users', 'reservations.user_id', '=', 'users.id')
+        ->where('users.name', 'like', '%' . $filterValue . '%');
 
         $reservation = $reservationFilter->paginate(10);
-
-        $reservation = Reservation::all();
 
         return view('reservation.list' , ['reservation' => $reservation]);
     }
