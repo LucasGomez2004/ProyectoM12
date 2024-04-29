@@ -29,9 +29,22 @@
                 @csrf
                 <div class="form-group row">
 
+                    {{-- Location --}}
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <span style="color:red;">*</span>Usuario</label>
+                        <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                            <option value="">-- Selecciona un usuario --</option>
+                            @foreach ($users as $user)
+                                <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                                    {{ $user->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
                     {{-- start_date --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Start_date</label>
+                        <span style="color:red;">*</span>Fecha de inicio</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('start_date') is-invalid @enderror" 
                             id="exampleStart_date"
@@ -43,7 +56,7 @@
 
                     {{-- end_date --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>End_date</label>
+                        <span style="color:red;">*</span>Fecha de final</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('end_date') is-invalid @enderror" 
                             id="exampleEnd_date"
@@ -54,9 +67,9 @@
                     
                     {{-- service_id --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Service</label>
+                        <span style="color:red;">*</span>Servicios</label>
                         <select name="service_id" class="form-control @error('role_id') is-invalid @enderror">
-                            <option value="">-- Selecciona un Service --</option>
+                            <option value="">-- Selecciona un Servicio --</option>
                             @foreach ($services as $service)
                                 <option value="{{ $service->id }}"  {{ old('service_id') == $service->id ? 'selected' : '' }}>
                                     {{ $service->name }}

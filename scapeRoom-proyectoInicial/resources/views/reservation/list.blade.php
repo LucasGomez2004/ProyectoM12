@@ -44,15 +44,18 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="bg-danger">
-                            <th>Inicio</th>
-                            <th>Final</th>
-                            <th>Service</th>
-                            <th>Location</th>
+                            <th>Usuario</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha de final</th>
+                            <th>Servicio</th>
+                            <th>Localidad</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($reservation as $reserva)
                             <tr>
+                                <td>@isset($reserva->user) {{ $reserva->user->nom() }} @endisset</td>
                                 <td>{{$reserva->start_date}}</td>
                                 <td>{{$reserva->end_date}}</td>
                                 <td>@isset($reserva->location) {{ $reserva->location->nom() }} @endisset</td>
