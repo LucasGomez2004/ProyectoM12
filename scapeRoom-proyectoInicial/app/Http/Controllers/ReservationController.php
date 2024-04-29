@@ -26,6 +26,11 @@ class ReservationController extends Controller
 
     function list(Request $request){
 
+        $filterValue = $request->input("filterValue");
+        $reservationFilter = Reservation::where('user_id', 'LIKE', '%'.$filterValue.'%');
+
+        $reservation = $reservationFilter->paginate(10);
+
         $reservation = Reservation::all();
 
         return view('reservation.list' , ['reservation' => $reservation]);
@@ -38,7 +43,7 @@ class ReservationController extends Controller
                 'start_date' => 'required|date',
                 'end_date' => 'required|date|after:start_date',
                 'service_id' => 'required|exists:services,id',
-                'location_id' => 'required|exists:locations,id',
+                'location_id' => 'required|exists:location,id',
                 'user_id' => 'required|exists:users,id',
             ]);
 
@@ -51,7 +56,7 @@ class ReservationController extends Controller
 
             $reservation->save();
 
-            return redirect()->route('reservation.list')->with('status', 'Nueva Reserva '.$reservation->id.' Creado!');
+            return redirect()->route('reservation.list')->with('status', 'Nueva Reserva '.$reservation->id.' Creada!');
         }
 
         $locations = Location::all();
@@ -68,7 +73,7 @@ class ReservationController extends Controller
                 'start_date' => 'required|date',
                 'end_date' => 'required|date|after:start_date',
                 'service_id' => 'required|exists:services,id',
-                'location_id' => 'required|exists:locations,id',
+                'location_id' => 'required|exists:location,id',
                 'user_id' => 'required|exists:users,id',
             ]);
 
@@ -80,7 +85,7 @@ class ReservationController extends Controller
 
             $reservation->save();
 
-            return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Modificado!');
+            return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Modificada!');
         }
 
         $locations = Location::all();
@@ -94,6 +99,6 @@ class ReservationController extends Controller
         $reservation = Reservation::find($id);
         $reservation->delete();
 
-        return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Eliminado!');
+        return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Eliminada!');
     }
 }
