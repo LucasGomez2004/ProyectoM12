@@ -36,7 +36,7 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'g-recaptcha-response.required' => 'Captcha is Required',
+            'g-recaptcha-response.required' => '¡reCAPTCHA es obligatorio!',
         ];
     }
 

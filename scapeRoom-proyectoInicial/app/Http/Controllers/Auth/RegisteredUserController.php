@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
             'g-recaptcha-response' => 'required',
         ],
         [
-            'g-recaptcha-response.required' => 'Captcha is Required',       
+            'g-recaptcha-response.required' => '¡reCAPTCHA es obligatorio!',       
         ]);
         
         $user = User::create([

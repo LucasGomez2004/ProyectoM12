@@ -52,8 +52,9 @@
             {!! NoCaptcha::renderJs('es', false, 'recaptchaCallback') !!}
             {!! NoCaptcha::display() !!}
         </div>
+        
         @error('g-recaptcha-response')
-        <div style="background-color:red;">{{ $message }}</div>
+            <div class="form-group mt-3" style="background-color:rgb(220 53 69); color:white; text-align:center;">{{ $message }}</div>
         @enderror
 
 
