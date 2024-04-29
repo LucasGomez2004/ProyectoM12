@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ReservationController extends Controller
 {
@@ -15,8 +16,7 @@ class ReservationController extends Controller
 
         foreach ($all_reservations as $reservation){
             $reservations[] = [
-
-                'title' => $reservation->user_id,
+                'title' => $reservation->user->name,
                 'start' => $reservation->start_date,
                 'end' => $reservation->end_date,
             ];
@@ -34,6 +34,13 @@ class ReservationController extends Controller
     function new(Request $request){
 
         if ($request->isMethod('post')) {
+            $request->validate([
+                'start_date' => 'required|date',
+                'end_date' => 'required|date|after:start_date',
+                'service_id' => 'required|exists:services,id',
+                'location_id' => 'required|exists:locations,id',
+                'user_id' => 'required|exists:users,id',
+            ]);
 
             $reservation = new Reservation;
             $reservation->start_date = $request->start_date;
@@ -44,11 +51,49 @@ class ReservationController extends Controller
 
             $reservation->save();
 
-        return redirect()->route('reservation.list')->with('status', 'Nueva Reserva '.$reservation->reservation.' Creado!');
+            return redirect()->route('reservation.list')->with('status', 'Nueva Reserva '.$reservation->id.' Creado!');
         }
+
         $locations = Location::all();
         $services = Service::all();
         $users = User::all();
         return view('reservation.new',['locations' => $locations, 'services' => $services, 'users' => $users]);
+    }
+
+    function edit(Request $request, $id) 
+    {
+        $reservation = Reservation::find($id);
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'start_date' => 'required|date',
+                'end_date' => 'required|date|after:start_date',
+                'service_id' => 'required|exists:services,id',
+                'location_id' => 'required|exists:locations,id',
+                'user_id' => 'required|exists:users,id',
+            ]);
+
+            $reservation->start_date = $request->start_date;
+            $reservation->end_date = $request->end_date;
+            $reservation->service_id = $request->service_id;
+            $reservation->location_id = $request->location_id;
+            $reservation->user_id = $request->user_id;
+
+            $reservation->save();
+
+            return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Modificado!');
+        }
+
+        $locations = Location::all();
+        $services = Service::all();
+        $users = User::all();
+        return view('reservation.edit',['reservation' => $reservation, 'locations' => $locations, 'services' => $services, 'users' => $users]);
+    }
+
+    function delete($id) 
+    { 
+        $reservation = Reservation::find($id);
+        $reservation->delete();
+
+        return redirect()->route('reservation.list')->with('status', 'Reserva '.$reservation->id.' Eliminado!');
     }
 }

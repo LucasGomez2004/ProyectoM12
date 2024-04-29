@@ -11,14 +11,13 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Editar Usuario</h1>
-         
+        <h1 class="h3 mb-0 text-gray-800">Editar Reserva</h1>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">Detalles del Usuario</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Detalles de la Reserva</h6>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -32,38 +31,40 @@
         <div class="card-body">
             <div>
                 <div>
-                    <form method="POST" action="{{ route('user.edit', ['id' => $user->id])}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('reservation.edit', ['id' => $reservation->id])}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
+                                <label for="user_id">Usuario</label>
+                                    <select class="form-control" name="user_id">
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" {{ $reservation->user_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">
-                                <label for="name">Nombre</label>
-                                <input type="text" class="form-control" name="name" value="{{ $user->name }}"/>
+                                <label for="start_date">Fecha de inicio</label>
+                                <input type="datetime-local" class="form-control" name="start_date" value="{{ $reservation->start_date }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" value="{{ $user->email }}"/>
+                                <label for="end_date">Fecha de final</label>
+                                <input type="datetime-local" class="form-control" name="end_date" value="{{ $reservation->end_date }}"/>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
-                                <label for="password">Contrasenya</label>
-                                <input type="text" class="form-control" name="password" value="{{ $user->password }}"/>
+                                <label for="service_id">Servicio</label>
+                                    <select class="form-control" name="service_id">
+                                        @foreach ($services as $service)
+                                            <option value="{{ $service->id }}" {{ $reservation->service_id == $service->id ? 'selected' : '' }}>{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
                             </div>
                             <div class="col-lg-6 mb-3 mb-sm-0">            
-                            <label for="role_id">Roles</label>
-                                <select class="form-control" name="role_id">
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div>
-                                @if ($user->imatge)
-                                <label>Imatge actual: <strong>{{ $user->avatar }}</strong></label>
-                                @endif            
-                                <br>
-                                <label for="avatar">Imagen de Perfil</label>
-                                <input type="file" name="avatar"/>
-                                <br>
-                                <input type="checkbox" name="eliminarimatge">Eliminar la imagen</input>
+                                <label for="location_id">Localidad</label>
+                                    <select class="form-control" name="location_id">
+                                        @foreach ($locations as $location)
+                                            <option value="{{ $location->id }}" {{ $reservation->location_id == $location->id ? 'selected' : '' }}>{{ $location->name }}</option>
+                                        @endforeach
+                                    </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger btn-user btn-block">
@@ -73,7 +74,7 @@
                 </div>
             </div>
             <br>
-            <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Usuarios</a>
+            <a href="{{ route('reservation.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de la Reservas</a>
         </div>
     </div>
 </div>

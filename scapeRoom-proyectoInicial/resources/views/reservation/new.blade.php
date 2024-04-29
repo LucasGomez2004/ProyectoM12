@@ -29,7 +29,7 @@
                 @csrf
                 <div class="form-group row">
 
-                    {{-- Location --}}
+                    {{-- Usuario --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Usuario</label>
                         <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">

@@ -126,6 +126,8 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/reservation', [ReservationController::class, 'list'])->name('reservation.list');
     Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
+    Route::match(['get', 'post'], '/reservation/edit/{id}', [ReservationController::class, 'edit'])->name('reservation.edit');
+    Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete'])->name('reservation.delete');
 });
 require __DIR__.'/auth.php';
 
