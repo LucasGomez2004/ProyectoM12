@@ -18,7 +18,7 @@
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <div>
                 <a href="{{ route('user.new') }}" class="text-danger">    
-                    <i class="fas fa-plus"></i> Añadir Usuario
+                    <i class="fas fa-plus"></i> Añadir usuario
                 </a>
             </div>
             &nbsp
@@ -52,10 +52,10 @@
                     <thead>
                         <tr class="bg-danger">
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Contrasenya</th>
+                            <th>Correo electrónico</th>
+                            <th>Contraseña</th>
                             <th>Rol</th>
-                            <th>Imagen</th>
+                            <th>Foto de perfil</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

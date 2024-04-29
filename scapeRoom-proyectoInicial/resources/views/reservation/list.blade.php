@@ -16,10 +16,13 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <div>
+                <span class="text-danger">Listado de todas las reservas</span>
+            </div>
             <div class="ml-auto">
                 <form action="{{ route('reservation.list') }}" method="GET" class="d-flex">
                     <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger">
+                        <input type="text" name="filterValue" placeholder="Buscar por usuario" class="form-control rounded border-danger">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-danger ">Buscar</button>
                         </div>
@@ -40,8 +43,8 @@
                     <thead>
                         <tr class="bg-danger">
                             <th>Usuario</th>
-                            <th>Fecha de inicio</th>
-                            <th>Fecha de final</th>
+                            <th>Fecha y hora de inicio</th>
+                            <th>Fecha y hora final</th>
                             <th>Servicio</th>
                             <th>Localidad</th>
                             <th>Acciones</th>

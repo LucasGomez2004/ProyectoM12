@@ -27,7 +27,7 @@
         <thead style="background-color: #dc3545; color:white;">
             <tr class="bg-danger">
                 <th>Nombre</th>
-                <th>Email</th>
+                <th>Correo electrónico</th>
                 <th>Rol</th>
             </tr>
         </thead>

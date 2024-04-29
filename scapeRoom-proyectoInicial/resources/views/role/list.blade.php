@@ -18,7 +18,7 @@
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <div>
                 <a href="{{ route('role.new') }}" class="text-danger">    
-                    <i class="fas fa-plus"></i> Añadir Rol
+                    <i class="fas fa-plus"></i> Añadir rol
                 </a>
             </div>
             <div class="ml-auto">

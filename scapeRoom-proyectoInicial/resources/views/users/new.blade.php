@@ -13,7 +13,7 @@
     </div>
 <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger"> Crear Usuario</h6>
+            <h6 class="m-0 font-weight-bold text-danger"> Crear usuario</h6>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -43,11 +43,11 @@
 
                     {{-- Email --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Email</label>
+                        <span style="color:red;">*</span>Correo electrónico</label>
                         <input type="text" 
                             class="form-control form-control-user @error('email') is-invalid @enderror" 
                             id="exampleEmail"
-                            placeholder="Email" 
+                            placeholder="Correo electrónico" 
                             name="email" 
                             value="{{ old('email') }}">
 
@@ -55,18 +55,18 @@
 
                     {{-- Password --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Contrasenya</label>
+                        <span style="color:red;">*</span>Contraseña</label>
                         <input type="text" 
                             class="form-control form-control-user @error('password') is-invalid @enderror" 
                             id="examplePassword"
-                            placeholder="Contrasenya" 
+                            placeholder="Contraseña" 
                             name="password" 
                             value="{{ old('password') }}">
                     </div>
                     
                     {{-- Avatar --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        &nbsp Imagen</label>
+                        &nbsp Foto de perfil  </label>
                         <input type="file" 
                             class="form-control form-control-user @error('avatar') is-invalid @enderror" 
                             id="exampleAvatar"
@@ -94,7 +94,7 @@
                     Crear
                 </button>
                 <br>
-                <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Usuarios</a>
+                <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de usuarios</a>
 
             </form>
         </div>

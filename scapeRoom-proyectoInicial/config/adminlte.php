@@ -320,21 +320,21 @@ return [
             'can' => 'admin'
         ],
         [
-            'text' => 'EscapeRoom',
+            'text' => 'Escape Rooms',
             'route' => 'escaperoom.list',
             'icon' => 'fas fa-fw fa-home',
             'can' => 'admin'
         ],
         [
-            'text' => 'Users',
+            'text' => 'Usuarios',
             'route' => 'user.list',
             'icon' => 'fas fa-fw fa-users',
             'can' => 'admin'
         ],
         [
-            'text' => 'Services',
+            'text' => 'Servicios',
             'route' => 'service.list',
-            'icon' => 'fas fa-fw fa-book',
+            'icon' => 'fas fa-folder-open',
             'can' => 'admin'
         ],
         [
@@ -346,7 +346,7 @@ return [
         [
             'text' => 'Reservas',
             'route' => 'reservation.list',
-            'icon' => 'fas fa-fw fa-map',
+            'icon' => 'fas fa-sharp fa-book',
             'can' => 'admin'
         ],
         [
