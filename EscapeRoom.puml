@@ -1,0 +1,82 @@
+@startuml EscapeRoomDiagram
+
+skinparam class {
+    BackgroundColor PaleGreen
+    BorderColor DarkSlateGray
+    ArrowColor DarkSlateGray
+}
+
+hide circle
+left to right direction
+title ESCAPE ROOM
+
+class ESCAPE_ROOM {
+    id_EscapeRoom : int
+    name : string
+    <<FK>>
+    id_Location: int
+}
+
+class Usuaris{
+    id_User : int
+    username : string 
+    password : string
+    <<FK>>
+    role_id : int
+}
+
+class Role{
+    id_Role : int
+    name : string
+}
+
+class Reservation {
+    id_reservation : int
+    reservation_name : string
+    start_date : date
+    end_date : date
+    <<FK>>
+    location_id : int
+    <<FK>>
+    service_id : int
+    <<FK>>
+    user_id : int  
+    + getPrice(): double
+}
+
+class Location {
+    id_Location : int
+    name : string
+}
+
+class Available_Hours {
+    id : bigint
+    date : date
+    time : time
+    <<FK>>
+    location_id : bigint
+    available : boolean
+    created_at : timestamp
+    updated_at : timestamp
+}
+
+class Service {
+    id_Service : int
+    name : string
+    description : string
+    price : double
+}
+
+ESCAPE_ROOM "1" ---> "0..N" Usuaris : Contains
+Usuaris "1" ---> "1" Role : Has
+Usuaris "1" --> "0..N" Reservation : Makes
+
+ESCAPE_ROOM "1" ---> "0..N" Location : Is in
+
+Reservation "1" ---> "0..N" Available_Hours : Selects
+Location "1" ---> "0..N" Available_Hours : Has
+
+Reservation "1" ---> "0..1" Service : Selects
+
+Location "1" ---> "0..N" Reservation : Has
+@enduml
