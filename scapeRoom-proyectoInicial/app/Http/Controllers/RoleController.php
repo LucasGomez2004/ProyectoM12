@@ -22,7 +22,7 @@ class RoleController extends BaseController
 
         $roles = $rolesFilter->paginate(5);
 
-        return view('role.list' , ['roles' => $roles]);
+        return view('role.list' , ['roles' => $roles, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request) 

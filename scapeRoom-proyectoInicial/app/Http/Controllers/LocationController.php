@@ -21,7 +21,7 @@ class LocationController extends BaseController
 
         $locations = $locationsFilter->paginate(5);
 
-        return view('location.list' , ['locations' => $locations]);
+        return view('location.list' , ['locations' => $locations, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request) 

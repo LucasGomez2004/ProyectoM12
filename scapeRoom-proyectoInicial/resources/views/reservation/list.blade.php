@@ -18,7 +18,14 @@
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <div>
                 <span class="text-danger">Listado de todas las reservas</span>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de usuario ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('reservation.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
+            
+
             <div class="ml-auto">
                 <form action="{{ route('reservation.list') }}" method="GET" class="d-flex">
                     <div class="input-group">

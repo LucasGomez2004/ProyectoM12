@@ -20,6 +20,11 @@
                 <a href="{{ route('role.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir rol
                 </a>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de rol ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('role.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
             <div class="ml-auto">
                 <form action="{{ route('role.list') }}" method="GET" class="d-flex">

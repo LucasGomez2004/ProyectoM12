@@ -20,6 +20,11 @@
                 <a href="{{ route('service.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir Servicio
                 </a>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de servicio ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('service.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
             <div class="ml-auto">
                 <form action="{{ route('service.list') }}" method="GET" class="d-flex">

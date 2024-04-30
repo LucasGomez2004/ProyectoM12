@@ -33,7 +33,7 @@ class ReservationController extends Controller
 
         $reservation = $reservationFilter->paginate(10);
 
-        return view('reservation.list' , ['reservation' => $reservation]);
+        return view('reservation.list' , ['reservation' => $reservation, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request){

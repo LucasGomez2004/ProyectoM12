@@ -19,6 +19,11 @@
                 <a href="{{ route('escaperoom.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir Escape Room
                 </a>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de Escape Room ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('escaperoom.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
             <div class="ml-auto">
                 <form action="{{ route('escaperoom.list') }}" method="GET" class="d-flex">

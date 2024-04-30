@@ -20,14 +20,18 @@
                 <a href="{{ route('user.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir usuario
                 </a>
-            </div>
-            &nbsp
-            &nbsp
-            <div>
+                &nbsp
+                &nbsp
                 <a href="{{ route('user.pdf') }}" class="btn btn-danger">    
                     PDF
                 </a>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de usaurio ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('user.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
+            
             <div class="ml-auto">
                 <form action="{{ route('user.list') }}" method="GET" class="d-flex">
                     <div class="input-group">

@@ -20,6 +20,11 @@
                 <a href="{{ route('location.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir Localidad
                 </a>
+                @if(isset($filterValue))
+                    <p>Búsqueda por nombre de localidad ... <b>{{ $filterValue }}</b></p>
+                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                    <a href="{{ route('location.list') }}">Limpiar búsqueda</a>
+                @endif
             </div>
             <div class="ml-auto">
                 <form action="{{ route('location.list') }}" method="GET" class="d-flex">

@@ -21,7 +21,7 @@ class EscapeRoomController extends BaseController
 
         $escaperoom = $scapesRoomFilter->paginate(5);
 
-        return view('escaperoom.list' , ['escaperoom' => $escaperoom]);
+        return view('escaperoom.list' , ['escaperoom' => $escaperoom, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request) 

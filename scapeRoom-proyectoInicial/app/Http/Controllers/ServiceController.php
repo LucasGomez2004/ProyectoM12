@@ -21,7 +21,7 @@ class ServiceController extends BaseController
 
         $services = $servicesFilter->paginate(5);
 
-        return view('services.list' , ['services' => $services]);
+        return view('services.list' , ['services' => $services, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request) 

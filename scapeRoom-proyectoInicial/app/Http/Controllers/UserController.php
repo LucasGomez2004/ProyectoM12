@@ -24,7 +24,7 @@ class UserController extends BaseController
 
         $users = $usersFilter->paginate(5);
 
-        return view('users.list' , ['users' => $users]);
+        return view('users.list' , ['users' => $users, 'filterValue' => $filterValue]);
     }
 
     function new(Request $request) 
