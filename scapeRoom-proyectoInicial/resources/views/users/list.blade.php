@@ -70,13 +70,13 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->password}}</td>
                                 <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
-                                <td>
+                                <td style="text-align: center;">
                                     @if($user->google_id)
                                         <img src="{{ $user->avatar }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;">
                                     @elseif ($user->avatar )
                                         <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;">
                                     @else
-                                        No tiene imagen
+                                    <img src="{{ asset('images/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado" style="width:25px; ">
                                     @endif
                                 </td>
                                 <td>

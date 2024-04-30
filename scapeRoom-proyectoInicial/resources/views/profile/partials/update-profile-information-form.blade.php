@@ -22,7 +22,7 @@
             @elseif ($user->avatar )
                 <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario"  style="width: 100px; border-radius: 50px;">
             @else
-                <img src="{{ asset('uploads/imatges/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado" style="width:50px;">
+                <img src="{{ asset('images/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado" style="width:50px;">
             @endif
         </div>
         <br>
