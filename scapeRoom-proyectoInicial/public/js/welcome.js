@@ -22,10 +22,24 @@ window.addEventListener("resize", () => {
 });
 
 setTimeout(function() {
-  document.getElementById('status-message').style.opacity = '0';
-  setTimeout(function() {
-      document.getElementById('status-message').style.display = 'none';
-  }, 2000);
-}, 3000);
+  var statusMessage = document.getElementById('status-message');
+  if (statusMessage) {
+    statusMessage.style.transition = 'opacity 0.5s ease-in-out, visibility 0s linear 0.5s';
+    statusMessage.style.opacity = '0';
+    setTimeout(function() {
+      statusMessage.style.display = 'none';
+    }, 500);
+  }
+
+  var captchaMessage = document.getElementById('captcha-message');
+  if (captchaMessage) {
+    captchaMessage.style.transition = 'opacity 0.5s ease-in-out, visibility 0s linear 0.5s';
+    captchaMessage.style.opacity = '0';
+    setTimeout(function() {
+      captchaMessage.style.display = 'none';
+    }, 500);
+  }
+}, 5000);
+
 
 responsiveDesign();

@@ -53,7 +53,8 @@
             {!! NoCaptcha::display() !!}
         </div>
         @error('g-recaptcha-response')
-            <div class="form-group mt-3" style="background-color:rgb(220 53 69); color:white; text-align:center;">{{ $message }}</div>
+        <div id="captcha-message" class="form-group mt-3 rounded bg-red-600 text-white text-center p-2">{{ $message }}</div>
+            <script src="{{ asset('js/welcome.js')}}"></script>
         @enderror
 
         <div class="flex items-center justify-end mt-4">
