@@ -7,6 +7,21 @@
 @stop
 
 @section('content')
+<style>
+    
+    input[type=password] {
+        background-color: white;
+        
+        border: 0px solid #ced4da;
+        padding: 6px 12px;
+        width: 100%;
+    }
+
+    .botonMostrarContraseña {   
+        border: 0px solid #ced4da;
+    }
+
+</style>
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -68,7 +83,11 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->password}}</td>
+                                <td>
+                                    @if ($user->password)
+                                        <input style="width:510px;" type="password" id="password-{{$user->id}}" value="{{$user->password}}" disabled>
+                                    @endif
+                                </td>
                                 <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
                                 <td style="text-align: center;">
                                     @if($user->google_id)
@@ -98,11 +117,35 @@
                                             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
                                         </svg>
                                     </a>
+                                    
+                                    @if ($user->password)
+                                        <button type="button" onclick="togglePasswordVisibility('password-{{$user->id}}')" class="btn btn-outline-danger botonMostrarContraseña">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                                                </svg>
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
+                <script>
+                    function togglePasswordVisibility(inputId) {
+                        var passwordInput = document.getElementById(inputId);
+                        var toggleButton = document.getElementById('toggle-' + inputId);
+
+                        if (passwordInput.type === 'password') {
+                            passwordInput.type = 'text';
+                            toggleButton.textContent = 'Ocultar';
+                        } else {
+                            passwordInput.type = 'password';
+                            toggleButton.textContent = 'Mostrar';
+                        }
+                    }
+                </script>
             </div>
             <div class="text-center mt-3">
     {{ $users->links() }}
