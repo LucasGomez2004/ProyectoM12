@@ -89,6 +89,20 @@
                         </select>
                     </div>
 
+                    {{-- participants --}}
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <span style="color:red;">*</span>Número de participantes</label>
+                        <select name="participants" class="form-control @error('participants') is-invalid @enderror">
+                            <option value="">-- Selecciona un número de participantes --</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="0">-- Escoger, en caso, de limpieza --</option>
+                        </select>
+                    </div>
+
                 </div>
                 {{-- Save Button --}}
                 <button type="submit" class="btn btn-danger btn-user btn-block">

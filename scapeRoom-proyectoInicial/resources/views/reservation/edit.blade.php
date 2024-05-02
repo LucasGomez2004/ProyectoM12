@@ -66,6 +66,17 @@
                                         @endforeach
                                     </select>
                             </div>
+                            <div class="col-lg-6 mb-3 mb-sm-0">            
+                                <label for="participants">Número de participantes</label>
+                                <select class="form-control" name="participants">
+                                    <option value="2" {{ $reservation->participants == 2 ? 'selected' : '' }}>2</option>
+                                    <option value="3" {{ $reservation->participants == 3 ? 'selected' : '' }}>3</option>
+                                    <option value="4" {{ $reservation->participants == 4 ? 'selected' : '' }}>4</option>
+                                    <option value="5" {{ $reservation->participants == 5 ? 'selected' : '' }}>5</option>
+                                    <option value="6" {{ $reservation->participants == 6 ? 'selected' : '' }}>6</option>
+                                    <option value="0" {{ $reservation->participants == 0 ? 'selected' : '' }}>-- Escoger, en caso, de limpieza --</option>
+                                </select>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-danger btn-user btn-block">
                             Editar

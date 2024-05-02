@@ -54,6 +54,7 @@
                             <th>Fecha y hora final</th>
                             <th>Localidad</th>
                             <th>Servicio</th>
+                            <th>Número de participantes</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -65,6 +66,7 @@
                                 <td>{{$reserva->end_date}}</td>
                                 <td>@isset($reserva->location) {{ $reserva->location->nom() }} @endisset</td>
                                 <td>@isset($reserva->service) {{ $reserva->service->nom() }} @endisset</td>
+                                <td>{{$reserva->participants}}</td>
                                 <td>
                                     <a href="{{ route('reservation.edit', ['id' => $reserva->id]) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square text-danger" viewBox="0 0 16 16">

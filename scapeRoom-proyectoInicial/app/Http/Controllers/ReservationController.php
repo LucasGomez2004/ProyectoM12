@@ -19,6 +19,8 @@ class ReservationController extends Controller
                 'title' => $reservation->user->name,
                 'start' => $reservation->start_date,
                 'end' => $reservation->end_date,
+                'description' => $reservation->participants,
+
             ];
         }
         return view('calendar.calendar',compact('reservations'));
@@ -44,6 +46,7 @@ class ReservationController extends Controller
                 'end_date' => 'required|date|after:start_date',
                 'service_id' => 'required|exists:services,id',
                 'location_id' => 'required|exists:location,id',
+                'participants' => 'required',
                 'user_id' => 'required|exists:users,id',
             ]);
 
@@ -52,6 +55,7 @@ class ReservationController extends Controller
             $reservation->end_date = $request->end_date;
             $reservation->service_id = $request->service_id;
             $reservation->location_id = $request->location_id;
+            $reservation->participants = $request->participants;
             $reservation->user_id = $request->user_id;
 
             $reservation->save();
@@ -74,6 +78,7 @@ class ReservationController extends Controller
                 'end_date' => 'required|date|after:start_date',
                 'service_id' => 'required|exists:services,id',
                 'location_id' => 'required|exists:location,id',
+                'participants' => 'required',
                 'user_id' => 'required|exists:users,id',
             ]);
 
@@ -81,6 +86,7 @@ class ReservationController extends Controller
             $reservation->end_date = $request->end_date;
             $reservation->service_id = $request->service_id;
             $reservation->location_id = $request->location_id;
+            $reservation->participants = $request->participants;
             $reservation->user_id = $request->user_id;
 
             $reservation->save();
