@@ -52,8 +52,8 @@
                             <th>Usuario</th>
                             <th>Fecha y hora de inicio</th>
                             <th>Fecha y hora final</th>
-                            <th>Servicio</th>
                             <th>Localidad</th>
+                            <th>Servicio</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
