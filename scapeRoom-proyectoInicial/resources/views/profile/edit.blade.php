@@ -3,9 +3,7 @@
 @section('title', 'Editar Perfil')
 
 @section('content_header')
-        <h2 class="font-semibold text-xl text-dark-800 dark:dark-gray-200 leading-tight text-center">
-            {{ __('PERFIL') }}
-        </h2>
+<br>
 @stop
 
 @section('content')
@@ -21,14 +19,14 @@
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
-
+            @endif
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
         </div>
-        @endif
+        
 @stop
 
 @section('css')

@@ -20,13 +20,14 @@
             @method('delete')
 
             <h2 class="text-lg font-medium text-dark-900 dark:text-dark-100">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('¿Estás seguro de que quieres eliminar tu cuenta?') }}
             </h2>
 
             <p class="mt-1 text-sm text-dark-600 dark:text-dark-400">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('Una vez que tu cuenta sea eliminada, todos sus recursos y datos serán eliminados de forma permanente. Por favor, introduce tu contraseña para confirmar que deseas eliminar tu cuenta de forma permanente.') }}
             </p>
 
+            @if(!Auth::user()->google_id)
             <div class="mt-6">
                 <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
 
@@ -40,14 +41,14 @@
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
-
+            @endif
             <div class="mt-6 flex justify-end">
                 <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
+                    {{ __('Cancelar') }}
                 </x-secondary-button>
 
                 <x-danger-button class="ms-3">
-                    {{ __('Delete Account') }}
+                    {{ __('Eliminar Cuenta') }}
                 </x-danger-button>
             </div>
         </form>

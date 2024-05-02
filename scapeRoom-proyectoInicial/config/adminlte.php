@@ -305,10 +305,6 @@ return [
             'topnav_right' => true,
         ],
         [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-        [
             'text' => 'Editar perfil',
             'route' => 'profile.edit',
             'icon' => 'fas fa-fw fa-user',

@@ -3,43 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Usuarios</title>
     <style>
-        table {
-            width:100%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        table ,th,td {
-            border:1px solid #dc3545;
-            border-collapse:collapse;
+        .container {
+            max-width: 100%;
+            overflow-x: auto;
         }
-        
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 100px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #dc3545;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto; /* Para centrar la tabla horizontalmente */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        td input[type=password] {
+            width: 65px;
+            box-sizing: border-box;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 14px;
+            color: #555;
+        }
+
+        td img.avatar {
+            width: 50px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-<img src="images/logo.webp" alt="" style="width:100px"><div><h1 style="margin-left: 41%;">Usuarios</h1></div>
-<br>
-
-    <table>
-        <thead style="background-color: #dc3545; color:white;">
-            <tr class="bg-danger">
-                <th>Nombre</th>
-                <th>Correo electrónico</th>
-                <th>Rol</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
+    <div class="container">
+        <div class="header">
+            <img src="images/logo.webp" alt="Logo">
+            <h1>Usuarios</h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo electrónico</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                    <th>Avatar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->role->nom()}}</td>
+                    <td>
+                        @if ($user->password)
+                        <input type="password" id="password-{{$user->id}}" value="{{$user->password}}">
+                        @endif
+                    </td>
+                    <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
+                    <td>
+                        @if($user->google_id)
+                        <img src="{{ $user->avatar }}" class="avatar" alt="Avatar del usuario">
+                        @elseif ($user->avatar )
+                        <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario">
+                        @else
+                        <img src="{{ asset('images/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado">
+                        @endif
+                    </td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

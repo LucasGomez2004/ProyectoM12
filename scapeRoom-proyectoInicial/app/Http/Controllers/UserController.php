@@ -117,7 +117,8 @@ class UserController extends BaseController
 
     public function pdf(){
         $users = User::all();
-        $pdf = Pdf::loadView('users.pdf', compact('users'));
+        $roles = Role::all();
+        $pdf = Pdf::loadView('users.pdf', compact('users', 'roles'));
         return $pdf->stream();
     }
 }
