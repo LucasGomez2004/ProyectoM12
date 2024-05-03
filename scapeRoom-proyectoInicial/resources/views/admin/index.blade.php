@@ -78,6 +78,7 @@
                             <th>Usuario</th>
                             <th>Servicio</th>
                             <th>Ubicación</th>
+                            <th>Número de participantes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,6 +89,13 @@
                             <td>{{ $reservation->user->name }}</td>
                             <td>{{ $reservation->service->name }}</td>
                             <td>{{ $reservation->location->name }}</td>
+                            <td>
+                                @if($reservation->participants == 0)
+                                    <span class="text-info"><b>Mantenimiento</b></span>
+                                @else
+                                    {{ $reservation->participants }}
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
