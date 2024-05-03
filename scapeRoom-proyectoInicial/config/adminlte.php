@@ -336,13 +336,13 @@ return [
         [
             'text' => 'Localidades',
             'route' => 'location.list',
-            'icon' => 'fas fa-fw fa-map',
+            'icon' => 'fas fa-map-marked-alt',
             'can' => 'admin'
         ],
         [
             'text' => 'Reservas',
             'route' => 'reservation.list',
-            'icon' => 'fas fa-sharp fa-book',
+            'icon' => 'fas fa-book-open',
             'can' => 'admin'
         ],
         [
