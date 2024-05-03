@@ -94,11 +94,11 @@
                 </table>
             </div>
         </div>
-    </div>
-    <div class="card-footer clearfix d-flex justify-content-center">
+        <div class="clearfix d-flex justify-content-center">
         <a href="{{ route('calendar.calendar') }}" class="btn btn-app bg-gradient-primary btn-lg w-100">
             <i class="fas fa-calendar"></i> Ver Calendario
         </a>
+    </div>
     </div>
 </div>
 
