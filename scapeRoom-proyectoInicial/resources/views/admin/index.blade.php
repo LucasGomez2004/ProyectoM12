@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-lg-6 col-6">
-                <div class="small-box bg-danger">
+                <div class="small-box bg-success" >
                     <div class="inner">
                         <h3>{{ $reservationsCount }}</h3>
                         <p>Reservas</p>
@@ -96,8 +96,7 @@
         </div>
     </div>
     <div class="card-footer clearfix d-flex justify-content-center">
-        <a href="{{ route('calendar.calendar') }}" class="btn btn-app bg-gradient-danger btn-lg w-100">
-            <span class="badge bg-primary">{{ $reservationsCount }}</span>
+        <a href="{{ route('calendar.calendar') }}" class="btn btn-app bg-gradient-primary btn-lg w-100">
             <i class="fas fa-calendar"></i> Ver Calendario
         </a>
     </div>

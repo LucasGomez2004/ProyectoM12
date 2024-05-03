@@ -38,9 +38,9 @@
         }
 
         .fc-addReservationButton-button {
-        background-color: black !important;
+        background-color: #007bff !important;
         color: white !important;
-        border-color:#dc3545 !important;
+        border-color:#007bff !important;
         }
 
     </style>
