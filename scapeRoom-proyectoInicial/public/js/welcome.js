@@ -54,6 +54,7 @@ function confirmDelete(deleteUrl) {
         confirmButtonColor: "green",
         cancelButtonColor: "#d33",
         confirmButtonText: "Sí, eliminarlo",
+        cancelButtonText: "Cancelar",
     }).then((result) => {
         if (result.isConfirmed) {
             window.location.href = deleteUrl;
