@@ -15,8 +15,13 @@ class ReservationController extends Controller
         $reservations = [];
 
         foreach ($all_reservations as $reservation){
+            if ($reservation->participants == 0) {
+                $title = $reservation->user->name .' - Mantenimiento';
+            } else {
+                $title = $reservation->user->name . ' - Participantes: ' . $reservation->participants;
+            }
             $reservations[] = [
-                'title' => $reservation->user->name,
+                'title' => $title,
                 'start' => $reservation->start_date,
                 'end' => $reservation->end_date,
             ];
