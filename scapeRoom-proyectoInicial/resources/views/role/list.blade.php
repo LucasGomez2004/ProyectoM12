@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<br>
+{{ Breadcrumbs::render('role-list') }}
 @stop
 
 @section('content')

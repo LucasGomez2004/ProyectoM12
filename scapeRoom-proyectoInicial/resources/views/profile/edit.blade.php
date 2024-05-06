@@ -3,7 +3,7 @@
 @section('title', 'Editar Perfil')
 
 @section('content_header')
-<br>
+{{ Breadcrumbs::render('profile') }}
 @stop
 
 @section('content')

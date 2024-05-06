@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<br>
+{{ Breadcrumbs::render('home/user-list') }}
 @stop
 
 @section('css')
@@ -77,7 +77,8 @@
                             <th>Correo electrónico</th>
                             <th>Contraseña</th>
                             <th>Rol</th>
-                            <th>Foto de perfil</th>
+                            <th>Imagen
+                            </th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

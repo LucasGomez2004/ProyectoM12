@@ -3,7 +3,7 @@
 @section('title', 'Calendario')
 
 @section('content_header')
-    <h1 class='text-center'><b>ESCAPE OR DIE</b></h1>
+{{ Breadcrumbs::render('calendario') }}
 @stop
 
 @section('content')

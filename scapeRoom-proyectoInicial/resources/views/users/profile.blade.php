@@ -3,7 +3,7 @@
 @section('title', 'User Profile')
 
 @section('content_header')
-    <h1 class="text-center"><b>Perfil de usuario</b></h1>
+{{ Breadcrumbs::render('user-profile') }}
 @stop
 
 @section('content')
