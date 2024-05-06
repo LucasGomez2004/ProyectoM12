@@ -31,5 +31,14 @@ class AuthServiceProvider extends ServiceProvider
 
             return Response::deny('No tiene permiso para acceder');
         });
+
+        Gate::define('client', function (User $user){
+
+            if ($user->role_id == 2) {
+                return Response::allow();
+            }
+
+            return Response::deny('No tiene permiso para acceder');
+        });
     }
 }

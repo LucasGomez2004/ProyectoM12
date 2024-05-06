@@ -29,6 +29,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    if (Auth::check() && Auth::user()->role_id === 2) {
+        return view('client.index');
+    }
+
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -48,31 +53,23 @@ Route::get('/login-google', function () {
 Route::get('/google-callback', function () {
     $user_google = Socialite::driver('google')->stateless()->user();
 
-    // Buscar un usuario existente por su correo electrónico
     $existing_user = User::where('email', $user_google->email)->first();
 
     if ($existing_user) {
-        // Si el usuario existe, actualiza la información según los datos de Google
         $existing_user->update([
             'google_id' => $user_google->id,
             'avatar' => $user_google->avatar,
-            // Puedes agregar más campos aquí si deseas actualizarlos
         ]);
 
-        // Iniciar sesión con el usuario existente
         Auth::login($existing_user);
     } else {
-        // Si el usuario no existe, crea un nuevo usuario
         $new_user = User::create([
             'name' => $user_google->name,
             'email' => $user_google->email,
             'google_id' => $user_google->id,
             'avatar' => $user_google->avatar,
             'role_id' => 2,
-            // Puedes agregar más campos aquí si deseas
         ]);
-
-        // Iniciar sesión con el nuevo usuario
         Auth::login($new_user);
     }
 
@@ -128,6 +125,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
     Route::match(['get', 'post'], '/reservation/edit/{id}', [ReservationController::class, 'edit'])->name('reservation.edit');
     Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete'])->name('reservation.delete');
+});
+
+Route::middleware(['auth', 'can:client'])->group(function () {
+    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 });
 require __DIR__.'/auth.php';
 
