@@ -12,6 +12,10 @@
 @stop
 
 @section('content')
+<br>
+<br>
+<br>
+<br>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <div class="container">
     <div class="contact__wrapper shadow-lg mt-n9">
@@ -146,7 +150,7 @@
         const latICVGranollers = 41.60797885210383;
         const lonICVGranollers = 2.287634119459574;
 
-        var mapGranollers = L.map('map').setView([latICVGranollers, lonICVGranollers], 11);
+        var mapGranollers = L.map('map').setView([latICVGranollers, lonICVGranollers], 10);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
