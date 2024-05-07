@@ -136,10 +136,9 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'can:client'])->group(function () {
-    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+    Route::match(['get', 'post'], '/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+    Route::match(['get', 'post'], '/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
 });
-Route::middleware(['auth', 'can:client'])->group(function () {
-    Route::get('/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
-});
+
 require __DIR__.'/auth.php';
 

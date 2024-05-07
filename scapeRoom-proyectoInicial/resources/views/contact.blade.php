@@ -9,7 +9,21 @@
 @section('content')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <div class="container">
+<div class="col-lg-12 contact-form__wrapper p-5 order-lg-1">
+                @if ($errors->any())
+                <div class="col-lg-12 contact-form__wrapper p-5 order-lg-1">
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
+            </div>
     <div class="contact__wrapper shadow-lg mt-n9">
+        
         <div class="row no-gutters">
             <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2 " id="map" >
     
@@ -27,9 +41,11 @@
                     </svg>
                 </figure>
             </div>
-
+            
+            
             <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
-                <form action="{{ route('enviar.mensaje') }}" class="contact-form form-validate" novalidate="novalidate">
+                <form method="POST" action="{{ route('enviar.mensaje') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
@@ -37,7 +53,7 @@
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Escribe aquí tu nombre...">
                             </div>
                         </div>
-    
+                        
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label for="lastName">Apellidos:</label>
