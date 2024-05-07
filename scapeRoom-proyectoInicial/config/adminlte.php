@@ -310,6 +310,12 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Pagina de contacto',
+            'route' => 'contact',
+            'icon' => 'fas fa-solid fa-address-book',
+            'can' => 'client'
+        ],
+        [
             'text' => 'Roles',
             'route' => 'role.list',
             'icon' => 'fas fa-fw fa-wrench',

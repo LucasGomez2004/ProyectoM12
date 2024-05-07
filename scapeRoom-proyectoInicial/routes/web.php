@@ -29,6 +29,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+
+    if (Auth::check() && Auth::user()->role_id === 2) {
+        return view('client.index');
+    }
+
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -128,6 +133,13 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/reservation/new', [ReservationController::class, 'new'])->name('reservation.new');
     Route::match(['get', 'post'], '/reservation/edit/{id}', [ReservationController::class, 'edit'])->name('reservation.edit');
     Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete'])->name('reservation.delete');
+});
+
+Route::middleware(['auth', 'can:client'])->group(function () {
+    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+});
+Route::middleware(['auth', 'can:client'])->group(function () {
+    Route::get('/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
 });
 require __DIR__.'/auth.php';
 
