@@ -25,6 +25,6 @@ class ContactController extends Controller
 
         Mail::to('bieloscarlucas.escaperoom@gmail.com')->send(new ContactFormMail($datosMensaje));
 
-        return redirect()->back()->with('message', '¡El correo electrónico se ha enviado correctamente!');
+        return view('contact')->with('message', '¡El correo electrónico se ha enviado correctamente!');
     }
 }

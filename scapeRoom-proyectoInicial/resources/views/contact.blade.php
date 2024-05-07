@@ -3,7 +3,7 @@
 @section('title', 'Contacto')
 
 @section('content_header')
-    <h1 class="text-center">Contacto</h1>
+    <h1 class="text-center"><b>Formulario de contacto</b></h1>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
@@ -12,10 +12,6 @@
 @stop
 
 @section('content')
-<br>
-<br>
-<br>
-<br>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <div class="container">
     <div class="contact__wrapper shadow-lg mt-n9">
@@ -42,48 +38,71 @@
                     <div class="row">
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
-                                <label class="required-field" for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Wendy">
+                                <label class="required-field" for="firstName">Nombre:</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Escribe aquí tu nombre">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Appleseed">
+                                <label for="lastName">Apellidos:</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Escribe aquí tus apellidos">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
-                                <label class="required-field" for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="wendy.apple@seed.com">
+                                <label class="required-field" for="email">Correo electrónico:</label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Tu correo electrónico">
                             </div>
                         </div>
     
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="(021)-454-545">
+                                <label for="phone">Número de telefóno:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Tu número de telefóno">
                             </div>
                         </div>
     
                         <div class="col-sm-12 mb-3">
                             <div class="form-group">
-                                <label class="required-field" for="message">How can we help?</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Hi there, I would like to....."></textarea>
+                                <label class="required-field" for="message">¿En qué te podemos ayudar?:</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Explica aquí cual es tu problema..."></textarea>
                             </div>
                         </div>
     
                         <div class="col-sm-12 mb-3">
-                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-danger">Enviar</button>
                         </div>
     
                     </div>
                 </form>
             </div>
             <!-- End Contact Form Wrapper -->
-    
+        </div>
+    </div>
+
+    <div class="col-lg-12 bg-danger p-5">
+        <div class="row">
+            <div class="col-5 align-self-center">
+            <h1>¿Dónde encontrarnos?</h1>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <p><b>Granollers: </b><br>Carrer del Camp de les Moreres, 14, 08401</p>
+                </div>
+                <div class="row">
+                    <p><b>Cardedeu: </b><br>Passeig de Pau Gesa, 1, 08440</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <p><b>Les Franqueses: </b><br>Carretera de Ribes, 4, 08520</p>
+                </div>
+                <div class="row">
+                    <p><b>Mataró: </b><br>Carrer Puig i Pidemunt, 12, 08302</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -6,10 +6,10 @@
     <title>Nuevo Mensaje</title>
 </head>
 <body>
-    <p>Nombre: {{ $mensaje['nombre'] }}</p>
-    <p>Apellidos: {{ $mensaje['apellidos'] }}</p>
-    <p>Correo Electrónico: {{ $mensaje['email'] }}</p>
-    <p>Teléfono: {{ $mensaje['telefono'] }}</p>
-    <p>Mensaje: {{ $mensaje['mensaje'] }}</p>
+    <p><b>Nombre: </b>{{ $mensaje['nombre'] }}</p>
+    <p><b>Apellidos: </b>{{ $mensaje['apellidos'] }}</p>
+    <p><b>Correo Electrónico: </b>{{ $mensaje['email'] }}</p>
+    <p><b>Teléfono: </b>{{ $mensaje['telefono'] }}</p>
+    <p><b>Mensaje: </b>{{ $mensaje['mensaje'] }}</p>
 </body>
 </html>
