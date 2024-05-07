@@ -43,6 +43,32 @@
         border-color:#007bff !important;
         }
 
+        @media (max-width: 1000px) {
+            .fc-event-title.fc-sticky {
+                font-size: 11px !important;
+            }
+        }
+
+        @media (max-width: 736px) {
+            .fc .fc-toolbar.fc-header-toolbar  {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+        }
+
+        
+
+        @media (max-width: 500px) {
+            .fc-event-title.fc-sticky {
+                font-size: 7px !important;
+            }
+
+            .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk {
+                padding:10px;
+            }
+        }
+
     </style>
 @stop
 
@@ -60,6 +86,7 @@
                 slotMinTime: '09:00:00',
                 slotMaxTime: '22:00:00',
                 height: 'auto',
+                handleWindowResize: true,
                 hiddenDays: [0],
                 allDaySlot: false,
                 slotLabelFormat: {
@@ -94,6 +121,7 @@
             });
             
             calendar.render();
+            calendar.updateSize();
         });
     </script>
 @stop

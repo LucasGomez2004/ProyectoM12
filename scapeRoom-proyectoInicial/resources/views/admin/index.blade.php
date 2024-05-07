@@ -68,45 +68,43 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Fecha de Inicio</th>
-                            <th>Fecha de Fin</th>
-                            <th>Usuario</th>
-                            <th>Servicio</th>
-                            <th>Ubicación</th>
-                            <th>Número de participantes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($latestReservations as $reservation)
-                        <tr>
-                            <td class="text-success">{{ $reservation->start_date }}</td>
-                            <td class="text-danger">{{ $reservation->end_date }}</td>
-                            <td>{{ $reservation->user->name }}</td>
-                            <td>{{ $reservation->service->name }}</td>
-                            <td>{{ $reservation->location->name }}</td>
-                            <td>
-                                @if($reservation->participants == 0)
-                                    <span class="text-info"><b>Mantenimiento</b></span>
-                                @else
-                                    {{ $reservation->participants }}
-                                @endif
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Usuario</th>
+                        <th>Servicio</th>
+                        <th>Ubicación</th>
+                        <th>Participantes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($latestReservations as $reservation)
+                    <tr>
+                        <td class="text-success">{{ $reservation->start_date }}</td>
+                        <td class="text-danger">{{ $reservation->end_date }}</td>
+                        <td>{{ $reservation->user->name }}</td>
+                        <td>{{ $reservation->service->name }}</td>
+                        <td>{{ $reservation->location->name }}</td>
+                        <td>
+                            @if($reservation->participants == 0)
+                                <span class="text-info"><b>Mantenimiento</b></span>
+                            @else
+                                {{ $reservation->participants }}
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        <div class="clearfix d-flex justify-content-center">
-        <a href="{{ route('calendar.calendar') }}" class="btn btn-app bg-gradient-primary btn-lg w-100">
-            <i class="fas fa-calendar"></i> Ver Calendario
-        </a>
-    </div>
+        <div id="calendario" class="clearfix d-flex justify-content-center">
+            <a href="{{ route('calendar.calendar') }}" class="btn btn-app bg-gradient-primary btn-lg w-100">
+                <i class="fas fa-calendar"></i> Ver Calendario
+            </a>
+        </div>
     </div>
 </div>
 
@@ -116,8 +114,14 @@
 @stop
 
 @section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+ <style>
+    @media (max-width: 696px) {
+        #calendario {
+            padding-top: 10px;
+        }
+    }
+ </style>
+    
 @stop
 
 @section('js')
