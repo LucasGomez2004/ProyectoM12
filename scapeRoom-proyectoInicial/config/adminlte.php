@@ -294,26 +294,18 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'darkmode-widget',
-            'topnav_right' => true,
-        ],
+        ['header' => 'Perfil'],
         [
             'text' => 'Editar perfil',
             'route' => 'profile.edit',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'Administración'],
         [
-            'text' => 'Pagina de contacto',
-            'route' => 'contact',
-            'icon' => 'fas fa-solid fa-address-book',
-            'can' => 'client'
+            'text' => 'Usuarios',
+            'route' => 'user.list',
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin'
         ],
         [
             'text' => 'Roles',
@@ -325,12 +317,6 @@ return [
             'text' => 'Escape Rooms',
             'route' => 'escaperoom.list',
             'icon' => 'fas fa-fw fa-home',
-            'can' => 'admin'
-        ],
-        [
-            'text' => 'Usuarios',
-            'route' => 'user.list',
-            'icon' => 'fas fa-fw fa-users',
             'can' => 'admin'
         ],
         [
@@ -356,6 +342,13 @@ return [
             'route' => 'calendar.calendar',
             'icon' => 'fas fa-fw fa-calendar',
             'can' => 'admin'
+        ],
+        ['header' => 'Otras Opciones'],
+        [
+            'text' => 'Pagina de contacto',
+            'route' => 'contact',
+            'icon' => 'fas fa-solid fa-address-book',
+            'can' => 'client'
         ],
     ],
 
