@@ -29,7 +29,7 @@ class LocationController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
             ]);
 
             $location = new Location;
@@ -46,7 +46,7 @@ class LocationController extends BaseController
     {
         if ($request->isMethod('post')) {
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
             ]);
             
         $location = Location::find($id);

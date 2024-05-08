@@ -29,7 +29,7 @@ class ServiceController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
                 'description' => 'required|max:255',
                 'price' => 'required|numeric',
             ]);
@@ -52,7 +52,7 @@ class ServiceController extends BaseController
         $service = Service::find($id);
 
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => ['required', 'regex:/^[\pL\s]+$/u'],
             'description' => 'required|max:255',
             'price' => 'required|numeric',
         ]);

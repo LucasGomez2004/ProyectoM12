@@ -30,7 +30,7 @@ class EscapeRoomController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
                 'location_id' => 'required|exists:location,id',
             ]);
 
@@ -54,7 +54,7 @@ class EscapeRoomController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
                 'location_id' => 'required|exists:location,id',
             ]);
             

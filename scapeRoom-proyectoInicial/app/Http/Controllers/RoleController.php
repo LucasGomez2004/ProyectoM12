@@ -30,7 +30,7 @@ class RoleController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
             ]);
 
             $role = new Role;
@@ -48,7 +48,7 @@ class RoleController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
             ]);
             
         $role = Role::find($id);

@@ -32,7 +32,7 @@ class UserController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
                 'email' => 'required|email',
                 'password' => 'required|min:8',
             ]);
@@ -68,7 +68,7 @@ class UserController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => 'required|alpha',
+                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
                 'email' => 'required|email',
                 'password' => 'required|min:8',
             ]);
