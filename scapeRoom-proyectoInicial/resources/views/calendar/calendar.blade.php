@@ -55,6 +55,19 @@
                 flex-wrap: wrap;
                 justify-content: flex-start;
             }
+
+            .fc-toolbar-title#fc-dom-1 {
+                font-size: 15px;
+                padding-left:10px;
+                padding-right:10px;
+            }
+        }
+
+         @media (max-width: 670px) {
+            .fc-button-group .fc-button {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
         }
 
         
