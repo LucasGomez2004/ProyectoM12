@@ -29,7 +29,7 @@
         <div class="ml-auto">
             <form action="{{ route('escaperoom.list') }}" method="GET" class="d-flex">
                 <div class="input-group">
-                    <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
+                    <input type="text" name="filterValue" placeholder="Buscar por localidad" class="form-control rounded border-danger text-secondary">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-info bg-danger border-danger">Buscar</button>
                     </div>
@@ -50,8 +50,8 @@
                     <thead>
                         <tr class="bg-danger">
                             <th>Nombre</th>
-                            <th>Localitat</th>
-                            <th>Action</th>
+                            <th>Localidad</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
