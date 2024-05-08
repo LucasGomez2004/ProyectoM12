@@ -5,6 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    
 @stop
 @section('content')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
@@ -51,6 +52,7 @@
                             <div class="form-group">
                                 <label class="required-field" for="firstName">Nombre:</label>
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Escribe aquí tu nombre...">
+                                
                             </div>
                         </div>
                         
@@ -81,11 +83,9 @@
                                 <textarea class="form-control" id="message" name="message" rows="4" placeholder="Explicame cuál es tu problema..."></textarea>
                             </div>
                         </div>
-    
                         <div class="col-sm-12 mb-3">
                             <button type="submit" name="submit" class="btn btn-danger">Enviar</button>
                         </div>
-    
                     </div>
                 </form>
             </div>
