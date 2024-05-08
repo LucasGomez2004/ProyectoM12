@@ -15,28 +15,29 @@
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4" >
-    <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <div>
-                <a href="{{ route('location.new') }}" class="text-danger">    
-                    <i class="fas fa-plus"></i> Añadir Localidad
-                </a>
-                @if(isset($filterValue))
-                    <p>Búsqueda por nombre de localidad ... <b>{{ $filterValue }}</b></p>
-                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
-                    <a href="{{ route('location.list') }}">Limpiar búsqueda</a>
-                @endif
-            </div>
-            <div class="ml-auto">
-                <form action="{{ route('location.list') }}" method="GET" class="d-flex">
-                    <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-info border-danger bg-danger">Buscar</button>
-                        </div>
+    <div class="card-header py-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+    <div class="mb-2 mb-sm-0">
+        <a href="{{ route('location.new') }}" class="text-danger">    
+            <i class="fas fa-plus"></i> Añadir Localidad
+        </a>
+        @if(isset($filterValue))
+            <p class="mt-2 mt-sm-0 mb-0">Búsqueda por nombre de localidad... <b>{{ $filterValue }}</b></p>
+            {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+            <a href="{{ route('location.list') }}">Limpiar búsqueda</a>
+        @endif
+    </div>
+    <div class="ml-auto">
+        <form action="{{ route('location.list') }}" method="GET" class="d-flex">
+            <div class="input-group">
+                <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-info border-danger bg-danger">Buscar</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
+    </div>
+
         <div class="card-body">
             @if (session('status'))
                 <div id="status-message" class="alert" style="background-color: green; color: white; width: 100%; transition: opacity 2s ease;">

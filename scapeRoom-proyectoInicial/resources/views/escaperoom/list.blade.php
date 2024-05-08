@@ -14,28 +14,30 @@
     </div>
     
     <div class="card shadow mb-4">
-    <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <div>
-                <a href="{{ route('escaperoom.new') }}" class="text-danger">    
-                    <i class="fas fa-plus"></i> Añadir Escape Room
-                </a>
-                @if(isset($filterValue))
-                    <p>Búsqueda por nombre de Escape Room ... <b>{{ $filterValue }}</b></p>
-                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
-                    <a href="{{ route('escaperoom.list') }}">Limpiar búsqueda</a>
-                @endif
-            </div>
-            <div class="ml-auto">
-                <form action="{{ route('escaperoom.list') }}" method="GET" class="d-flex">
-                    <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-info bg-danger border-danger">Buscar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <div class="card-header py-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+        <div class="mb-2 mb-sm-0">
+            <a href="{{ route('escaperoom.new') }}" class="text-danger">    
+                <i class="fas fa-plus"></i> Añadir Escape Room
+            </a>
+            @if(isset($filterValue))
+                <p class="mt-2 mt-sm-0 mb-0">Búsqueda por nombre de Escape Room... <b>{{ $filterValue }}</b></p>
+                {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+                <a href="{{ route('escaperoom.list') }}">Limpiar búsqueda</a>
+            @endif
         </div>
+
+        <div class="ml-auto">
+            <form action="{{ route('escaperoom.list') }}" method="GET" class="d-flex">
+                <div class="input-group">
+                    <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-info bg-danger border-danger">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
         <div class="card-body">
             @if (session('status'))
                 <div id="status-message" class="alert" style="background-color: green; color: white; width: 100%; transition: opacity 2s ease;">
@@ -58,7 +60,7 @@
                                 <td>{{$escape->name}}</td>
                                 <td>@isset($escape->location) {{ $escape->location->nom() }} @endisset</td>
                                 
-                                <td style="display: flex">
+                                <td id="tr-icons">
 
                                 <a href="{{ route('escaperoom.edit', ['id' => $escape->id]) }}"class="text-danger">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -85,6 +87,11 @@
     </div>
 
 </div>
+@stop
+
+@section('css')
+<style>
+</style>
 @stop
 
 @section('js')

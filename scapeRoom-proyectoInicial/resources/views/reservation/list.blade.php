@@ -15,28 +15,28 @@
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <div>
-                <span class="text-danger">Listado de todas las reservas</span>
-                @if(isset($filterValue))
-                    <p>Búsqueda por nombre de usuario ... <b>{{ $filterValue }}</b></p>
-                    {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
-                    <a href="{{ route('reservation.list') }}">Limpiar búsqueda</a>
-                @endif
-            </div>
-            
+    <div class="card-header py-3 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+    <div class="mb-2 mb-sm-0">
+        <span class="text-danger">Listado de Reservas</span>
+        @if(isset($filterValue))
+            <p class="mt-2 mt-sm-0 mb-0">Búsqueda por nombre de usuario... <b>{{ $filterValue }}</b></p>
+            {{-- Si necesitas mostrar algún otro detalle de la búsqueda, puedes hacerlo aquí --}}
+            <a href="{{ route('reservation.list') }}">Limpiar búsqueda</a>
+        @endif
+    </div>
 
-            <div class="ml-auto">
-                <form action="{{ route('reservation.list') }}" method="GET" class="d-flex">
-                    <div class="input-group">
-                        <input type="text" name="filterValue" placeholder="Buscar por usuario" class="form-control rounded border-danger">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-danger ">Buscar</button>
-                        </div>
-                    </div>
-                </form>
+    <div class="ml-auto">
+        <form action="{{ route('reservation.list') }}" method="GET" class="d-flex">
+            <div class="input-group">
+                <input type="text" name="filterValue" placeholder="Buscar por usuario" class="form-control rounded border-danger">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-danger ">Buscar</button>
+                </div>
             </div>
-        </div>
+        </form>
+    </div>
+</div>
+
         
         <div class="card-body">
             @if (session('status'))
@@ -50,11 +50,11 @@
                     <thead>
                         <tr class="bg-danger">
                             <th>Usuario</th>
-                            <th>Fecha y hora de inicio</th>
-                            <th>Fecha y hora final</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
                             <th>Localidad</th>
                             <th>Servicio</th>
-                            <th>Número de participantes</th>
+                            <th>Participantes</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
