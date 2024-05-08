@@ -4,6 +4,8 @@
 
 @section('content_header')
 {{ Breadcrumbs::render('user-new') }}
+<script type="text/javascript" src="../js/main.js"></script>
+
 @stop
 
 @section('content')
@@ -14,7 +16,9 @@
 <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-danger"> Crear usuario</h6>
+            
         </div>
+        
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -25,7 +29,7 @@
             </div>
         @endif
         <div class="card-body">
-            <form method="POST" action="{{route('user.new')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('user.new')}}" enctype="multipart/form-data" id="formulari">
                 @csrf
                 <div class="form-group row">
                     {{-- Name --}}
@@ -39,20 +43,22 @@
                             name="name" 
                             value="{{ old('name') }}">
                     </div>
+                    
 
 
                     {{-- Email --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="col-sm-6 mb-3 mb-sm-0" >
                         <span style="color:red;">*</span>Correo electrónico</label>
+                        &nbsp&nbsp&nbsp
+                        <span class="m-0 font-weight-bold text-danger text-right" id="email_error" class="error"></span><span id="similars"></span>
                         <input type="text" 
                             class="form-control form-control-user @error('email') is-invalid @enderror" 
                             id="exampleEmail"
                             placeholder="Correo electrónico" 
                             name="email" 
                             value="{{ old('email') }}">
-
                     </div>
-
+                    
                     {{-- Password --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Contraseña</label>
@@ -90,10 +96,11 @@
 
                 </div>
                 {{-- Save Button --}}
-                <button type="submit" class="btn btn-danger btn-user btn-block">
+                <button type="submit" id="submit" class="btn btn-danger btn-user btn-block">
                     Crear
                 </button>
-                <br>
+                <br>    
+                <div id="reposta"></div>
                 <a href="{{ route('user.list') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de usuarios</a>
 
             </form>
@@ -101,4 +108,5 @@
     </div>
 
 </div>
+
 @stop
