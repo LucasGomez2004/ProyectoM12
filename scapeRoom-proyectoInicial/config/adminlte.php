@@ -300,7 +300,8 @@ return [
             'route' => 'profile.edit',
             'icon' => 'fas fa-fw fa-user',
         ],
-        ['header' => 'Administración'],
+        ['header' => 'Administración',
+        'can' => 'admin'],
         [
             'text' => 'Usuarios',
             'route' => 'user.list',
@@ -343,7 +344,8 @@ return [
             'icon' => 'fas fa-fw fa-calendar',
             'can' => 'admin'
         ],
-        ['header' => 'Otras Opciones'],
+        ['header' => 'Contacto',
+        'can' => 'client'],
         [
             'text' => 'Pagina de contacto',
             'route' => 'contact',
