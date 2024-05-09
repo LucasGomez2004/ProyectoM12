@@ -31,7 +31,7 @@
 
                     {{-- Usuario --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Usuario</label>
+                        <label><span style="color:red;">*</span>Usuario</label>
                         <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
                             <option value="">-- Selecciona un usuario --</option>
                             @foreach ($users as $user)
@@ -44,7 +44,7 @@
                     
                     {{-- start_date --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Fecha de inicio</label>
+                        <label><span style="color:red;">*</span>Fecha de inicio</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('start_date') is-invalid @enderror" 
                             id="start_date"
@@ -55,7 +55,7 @@
 
                     {{-- end_date --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Fecha de final</label>
+                        <label><span style="color:red;">*</span>Fecha de final</label>
                         <input type="datetime-local" 
                             class="form-control form-control-user @error('end_date') is-invalid @enderror" 
                             id="end_date"
@@ -65,7 +65,7 @@
                     
                     {{-- service_id --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Servicios</label>
+                        <label><span style="color:red;">*</span>Servicios</label>
                         <select name="service_id" class="form-control @error('role_id') is-invalid @enderror">
                             <option value="">-- Selecciona un Servicio --</option>
                             @foreach ($services as $service)
@@ -78,7 +78,7 @@
                 
                     {{-- location_id --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Localidad</label>
+                        <label><span style="color:red;">*</span>Localidad</label>
                         <select name="location_id" class="form-control @error('location_id') is-invalid @enderror">
                             <option value="">-- Selecciona una Localidad --</option>
                             @foreach ($locations as $location)
@@ -91,7 +91,7 @@
 
                     {{-- participants --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Número de participantes</label>
+                        <label><span style="color:red;">*</span>Número de participantes</label>
                         <select name="participants" class="form-control @error('participants') is-invalid @enderror">
                             <option value="">-- Selecciona un número de participantes --</option>
                             <option value="2">2</option>

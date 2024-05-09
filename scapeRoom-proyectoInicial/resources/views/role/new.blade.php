@@ -32,7 +32,7 @@
                 <div class="form-group row">
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Nombre</label>
+                        <label><span style="color:red;">*</span>Nombre</label>
                         <input 
                             type="text" 
                             class="form-control form-control-user @error('name') is-invalid @enderror" 

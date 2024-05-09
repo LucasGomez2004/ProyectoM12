@@ -31,7 +31,7 @@
                 <div class="form-group row">
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Nombre</label>
+                        <label><span style="color:red;">*</span>Nombre</label>
                         <input 
                             type="text" 
                             class="form-control form-control-user @error('name') is-invalid @enderror" 
@@ -43,7 +43,7 @@
 
                     {{-- Location --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Localidad</label>
+                        <label><span style="color:red;">*</span>Localidad</label>
                         <select name="location_id" class="form-control @error('location_id') is-invalid @enderror">
                             <option value="">-- Selecciona una Localidad --</option>
                             @foreach ($locations as $location)

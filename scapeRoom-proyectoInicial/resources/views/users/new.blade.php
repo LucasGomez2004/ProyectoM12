@@ -34,7 +34,7 @@
                 <div class="form-group row">
                     {{-- Name --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Nombre</label>
+                        <label><span style="color:red;">*</span>Nombre</label>
                         <input 
                             type="text" 
                             class="form-control form-control-user @error('name') is-invalid @enderror" 
@@ -45,13 +45,11 @@
                     </div>
                     
 
-
                     {{-- Email --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label for="exampleEmail"><span style="color:red;">*</span>Correo electrónico</label>
-                        &nbsp&nbsp&nbsp
-                        <span class="m-0 font-weight-bold text-danger text-right" id="email_error" class="error"></span><span id="similars"></span>
-                        <input type="email" 
+                        <input 
+                            type="email" 
                             class="form-control form-control-user @error('email') is-invalid @enderror" 
                             id="exampleEmail"
                             placeholder="Correo electrónico" 
@@ -59,10 +57,11 @@
                             value="{{ old('email') }}" 
                             required>
                     </div>
+
                     
                     {{-- Password --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Contraseña</label>
+                        <label><span style="color:red;">*</span>Contraseña</label>
                         <input type="text" 
                             class="form-control form-control-user @error('password') is-invalid @enderror" 
                             id="examplePassword"
@@ -73,7 +72,7 @@
                     
                     {{-- Avatar --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        &nbsp Foto de perfil  </label>
+                        <label>&nbsp Foto de perfil  </label>
                         <input type="file" 
                             class="form-control form-control-user @error('avatar') is-invalid @enderror" 
                             id="exampleAvatar"
@@ -84,7 +83,7 @@
                 
                     {{-- rol --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <span style="color:red;">*</span>Rol</label>
+                        <label><span style="color:red;">*</span>Rol</label>
                         <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
                             <option value="">-- Selecciona un Rol --</option>
                             @foreach ($roles as $role)
