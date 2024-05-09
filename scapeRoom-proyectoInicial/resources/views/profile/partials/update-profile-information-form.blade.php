@@ -28,7 +28,7 @@
         <br>
         <div class="mb-3">
             <x-input-label class="text-dark" for="name" :value="__('Foto de Perfil')" />
-            <input class="form-control" type="file" id="avatar" name="avatar">
+            <input class="form-control bg-light" type="file" id="avatar" name="avatar">
         </div>
 
         <div>
