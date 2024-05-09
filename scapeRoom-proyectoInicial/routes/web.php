@@ -140,6 +140,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
     Route::match(['get', 'post'], '/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
     Route::match(['get', 'post'], '/privacidad', [App\Http\Controllers\ClientController::class, 'privacidad'])->name('client.privacidad');
+    Route::match(['get', 'post'], '/reserva', [App\Http\Controllers\ClientController::class, 'reserva'])->name('client.reserva');
 
 require __DIR__.'/auth.php';
 

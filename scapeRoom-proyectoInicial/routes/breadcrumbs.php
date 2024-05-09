@@ -140,3 +140,8 @@ Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
     $trail->push('Contacto', route('contact'));
 });
 
+Breadcrumbs::for('reservation-client', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Reserva', route('client.reserva'));
+});
+

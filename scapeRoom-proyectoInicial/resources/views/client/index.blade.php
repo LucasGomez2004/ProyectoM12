@@ -13,7 +13,11 @@
         <h5 class="widget-user-desc">@isset(Auth::user()->role) {{ Auth::user()->role->nom() }} @endisset</h5>
     </div>
     <div class="widget-user-image">
-        <img class="img-circle" src="{{Auth::user()->avatar}}" alt="User Avatar">
+        @if(Auth::check() && Auth::user()->avatar)
+            <img class="img-circle" src="{{ Auth::user()->avatar }}" alt="User Avatar">
+        @else
+            <img class="img-circle" src="{{ asset('images/avatar.png') }}" alt="Default Avatar">
+        @endif
     </div>
     <div class="card-footer ">
         <div class="row">

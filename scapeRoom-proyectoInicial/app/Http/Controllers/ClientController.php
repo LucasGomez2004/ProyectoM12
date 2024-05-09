@@ -9,4 +9,8 @@ class ClientController extends Controller
     public function privacidad(){
         return view('client.privacidad');
     }
+
+    public function reserva(){
+        return view('client.reserva');
+    }
 }
