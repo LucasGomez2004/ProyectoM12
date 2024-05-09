@@ -10,9 +10,10 @@
 @section('content')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 <div class="container">
-<div class="col-lg-12 contact-form__wrapper p-5 order-lg-1">
+<div class="col-lg-12" id="status-message">
+                <script src="{{ asset('js/welcome.js')}}"></script>
                 @if ($errors->any())
-                <div class="col-lg-12 contact-form__wrapper p-5 order-lg-1">
+                <div class="col-lg-12 contact-form__wrapper" >
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
