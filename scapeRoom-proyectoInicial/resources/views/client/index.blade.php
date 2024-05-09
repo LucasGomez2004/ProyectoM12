@@ -34,3 +34,15 @@
 @section('js')
     <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
 @stop
+
+@section('footer')
+<strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
+    <div class="float-right d-none d-sm-inline">
+        <strong>
+            <a href="{{ url('privacidad') }}">Privacidad</a> |
+            <a href="{{ url('politica') }}">Política</a>
+        </strong>
+    </div>
+</footer>
+
+@stop
