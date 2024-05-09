@@ -123,6 +123,7 @@
 </div>
 
 </div>
+<br>
 @stop
 
 
@@ -211,7 +212,7 @@
         markMataro.bindTooltip("Mataro").openTooltip();
     </script>
 @stop
-<br>
+
 @section('footer')
     <strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
     <div class="float-right d-none d-sm-inline">
