@@ -47,16 +47,17 @@
 
 
                     {{-- Email --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0" >
-                        <span style="color:red;">*</span>Correo electrónico</label>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <label for="exampleEmail"><span style="color:red;">*</span>Correo electrónico</label>
                         &nbsp&nbsp&nbsp
                         <span class="m-0 font-weight-bold text-danger text-right" id="email_error" class="error"></span><span id="similars"></span>
-                        <input type="text" 
+                        <input type="email" 
                             class="form-control form-control-user @error('email') is-invalid @enderror" 
                             id="exampleEmail"
                             placeholder="Correo electrónico" 
                             name="email" 
-                            value="{{ old('email') }}">
+                            value="{{ old('email') }}" 
+                            required>
                     </div>
                     
                     {{-- Password --}}
