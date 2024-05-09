@@ -8,6 +8,7 @@ use App\Http\Controllers\EscapeRoomController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
@@ -138,6 +139,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
 Route::middleware(['auth', 'can:client'])->group(function () {
     Route::match(['get', 'post'], '/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
     Route::match(['get', 'post'], '/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
+    Route::match(['get', 'post'], '/privacidad', [App\Http\Controllers\ClientController::class, 'privacidad'])->name('client.privacidad');
 });
 
 require __DIR__.'/auth.php';

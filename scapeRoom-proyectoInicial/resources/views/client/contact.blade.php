@@ -211,3 +211,12 @@
         markMataro.bindTooltip("Mataro").openTooltip();
     </script>
 @stop
+<br>
+@section('footer')
+    <strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
+    <div class="float-right d-none d-sm-inline">
+        <strong>
+            <a href="{{ route('client.privacidad') }}">Política de privacidad</a> 
+        </strong>
+    </div>
+@stop
