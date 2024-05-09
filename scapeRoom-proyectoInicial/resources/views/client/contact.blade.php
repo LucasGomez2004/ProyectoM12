@@ -13,7 +13,7 @@
 <div class="col-lg-12" id="status-message">
                 <script src="{{ asset('js/welcome.js')}}"></script>
                 @if ($errors->any())
-                <div class="col-lg-12 contact-form__wrapper" >
+                <div class="col-lg-12" >
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -96,28 +96,31 @@
     </div>
 
     <div class="col-lg-12 bg-danger p-5">
-        <div class="row">
-            <div class="col-5 align-self-center">
+    <div class="row">
+        <div class="col-md-5 align-self-center">
             <h1>¿Dónde encontrarnos?</h1>
+        </div>
+        <div class="col-md">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><b>Granollers:</b><br>Carrer del Camp de les Moreres, 14, 08401</p>
+                </div>
+                <div class="col-md-6">
+                    <p><b>Cardedeu:</b><br>Passeig de Pau Gesa, 1, 08440</p>
+                </div>
             </div>
-            <div class="col">
-                <div class="row">
-                    <p><b>Granollers: </b><br>Carrer del Camp de les Moreres, 14, 08401</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><b>Les Franqueses:</b><br>Carretera de Ribes, 4, 08520</p>
                 </div>
-                <div class="row">
-                    <p><b>Cardedeu: </b><br>Passeig de Pau Gesa, 1, 08440</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <p><b>Les Franqueses: </b><br>Carretera de Ribes, 4, 08520</p>
-                </div>
-                <div class="row">
-                    <p><b>Mataró: </b><br>Carrer Puig i Pidemunt, 12, 08302</p>
+                <div class="col-md-6">
+                    <p><b>Mataró:</b><br>Carrer Puig i Pidemunt, 12, 08302</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 </div>
 @stop
 
@@ -167,6 +170,13 @@
         padding: 5rem !important
     }
 }
+
+@media (max-width: 970px) {
+    .contact-info__wrapper {
+        height: 200px;     
+    }
+}
+
 .shadow-lg, .shadow-lg--on-hover:hover {
     box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
 }
