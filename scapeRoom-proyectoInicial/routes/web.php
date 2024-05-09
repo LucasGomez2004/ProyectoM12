@@ -136,11 +136,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete'])->name('reservation.delete');
 });
 
-Route::middleware(['auth', 'can:client'])->group(function () {
+
     Route::match(['get', 'post'], '/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
     Route::match(['get', 'post'], '/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
     Route::match(['get', 'post'], '/privacidad', [App\Http\Controllers\ClientController::class, 'privacidad'])->name('client.privacidad');
-});
 
 require __DIR__.'/auth.php';
 

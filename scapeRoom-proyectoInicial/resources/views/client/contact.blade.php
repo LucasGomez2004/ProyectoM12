@@ -46,7 +46,7 @@
             </div>
             
             
-            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1 bg-light">
                 <form method="POST" action="{{ route('enviar.mensaje') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
