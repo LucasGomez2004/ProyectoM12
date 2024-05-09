@@ -22,8 +22,6 @@ Breadcrumbs::for('home/user-list', function (BreadcrumbTrail $trail) {
     $trail->push('Lista de Usuarios', route('user.list'));
 });
 
-//--------------------------------------------------------------------------//
-//HAZLO AQUI
 Breadcrumbs::for('calendario', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Calendario', route('calendar.calendar'));
@@ -136,3 +134,9 @@ Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Perfil', route('profile.edit'));
 });
+
+Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Contacto', route('contact'));
+});
+

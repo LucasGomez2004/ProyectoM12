@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Contacto')
 @section('content_header')
+{{ Breadcrumbs::render('contact') }}
     <h1 class="text-center"><b>Formulario de contacto</b></h1>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
