@@ -33,8 +33,11 @@ class UserController extends BaseController
 
             $request->validate([
                 'name' => ['required', 'regex:/^[\pL\s]+$/u'],
-                'email' => 'required|email',
+                'email' => 'required|email|unique:users',
                 'password' => 'required|min:8',
+            ], 
+            [
+                'email.unique' => 'El correo electrónico ya ha sido registrado.', // Aquí puedes personalizar el mensaje de error
             ]);
 
             $user = new User;
