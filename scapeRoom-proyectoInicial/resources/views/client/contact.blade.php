@@ -187,27 +187,27 @@
 @section('js')
 <script>
         // Granollers
-        const latICVGranollers = 41.60797885210383;
-        const lonICVGranollers = 2.287634119459574;
+        const latICVGranollers = 41.60091508344069;
+        const lonICVGranollers = 2.2830739686213555;
         var mapGranollers = L.map('map').setView([latICVGranollers, lonICVGranollers], 10);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mapGranollers);
         var markGranollers = L.marker([latICVGranollers, lonICVGranollers]).addTo(mapGranollers)
         markGranollers.bindTooltip("Granollers").openTooltip();
-        // Cardedeu
-        const latICVCardedeu = 41.638805932556934;
-        const lonICVCardedeu = 2.3558900779693124;
+        // Cardedeu 
+        const latICVCardedeu = 41.63748347501716;
+        const lonICVCardedeu = 2.356835982114256;
         var markCardedeu = L.marker([latICVCardedeu, lonICVCardedeu]).addTo(mapGranollers)
         markCardedeu.bindTooltip("Cardedeu").openTooltip();
         // Franqueses
-        const latICVFranqueses = 41.63674266071734;
-        const lonICVFranqueses = 2.297285983484984;
+        const latICVFranqueses = 41.63566949153328;
+        const lonICVFranqueses = 2.2964988397865382;
         var markFranqueses = L.marker([latICVFranqueses, lonICVFranqueses]).addTo(mapGranollers)
         markFranqueses.bindTooltip("Franqueses").openTooltip();
         // Mataro
-        const latICVMataro = 41.540022173773245;
-        const lonICVMataro = 2.4447200904632536;
+        const latICVMataro = 41.5322703683976;
+        const lonICVMataro = 2.4313265839633957;
         var markMataro = L.marker([latICVMataro, lonICVMataro]).addTo(mapGranollers)
         markMataro.bindTooltip("Mataro").openTooltip();
     </script>
