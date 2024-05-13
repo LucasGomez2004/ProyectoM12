@@ -144,4 +144,8 @@ Breadcrumbs::for('reservation-client', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Reserva', route('client.reserva'));
 });
+Breadcrumbs::for('user-reservation', function (BreadcrumbTrail $trail) {
+    $trail->parent('reservation-client');
+    $trail->push('Mis Reservas', route('client.user-reservation'));
+});
 

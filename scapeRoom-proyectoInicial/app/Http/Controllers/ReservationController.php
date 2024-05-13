@@ -110,4 +110,56 @@ class ReservationController extends Controller
 
         return redirect()->route('reservation.list')->with('status', 'Reserva con id '.$reservation->id.' Eliminada!');
     }
+
+    function reserva(Request $request){
+
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'start_date' => 'required|date',
+                'end_date' => 'required|date|after:start_date',
+                'service_id' => 'required|exists:services,id',
+                'location_id' => 'required|exists:location,id',
+                'participants' => 'required',
+                'user_id' => 'required|exists:users,id',
+            ]);
+
+            $reservation = new Reservation;
+            $reservation->start_date = $request->start_date;
+            $reservation->end_date = $request->end_date;
+            $reservation->service_id = $request->service_id;
+            $reservation->location_id = $request->location_id;
+            $reservation->participants = $request->participants;
+            $reservation->user_id = $request->user_id;
+
+            $reservation->save();
+
+            return redirect()->route('reservation.list')->with('status', 'Nueva Reserva con id '.$reservation->id.' Creada!');
+        }
+
+        $locations = Location::all();
+        $services = Service::all();
+        $users = User::all();
+        return view('client.reserva',['locations' => $locations, 'services' => $services, 'users' => $users]);
+    }
+
+    public function userReservation(){
+        $user = \Auth::user();
+
+        $reservations = Reservation::where('user_id', $user->id)
+            ->paginate(10);
+
+        return view('client.user-reservation', ['reservations' => $reservations]);
+    }
+
+    function reservationClientDelete($id) 
+    { 
+        $reservation = Reservation::find($id);
+        if($reservation->user_id !== \Auth::id()){
+            return redirect()->route('client.user-reservation')->with('error', 'No tienes permisos para eliminar esta reserva.');
+        }
+        $reservation->delete();
+
+        return redirect()->route('client.user-reservation')->with('status', 'Reserva Anulada con Éxito');
+    }
 }
+

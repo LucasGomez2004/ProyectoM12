@@ -61,3 +61,20 @@ function confirmDelete(deleteUrl) {
         }
     });
 }
+
+function confirmDeleteReservation(deleteUrl) {
+    Swal.fire({
+        title: "¿Quieres Anular tu Reserva?",
+        text: "¡No podrás revertir los cambios!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "green",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, Anular",
+        cancelButtonText: "Cancelar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = deleteUrl;
+        }
+    });
+}

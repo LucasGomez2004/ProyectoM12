@@ -370,6 +370,12 @@ return [
             'icon' => 'fas fa-solid fa-shopping-cart',
             'can' => 'client'
         ],
+        [
+            'text' => 'Mis Reservas',
+            'route' => 'client.user-reservation',
+            'icon' => 'fas fa-solid fa-book',
+            'can' => 'client'
+        ],
     ],
 
     /*
