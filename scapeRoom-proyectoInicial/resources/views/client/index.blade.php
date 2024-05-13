@@ -27,11 +27,13 @@
 				<h1 class="postcard__title blue"><a href="#">Granollers</a></h1>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">L'Escape Room de Granollers ofereix una experiència immersiva on els participants han de resoldre énigmes i puzzles en una habitació temàtica per aconseguir escapar abans que s'acabi el temps. Amb temes intrigants com desxifrar codis secrets o resoldre misteris, aquesta atracció promet diversió i emoció per a grups d'amics, famílies o companys de treball que busquen una aventura memorable.</div>
+				<br>
+				<div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
 					<li class="tag__item play blue">
-						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-play mr-2"></i>Reserva</a>
 					</li>
 				</ul>
 			</div>
@@ -44,6 +46,8 @@
 				<h1 class="postcard__title red"><a href="#">Cardedeu</a></h1>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">L'Escape Room de Cardedeu et convida a viure una experiència fascinant on hauràs de posar a prova la teva astúcia i habilitat per resoldre els enigmes més complexos. Ambientat en escenaris únics i temàtiques emocionants, aquesta aventura et portarà a un món ple de misteris i intriga. Ja sigui amb amics, família o companys de treball, prepara't per a una escapada inoblidable a Cardedeu.</div>
+				<br>
+				<div class="postcard__calle-txt"><b>Passeig de Pau Gesa, 1, 08440</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
@@ -61,6 +65,8 @@
 				<h1 class="postcard__title green"><a href="#">Les Franqueses del Vallès</a></h1>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">Descobreix una nova dimensió d'entreteniment a Les Franqueses del Vallès amb l'Escape Room local. Amb una combinació de reptes mental i treball en equip, aquesta experiència et transportarà a escenaris emocionants on hauràs de desxifrar codis i trobar pistes per aconseguir escapar. Una opció perfecta per a grups que busquen una activitat estimulant i divertida a Les Franqueses.</div>
+				<br>
+				<div class="postcard__calle-txt"><b>Carretera de Ribes, 4, 08520</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
@@ -78,6 +84,8 @@
 				<h1 class="postcard__title yellow"><a href="#">Mataró</a></h1>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">L'Escape Room de Mataró et proposa una aventura plena d'emoció i adrenalina en la qual hauràs de posar a prova les teves habilitats detectivesques. Desxifra codis, resol misteris i treballa en equip per superar tots els reptes i aconseguir escapar abans que s'acabi el temps. Amb temes variats i emocionants, és una experiència perfecta per a tot tipus de grups a Mataró.</div>
+				<br>
+				<div class="postcard__calle-txt"><b>Carrer Puig i Pidemunt, 12, 08302</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
@@ -195,6 +203,10 @@ a, a:hover {
     position: relative;
     display: flex;
     flex-direction: column;
+  }
+
+  .postcard__calle-txt{
+	font-size: 12px;
   }
 
   .postcard__preview-txt {

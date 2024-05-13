@@ -112,7 +112,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <p><b>Les Franqueses:</b><br>Carretera de Ribes, 4, 08520</p>
+                    <p><b>Les Franqueses del Vallès:</b><br>Carretera de Ribes, 4, 08520</p>
                 </div>
                 <div class="col-md-6">
                     <p><b>Mataró:</b><br>Carrer Puig i Pidemunt, 12, 08302</p>
