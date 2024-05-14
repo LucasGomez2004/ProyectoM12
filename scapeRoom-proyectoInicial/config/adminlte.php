@@ -140,6 +140,8 @@ return [
     'usermenu_desc' => false,
     'usermenu_profile_url' => true,
 
+    
+
     /*
     |--------------------------------------------------------------------------
     | Layout
@@ -295,11 +297,6 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
         [
             'type' => 'darkmode-widget',
             'topnav_right' => true,
