@@ -7,154 +7,179 @@
 @stop
 
 @section('content')
-<div class="container-fluid">
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Reserva</h1>
-    </div>
-<div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger"> Crear Reserva</h6>
-        </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <div class="card-body">
-            <form method="POST" action="{{route('reservation.new')}}" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group row">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Reserva</div>
 
-                    {{-- Usuario --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Usuario</label>
-                        <select name="user_id" class="form-control @error('user_id') is-invalid @enderror">
-                            <option value="">-- Selecciona un usuario --</option>
-                            @foreach ($users as $user)
-                                <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                                    {{ $user->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    
-                    {{-- start_date --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Fecha de inicio</label>
-                        <input type="datetime-local" 
-                            class="form-control form-control-user @error('start_date') is-invalid @enderror" 
-                            id="start_date"
-                            name="start_date" 
-                            value="{{ old('start_date') }}">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('client.reserva') }}">
+                        @csrf
 
-                    </div>
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">Ubicación:</label>
 
-                    {{-- end_date --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Fecha de final</label>
-                        <input type="datetime-local" 
-                            class="form-control form-control-user @error('end_date') is-invalid @enderror" 
-                            id="end_date"
-                            name="end_date" 
-                            value="{{ old('end_date') }}">
-                    </div>
-                    
-                    {{-- service_id --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Servicios</label>
-                        <select name="service_id" class="form-control @error('role_id') is-invalid @enderror">
-                            <option value="">-- Selecciona un Servicio --</option>
-                            @foreach ($services as $service)
-                                <option value="{{ $service->id }}"  {{ old('service_id') == $service->id ? 'selected' : '' }}>
-                                    {{ $service->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                
-                    {{-- location_id --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Localidad</label>
-                        <select name="location_id" class="form-control @error('location_id') is-invalid @enderror">
-                            <option value="">-- Selecciona una Localidad --</option>
-                            @foreach ($locations as $location)
-                                <option value="{{ $location->id }}" {{ old('location_id') == $location->id ? 'selected' : '' }}>
-                                    {{ $location->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
+                            <div class="col-md-6">
+                                <select id="location" class="form-control" name="location_id">
+                                    <option value="">Selecciona una ubicación</option>
+                                    @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                    @endforeach
+                                </select>
 
-                    {{-- participants --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <label><span style="color:red;">*</span>Número de participantes</label>
-                        <select name="participants" class="form-control @error('participants') is-invalid @enderror">
-                            <option value="">-- Selecciona un número de participantes --</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="0">-- Escoger, en caso, de limpieza --</option>
-                        </select>
-                    </div>
+                                @error('location_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="service" class="col-md-4 col-form-label text-md-right">Servicio:</label>
+
+                            <div class="col-md-6">
+                                <select id="service" class="form-control" name="service_id">
+                                    <option value="">Selecciona un servicio</option>
+                                    @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('service_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="date" class="col-md-4 col-form-label text-md-right">Selecciona una fecha:</label>
+
+                            <div class="col-md-6">
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" required>
+
+                                @error('date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="participants" class="col-md-4 col-form-label text-md-right">Número de Participantes:</label>
+
+                            <div class="col-md-6">
+                                <select id="participants" class="form-control" name="participants">
+                                    <option value="">Selecciona el número de participantes</option>
+                                    @for ($i = 2; $i <= 6; $i++)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
+
+                                @error('participants')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="selected_hour" class="col-md-4 col-form-label text-md-right">Selecciona una hora:</label>
+
+                            <div class="col-md-6">
+                                <!-- Este campo oculto almacenará la hora seleccionada -->
+                                <input id="selected_hour" type="hidden" name="selected_hour" value="">
+                                
+                                <!-- Aquí se mostrarán los botones de las horas disponibles -->
+                                <div id="available-hours">
+                                    <!-- Los botones se agregarán dinámicamente aquí -->
+                                </div>
+                                
+                                @error('selected_hour')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                {{-- Save Button --}}
-                <button type="submit" class="btn btn-danger btn-user btn-block">
-                    Crear
-                </button>
-                <br>
-                <a href="{{ route('calendar.calendar') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Reservas</a>
-
-            </form>
+            </div>
         </div>
     </div>
-
 </div>
 
+@endsection
+
+@section('footer')
+<strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
+<div class="float-right d-none d-sm-inline">
+    <strong>
+        <a href="{{ route('client.privacidad') }}">Política de privacidad</a>
+    </strong>
+</div>
+@stop
+
+@section('js')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var start_date = document.getElementById('start_date');
-        var end_date = document.getElementById('end_date');
+        // Cuando se seleccione una fecha
+        document.getElementById('date').addEventListener('change', function () {
+            var selectedDate = this.value;
+            var locationId = document.getElementById('location').value;
+            var serviceId = document.getElementById('service').value;
 
-        function roundMinutesToNearest30(date) {
-            var minutes = date.getMinutes();
-            var roundedMinutes = minutes < 30 ? 0 : 30; 
-            date.setMinutes(roundedMinutes);
-            return date;
-        }
+            // Realizar una solicitud AJAX para obtener las horas disponibles para esa fecha
+            $.ajax({
+                url: "{{ route('getAvailableHours') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    selected_date: selectedDate,
+                    location_id: locationId,
+                    service_id: serviceId
+                },
+                success: function (response) {
+                    // Limpiar el contenedor de horas disponibles
+                    $('#available-hours').html('');
 
-        function convertToBrowserTimezone(date) {
-            var offset = date.getTimezoneOffset();
-            var newDate = new Date(date.getTime() - (offset * 60 * 1000));
-            return newDate;
-        }
+                    // Verificar si hay horas disponibles
+                    if (response.available_hours.length > 0) {
+                        // Mostrar las horas disponibles
+                        response.available_hours.forEach(function (hour) {
+                            // Formatear la hora en el formato deseado
+                            var formattedHour = hour.start + ' - ' + hour.end;
 
-        [start_date, end_date].forEach(function (input) {
-            input.addEventListener('input', function () {
-                var selectedDate = new Date(input.value);
-                var browserTimezoneDate = convertToBrowserTimezone(selectedDate);
-                var roundedDate = roundMinutesToNearest30(browserTimezoneDate);
-                input.value = roundedDate.toISOString().slice(0, 16);
+                            // Crear un botón para la hora disponible y agregarlo al contenedor
+                            var button = $('<button type="button" class="btn btn-primary mr-2">' + formattedHour + '</button>');
+                            button.click(function() {
+                                // Cuando se hace clic en un botón, actualizar el valor del campo oculto
+                                $('#selected_hour').val(hour.start);
+                            });
+                            $('#available-hours').append(button);
+                        });
+                    } else {
+                        $('#available-hours').html('<div>No hay horas disponibles para esta fecha, ubicación y servicio.</div>');
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
             });
         });
     });
 </script>
-
-@stop
-
-
-
-@section('footer')
-    <strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
-    <div class="float-right d-none d-sm-inline">
-        <strong>
-            <a href="{{ route('client.privacidad') }}">Política de privacidad</a> 
-        </strong>
-    </div>
-@stop
+@endsection

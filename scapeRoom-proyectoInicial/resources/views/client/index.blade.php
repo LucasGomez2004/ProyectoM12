@@ -8,11 +8,12 @@
 
 @section('content')
 <!-- The video -->
-<div class="embed-responsive embed-responsive-16by9">
-    <video autoplay muted controls loop id="myVideo" class="embed-responsive-item">
+<div class="embed-responsive embed-responsive-16by9" style="max-width: 90%; margin: 0 auto;">
+    <video autoplay muted controls loop id="myVideo" class="embed-responsive-item" style="width: 100%; height: auto;">
         <source src="images/video.mp4" type="video/mp4">
     </video>
 </div>
+
 <br>
 <br>
 <section>
@@ -102,6 +103,14 @@
 @stop
 
 @section('css')
+<style>
+	@media screen and (max-width: 768px) {
+        .embed-responsive-16by9 {
+            max-width: 100%;
+        }
+    }
+</style>
+
     {{-- Add here extra stylesheets --}}
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <style>
