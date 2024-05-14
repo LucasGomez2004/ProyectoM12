@@ -47,7 +47,13 @@ class User extends Authenticatable
     ];
 
     public function adminlte_image(){
-        return 'https://i.pinimg.com/originals/9a/b1/b4/9ab1b479b757936cabbea81739ab0d8b.png';
+        if($this->google_id){
+            return $this->avatar;
+        } elseif ($this->avatar) {
+            return asset('uploads/imatges/' . $this->avatar);
+        } else {
+            return asset('images/carasilueta.png');
+        }
     }
 
     public function adminlte_profile_url(){

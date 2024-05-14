@@ -30,5 +30,10 @@
 @stop
 
 @section('css')
+    <style>
+    .nav-link.dropdown-toggle {
+        display: flex !important; 
+    }
+    </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 @stop
