@@ -18,7 +18,7 @@
 <div class="min-w-screen min-h-screen bg-light-900 flex items-center justify-center px-5 py-5">
     <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
         <div class="md:flex w-full">
-            <div style="background-image:url('{{ asset('images/inicio.gif') }}'); background-size:cover;" class="hidden md:block w-1/2 bg-indigo-500 py-10 px-10"></div>
+            <div style="background-image:url('{{ asset('images/inicio.gif') }}'); background-size:cover;" class="hidden md:block w-1/2 bg-white-500 py-10 px-10"></div>
             <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div class="mb-10">
                     <br>

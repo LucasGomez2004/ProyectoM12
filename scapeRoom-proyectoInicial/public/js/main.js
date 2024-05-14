@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
         var email = this.value;
         validarEmail(email);
     });
+
+    document.getElementById('filterRol').addEventListener('change', function() {
+        var selectedRole = this.value;
+        filterByRole(selectedRole);
+    });
     
     document.getElementById('formulari').addEventListener('submit', function(event) {
         var email = document.getElementById('exampleEmail').value;

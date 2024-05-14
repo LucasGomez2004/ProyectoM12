@@ -13,7 +13,7 @@ use Illuminate\Validation\Rule;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
-class UserController extends BaseController
+class EmpleadoController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
@@ -22,16 +22,9 @@ class UserController extends BaseController
         $filterValue = $request->input("filterValue");
         $usersFilter = User::where('name', 'LIKE', '%'.$filterValue.'%');
 
-        $filterRol = $request->input("filterRol");
-        if ($filterRol) {
-            $usersFilter->whereHas('role', function ($query) use ($filterRol) {
-                $query->where('name', 'LIKE', '%'.$filterRol.'%');
-            });
-        }
-
         $users = $usersFilter->paginate(5);
-        $roles = Role::all();
-        return view('users.list' , ['users' => $users, 'filterValue' => $filterValue, 'filterRol' => $filterRol, 'roles' => $roles]);
+
+        return view('empleado.list' , ['users' => $users]);
     }
 
     function new(Request $request) 
