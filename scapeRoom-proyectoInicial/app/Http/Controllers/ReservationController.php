@@ -36,9 +36,17 @@ class ReservationController extends Controller
         ->join('users', 'reservations.user_id', '=', 'users.id')
         ->where('users.name', 'like', '%' . $filterValue . '%');
 
-        $reservation = $reservationFilter->paginate(10);
+        $filterLocalidad = $request->input("filterLocalidad");
+        if ($filterLocalidad) {
+            $reservationFilter->whereHas('location', function ($query) use ($filterLocalidad) {
+                $query->where('name', 'LIKE', '%'.$filterLocalidad.'%');
+            });
+        }
 
-        return view('reservation.list' , ['reservation' => $reservation, 'filterValue' => $filterValue]);
+        $reservation = $reservationFilter->paginate(10);
+        $locations = Location::all();
+
+        return view('reservation.list' , ['reservation' => $reservation, 'filterValue' => $filterValue, 'filterLocalidad' => $filterLocalidad, 'locations' => $locations]);
     }
 
     function new(Request $request){

@@ -1,5 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    // FILTRAR POR ROL (USUARIOS)
+
     var filterRol = document.getElementById('filterRol');
     if (filterRol) {
         filterRol.addEventListener('change', function() {
@@ -11,13 +14,32 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Obtener el valor de filterRol pasado en la URL (si existe)
         var urlParams = new URLSearchParams(window.location.search);
         var selectedRole = urlParams.get('filterRol');
 
-        // Si filterRol tiene un valor, establecer la opción seleccionada en el select
         if (selectedRole) {
             document.getElementById('filterRol').value = selectedRole;
+        }
+    }
+
+    // FILTRAR POR LOCALIDAD (RESERVAS)
+    
+    var filterLocalidad = document.getElementById('filterLocalidad');
+    if (filterLocalidad) {
+        filterLocalidad.addEventListener('change', function() {
+            var selectedLocation = this.value;
+            if (selectedLocation === '0') {
+                window.location.href = reservationListUrl;
+            } else {
+                document.getElementById('filterForm').submit();
+            }
+        });
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedLocation = urlParams.get('filterLocalidad');
+
+        if (selectedLocation) {
+            document.getElementById('filterLocalidad').value = selectedLocation;
         }
     }
 });
@@ -38,4 +60,5 @@ function filterByRole(role) {
     };
     xhr.send();
 }
+
 
