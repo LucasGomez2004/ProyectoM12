@@ -164,12 +164,12 @@ class ReservationController extends Controller
         // Obtener la fecha seleccionada y las IDs de ubicación y servicio
         $selectedDate = $request->selected_date;
         $locationId = $request->location_id;
-        $serviceId = $request->service_id;
+        //$serviceId = $request->service_id;
     
         // Obtener todas las reservas para la ubicación y el servicio seleccionados en la fecha seleccionada
         $reservations = Reservation::whereDate('start_date', $selectedDate)
             ->where('location_id', $locationId)
-            ->where('service_id', $serviceId)
+            //->where('service_id', $serviceId)
             ->get();
     
         // Inicializar un arreglo para almacenar las horas disponibles
