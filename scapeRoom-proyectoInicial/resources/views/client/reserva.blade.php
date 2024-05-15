@@ -135,14 +135,17 @@
 
 @section('js')
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Cuando se seleccione una fecha
-        document.getElementById('date').addEventListener('change', function () {
-            var selectedDate = this.value;
-            var locationId = document.getElementById('location').value;
-            var serviceId = document.getElementById('service').value;
+    $(document).ready(function () {
+    // Función para cargar las horas disponibles
+    function loadAvailableHours() {
+        // Obtener los valores seleccionados de fecha, ubicación y servicio
+        var selectedDate = $('#date').val();
+        var locationId = $('#location').val();
+        var serviceId = $('#service').val();
 
-            // Realizar una solicitud AJAX para obtener las horas disponibles para esa fecha
+        // Verificar si tanto la fecha como la ubicación están seleccionadas
+        if (selectedDate && locationId) {
+            // Realizar una solicitud AJAX para obtener las horas disponibles para esa fecha, ubicación y servicio
             $.ajax({
                 url: "{{ route('getAvailableHours') }}",
                 type: "POST",
@@ -165,7 +168,7 @@
 
                             // Crear un botón para la hora disponible y agregarlo al contenedor
                             var button = $('<button style="margin-top:10px;padding:10px;" type="button" class="btn btn-success bg-gradient-success mr-2">' + formattedHour + '</button>');
-                            button.click(function() {
+                            button.click(function () {
                                 // Cuando se hace clic en un botón, actualizar el valor del campo oculto
                                 $('#selected_hour').val(hour.start);
                             });
@@ -179,7 +182,22 @@
                     console.log(xhr.responseText);
                 }
             });
-        });
+        }
+    }
+
+    // Cuando se seleccione una fecha
+    $('#date').change(function () {
+        // Cargar las horas disponibles
+        loadAvailableHours();
     });
+
+    // Cuando se seleccione una ubicación
+    $('#location').change(function () {
+        // Cargar las horas disponibles
+        loadAvailableHours();
+    });
+});
+
 </script>
+
 @endsection
