@@ -164,7 +164,7 @@
                             var formattedHour = hour.start + ' - ' + hour.end;
 
                             // Crear un botón para la hora disponible y agregarlo al contenedor
-                            var button = $('<button type="button" class="btn btn-primary mr-2">' + formattedHour + '</button>');
+                            var button = $('<button style="margin-top:10px;padding:10px;" type="button" class="btn btn-success bg-gradient-success mr-2">' + formattedHour + '</button>');
                             button.click(function() {
                                 // Cuando se hace clic en un botón, actualizar el valor del campo oculto
                                 $('#selected_hour').val(hour.start);
