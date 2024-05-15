@@ -49,13 +49,12 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label for="exampleEmail"><span style="color:red;">*</span>Correo electrónico</label>
                         <input 
-                            type="email" 
                             class="form-control form-control-user @error('email') is-invalid @enderror" 
                             id="exampleEmail"
                             placeholder="Correo electrónico" 
                             name="email" 
                             value="{{ old('email') }}" 
-                            required>
+                            >
                     </div>
 
                     
