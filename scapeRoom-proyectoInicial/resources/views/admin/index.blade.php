@@ -24,7 +24,7 @@
     @if(Auth::check() && Auth::user()->avatar)
             <img class="img-circle" src="{{ Auth::user()->avatar }}" alt="User Avatar">
         @else
-            <img class="img-circle" src="{{ asset('images/avatar.png') }}" alt="Default Avatar">
+            <img class="img-circle" src="{{ asset('images/6596121.png') }}" alt="Default Avatar">
         @endif
     </div>
     <div class="card-footer ">

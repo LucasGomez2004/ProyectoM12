@@ -52,7 +52,7 @@ class User extends Authenticatable
         } elseif ($this->avatar) {
             return asset('uploads/imatges/' . $this->avatar);
         } else {
-            return asset('images/carasilueta.png');
+            return asset('images/6596121.png');
         }
     }
 

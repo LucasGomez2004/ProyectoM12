@@ -35,6 +35,10 @@ Route::get('/dashboard', function () {
         return view('client.index');
     }
 
+    if (Auth::check() && Auth::user()->role_id === 3) {
+        return view('empleado.index');
+    }
+
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
