@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'User Profile')
+@section('title', 'Detalles del usuario')
 
 @section('content_header')
 {{ Breadcrumbs::render('user-profile') }}

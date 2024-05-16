@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Reservas')
 
 @section('content_header')
 {{ Breadcrumbs::render('reservation-list') }}

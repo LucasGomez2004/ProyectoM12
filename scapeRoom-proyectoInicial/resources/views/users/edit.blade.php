@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Editar usuario')
 
 @section('content_header')
 {{ Breadcrumbs::render('user-edit') }}

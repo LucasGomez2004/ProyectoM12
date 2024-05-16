@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Editar Servicio')
 
 @section('content_header')
 {{ Breadcrumbs::render('service-edit') }}

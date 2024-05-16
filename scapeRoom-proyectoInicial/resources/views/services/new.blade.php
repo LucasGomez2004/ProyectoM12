@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Nuevo servicio')
 
 @section('content_header')
 {{ Breadcrumbs::render('service-new') }}

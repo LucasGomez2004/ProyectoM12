@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Nuevo Rol')
 
 @section('content_header')
 {{ Breadcrumbs::render('role-new') }}

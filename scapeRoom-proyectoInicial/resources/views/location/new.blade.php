@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Nueva Localidad')
 
 @section('content_header')
 {{ Breadcrumbs::render('location-new') }}

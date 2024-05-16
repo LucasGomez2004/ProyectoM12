@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Nuevo Escape Room')
 
 @section('content_header')
 {{ Breadcrumbs::render('escaperoom-new') }}
