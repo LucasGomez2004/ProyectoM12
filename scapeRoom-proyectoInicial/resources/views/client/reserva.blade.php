@@ -14,7 +14,7 @@
                 <div class="card-header text-danger">Reserva</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('client.reserva') }}">
+                    <form id="formulario" method="POST" action="{{ route('client.reserva') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -110,9 +110,9 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" >
-                                    Reservar
-                                </button>
+                            <button type="button" class="btn btn-primary" onclick="confirmReserva()" id="submit-button" disabled>
+                                Reservar
+                            </button>
                             </div>
                         </div>
                     </form>
@@ -134,6 +134,8 @@
 @stop
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('js/welcome.js') }}"></script>
 <script>
     $(document).ready(function () {
     // Función para cargar las horas disponibles
@@ -167,15 +169,17 @@
                             var formattedHour = hour.start + ' - ' + hour.end;
 
                             // Crear un botón para la hora disponible y agregarlo al contenedor
-                            var button = $('<button style="margin-top:10px;padding:10px;" type="button" class="btn btn-success bg-gradient-success mr-2">' + formattedHour + '</button>');
+                            var button = $('<button style="margin-top:10px;padding:10px;" type="button" class="btn btn-success mr-2">' + formattedHour + '</button>');
                             button.click(function () {
                                 // Cuando se hace clic en un botón, actualizar el valor del campo oculto
                                 $('#selected_hour').val(hour.start);
+                                // Habilitar el botón de envío
+                                $('#submit-button').prop('disabled', false);
                             });
                             $('#available-hours').append(button);
                         });
                     } else {
-                        $('#available-hours').html('<div>No hay horas disponibles para esta fecha, ubicación y servicio.</div>');
+                        $('#available-hours').html('<div>No hay horas disponibles para esta fecha y ubicación</div>');
                     }
                 },
                 error: function (xhr) {

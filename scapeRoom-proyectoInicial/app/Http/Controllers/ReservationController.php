@@ -228,7 +228,8 @@ class ReservationController extends Controller
         $user = \Auth::user();
 
         $reservations = Reservation::where('user_id', $user->id)
-            ->paginate(10);
+            ->orderBy('created_at','desc')
+            ->paginate(5);
 
         return view('client.user-reservation', ['reservations' => $reservations]);
     }

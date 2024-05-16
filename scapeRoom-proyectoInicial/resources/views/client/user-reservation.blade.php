@@ -62,6 +62,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="text-center mt-3">
+                {{ $reservations->links() }}
+            </div>
         </div>
     </div>
     

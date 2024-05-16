@@ -78,3 +78,33 @@ function confirmDeleteReservation(deleteUrl) {
         }
     });
 }
+
+function confirmReserva() {
+    Swal.fire({
+        title: "Confirmar Reserva",
+        text: "¿Estás seguro de que deseas realizar esta reserva?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, reservar",
+        cancelButtonText: "Cancelar",
+    }).then((result) => {
+        // Si el usuario confirma la reserva, enviar el formulario
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Reservando...",
+                text: "Espere un momento mientras se realiza la reserva.",
+                icon: "info",
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
+            
+            setTimeout(() => {
+                document.getElementById('formulario').submit();
+            }, 1000); 
+        }
+    });
+}
+
+
