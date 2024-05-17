@@ -21,12 +21,14 @@
                             <label for="location" class="col-md-4 col-form-label text-md-right">Ubicación:</label>
 
                             <div class="col-md-6">
-                                <select id="location" class="form-control" name="location_id">
-                                    <option value="">Selecciona una ubicación</option>
-                                    @foreach ($locations as $location)
-                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
-                                    @endforeach
-                                </select>
+                            <select id="location" class="form-control" name="location_id">
+                                <option value="">Selecciona una ubicación</option>
+                                @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}" {{ $selectedLocation == $location->name ? 'selected' : '' }}>
+                                        {{ $location->name }}
+                                    </option>
+                                @endforeach
+                            </select>
 
                                 @error('location_id')
                                     <span class="invalid-feedback" role="alert">

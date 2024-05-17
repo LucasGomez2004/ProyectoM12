@@ -154,7 +154,10 @@ class ReservationController extends Controller
     // Si la solicitud no es de tipo POST, simplemente mostrar el formulario de reserva
     $locations = Location::all();
     $services = Service::all();
-    return view('client.reserva', ['locations' => $locations, 'services' => $services]);
+
+    $selectedLocation = $request->input('localidad'); // Capturamos el parámetro 'localidad'
+
+    return view('client.reserva', ['locations' => $locations, 'services' => $services, 'selectedLocation' => $selectedLocation]);
 }
 
 

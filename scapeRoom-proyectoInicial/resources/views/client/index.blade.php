@@ -31,10 +31,9 @@
 				<br>
 				<div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play blue">
-					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-play mr-2"></i>Reserva</a>
+					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -50,10 +49,9 @@
 				<br>
 				<div class="postcard__calle-txt"><b>Passeig de Pau Gesa, 1, 08440</b></div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play red">
-						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Cardedeu']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -69,10 +67,9 @@
 				<br>
 				<div class="postcard__calle-txt"><b>Carretera de Ribes, 4, 08520</b></div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play green">
-						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Franqueses']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -88,10 +85,9 @@
 				<br>
 				<div class="postcard__calle-txt"><b>Carrer Puig i Pidemunt, 12, 08302</b></div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play yellow">
-						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Mataró']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
