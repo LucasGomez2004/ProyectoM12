@@ -74,7 +74,6 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Correo electrónico</th>
-                    <th>Contraseña</th>
                     <th>Rol</th>
                     <th>Avatar</th>
                 </tr>
@@ -84,11 +83,6 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>
-                        @if ($user->password)
-                        <input type="password" id="password-{{$user->id}}" value="{{$user->password}}">
-                        @endif
-                    </td>
                     <td>@isset($user->role) {{ $user->role->nom() }} @endisset</td>
                     <td>
                         @if($user->google_id)
@@ -96,7 +90,7 @@
                         @elseif ($user->avatar )
                         <img src="{{ asset('uploads/imatges/' . $user->avatar) }}" class="avatar" alt="Avatar del usuario">
                         @else
-                        <img src="{{ asset('images/carasilueta.png') }}" class="avatar" alt="Avatar predeterminado">
+                        <p>Sin imagen de perfil</p>
                         @endif
                     </td>
                 </tr>
