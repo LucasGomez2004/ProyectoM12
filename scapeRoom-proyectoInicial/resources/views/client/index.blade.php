@@ -9,9 +9,7 @@
 @section('content')
 
 <div class="embed-responsive embed-responsive-16by9" style="max-width: 90%; margin: 0 auto;">
-    <video autoplay muted controls loop id="myVideo" class="embed-responsive-item" style="width: 100%; height: auto;">
-        <source src="images/video.mp4" type="video/mp4">
-    </video>
+<iframe src="https://www.youtube.com/embed/JTEIKsBwaQA?si=wxsIHKNGAQLi9s9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 <br>
@@ -33,7 +31,7 @@
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play blue">
-					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
+					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -51,7 +49,7 @@
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play red">
-						<a href="{{ route('client.reserva', ['localidad' => 'Cardedeu']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Cardedeu']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -69,7 +67,7 @@
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play green">
-						<a href="{{ route('client.reserva', ['localidad' => 'Franqueses']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
+					<a href="{{ route('client.reserva', ['localidad' => 'Franqueses']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
@@ -87,7 +85,7 @@
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play yellow">
-						<a href="{{ route('client.reserva', ['localidad' => 'Mataró']) }}"><i class="fas fa-play mr-2"></i>Reserva ya!</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Mataró']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
