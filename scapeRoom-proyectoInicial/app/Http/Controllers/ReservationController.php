@@ -5,8 +5,10 @@ use App\Models\Reservation;
 use App\Models\Location;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReservationController extends Controller
 {
@@ -246,5 +248,10 @@ class ReservationController extends Controller
     }
 
 
+    public function pdf(){
+        $reservations = Reservation::all();
+        $pdf = Pdf::loadView('reservation.pdf', compact('reservations'));
+        return $pdf->stream();
+    }
 }
 
