@@ -148,7 +148,7 @@ class ReservationController extends Controller
         $reservation->save();
 
         // Redirigir a una página de reserva después de guardar la reserva
-        return redirect()->route('client.user-reservation');
+        return redirect()->route('client.user-reservation')->with('status', 'Reserva confirmada con exito!');;
     }
 
     // Si la solicitud no es de tipo POST, simplemente mostrar el formulario de reserva
