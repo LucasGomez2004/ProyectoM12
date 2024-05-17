@@ -57,7 +57,17 @@ function confirmDelete(deleteUrl) {
         cancelButtonText: "Cancelar",
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = deleteUrl;
+            Swal.fire({
+                title: "Eliminando...",
+                text: "Espere un momento mientras se elimina...",
+                icon: "info",
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
+
+            setTimeout(() => {
+                window.location.href = deleteUrl;
+            }, 1200);
         }
     });
 }
@@ -74,7 +84,17 @@ function confirmDeleteReservation(deleteUrl) {
         cancelButtonText: "Cancelar",
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = deleteUrl;
+            Swal.fire({
+                title: "Eliminando...",
+                text: "Espere un momento mientras se elimina...",
+                icon: "info",
+                showConfirmButton: false,
+                allowOutsideClick: false,
+            });
+
+            setTimeout(() => {
+                window.location.href = deleteUrl;
+            }, 1200);
         }
     });
 }
@@ -102,7 +122,7 @@ function confirmReserva() {
             
             setTimeout(() => {
                 document.getElementById('formulario').submit();
-            }, 1000); 
+            }, 1200); 
         }
     });
 }

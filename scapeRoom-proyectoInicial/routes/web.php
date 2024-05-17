@@ -101,6 +101,8 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
     Route::match(['get', 'post'], '/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
     Route::match(['get', 'post'], '/user/pdf', [UserController::class, 'pdf'])->name('user.pdf');
+    Route::match(['get', 'post'], '/users-reservas/pdf', [ReservationController::class, 'pdf'])->name('users-reservas.pdf');
+    
 });
 // ESCAPE ROOM
 Route::middleware(['auth', 'can:admin'])->group(function () {
@@ -148,6 +150,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::match(['get', 'post'], '/eliminar-reserva/{id}', [App\Http\Controllers\ReservationController::class, 'reservationClientDelete'])->name('client.reservation-delete');
     Route::post('/get-available-hours', [App\Http\Controllers\ReservationController::class, 'getAvailableHours'])->name('getAvailableHours');
     Route::match(['get', 'post'], '/reserva', [App\Http\Controllers\ReservationController::class, 'reserva'])->name('client.reserva');
+    Route::match(['get', 'post'], '/client-reservas/pdf', [ReservationController::class, 'pdf'])->name('client-reservas.pdf');
 
 require __DIR__.'/auth.php';
 
