@@ -5,6 +5,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\EscapeRoomController;
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoleController;
@@ -36,7 +37,7 @@ Route::get('/dashboard', function () {
     }
 
     if (Auth::check() && Auth::user()->role_id === 3) {
-        return view('empleado.index');
+        return redirect()->route('empleado.index');
     }
 
     return view('admin.index');
@@ -151,6 +152,10 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/get-available-hours', [App\Http\Controllers\ReservationController::class, 'getAvailableHours'])->name('getAvailableHours');
     Route::match(['get', 'post'], '/reserva', [App\Http\Controllers\ReservationController::class, 'reserva'])->name('client.reserva');
     Route::match(['get', 'post'], '/client-reservas/pdf', [ReservationController::class, 'pdf'])->name('client-reservas.pdf');
-
+    
+    
+    
+    // Empleado
+    Route::get('/empleado', [EmpleadoController::class, 'index'])->name('empleado.index');
 require __DIR__.'/auth.php';
 

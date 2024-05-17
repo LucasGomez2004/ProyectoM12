@@ -13,23 +13,26 @@ class EmpleadoController extends Controller
 {
     public function index(){
         $all_reservations = Reservation::all();
-        $reservations = [];
-
+        $reservations = []; // Define la variable antes de usarla
+        
         foreach ($all_reservations as $reservation){
-            if ($reservation->participants == 0) {
-                $title = $reservation->user->name .' - Mantenimiento';
-            } else {
-                $title = $reservation->user->name . ' - Participantes: ' . $reservation->participants;
+            if ($reservation->user->role_id == 3) { // Verifica el role_id del usuario
+                if ($reservation->participants == 0) {
+                    $title = $reservation->user->name .' - Mantenimiento';
+                } else {
+                    $title = $reservation->user->name . ' - Participantes: ' . $reservation->participants;
+                }
+                $reservations[] = [
+                    'title' => $title,
+                    'start' => $reservation->start_date,
+                    'end' => $reservation->end_date,
+                ];
             }
-            $reservations[] = [
-                'title' => $title,
-                'start' => $reservation->start_date,
-                'end' => $reservation->end_date,
-            ];
         }
-        return view('empleado.index',compact('reservations'));
+        return view('empleado.index', compact('reservations'));
     }
-
+    
+    
     function list(Request $request){
 
         $filterValue = $request->input("filterValue");
