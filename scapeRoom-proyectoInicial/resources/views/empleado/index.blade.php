@@ -98,6 +98,7 @@
 @stop
 
 @section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/locales/es.js"></script>
 
@@ -135,6 +136,15 @@
                     day: 'Día',
                     list: 'Lista',
                 },
+                eventClick: function(info) {
+                    Swal.fire({
+                        title: info.event.title,
+                        html: '<b>Fecha:</b> ' + info.event.start.toLocaleDateString() + '<br>' +
+                            '<b>Hora de inicio:</b> ' + info.event.start.toLocaleTimeString() + '<br>' +
+                            '<b>Hora de fin:</b> ' + info.event.end.toLocaleTimeString(),
+                        icon: 'info'
+                    });
+                }
             });
             
             calendar.render();

@@ -27,7 +27,7 @@ class EmpleadoController extends Controller
                 }
                 
                 // Agregar la localidad al título
-                $title .= ' - Localidad: ' . $reservation->location->name;
+                $title .= ' - ' . $reservation->location->name;
     
                 // Añadir la reserva a la lista
                 $reservations[] = [

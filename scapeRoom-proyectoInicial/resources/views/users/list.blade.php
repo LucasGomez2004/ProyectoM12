@@ -150,6 +150,8 @@
 @stop
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('js/welcome.js') }}"></script>
 <script>
 function togglePasswordVisibility(inputId) {
     var passwordInput = document.getElementById(inputId);
@@ -158,12 +160,6 @@ function togglePasswordVisibility(inputId) {
         passwordInput.type = 'text';
     } else {
         passwordInput.type = 'password';
-    }
-}
-
-function confirmDelete(deleteUrl) {
-    if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
-        window.location.href = deleteUrl;
     }
 }
 </script>

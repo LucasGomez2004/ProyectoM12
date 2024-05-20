@@ -143,7 +143,7 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/reservation/delete/{id}', [ReservationController::class, 'delete'])->name('reservation.delete');
 });
 
-
+Route::middleware(['auth', 'can:client'])->group(function () {
     Route::match(['get', 'post'], '/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
     Route::match(['get', 'post'], '/enviar-correo', [App\Http\Controllers\ContactController::class, 'enviarMensaje'])->name('enviar.mensaje');
     Route::match(['get', 'post'], '/privacidad', [App\Http\Controllers\ClientController::class, 'privacidad'])->name('client.privacidad');
@@ -152,10 +152,12 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/get-available-hours', [App\Http\Controllers\ReservationController::class, 'getAvailableHours'])->name('getAvailableHours');
     Route::match(['get', 'post'], '/reserva', [App\Http\Controllers\ReservationController::class, 'reserva'])->name('client.reserva');
     Route::match(['get', 'post'], '/client-reservas/pdf', [ReservationController::class, 'pdf'])->name('client-reservas.pdf');
-    
+});
     
     
     // Empleado
+Route::middleware(['auth', 'can:empleado'])->group(function () {
     Route::get('/empleado', [EmpleadoController::class, 'index'])->name('empleado.index');
+});
 require __DIR__.'/auth.php';
 

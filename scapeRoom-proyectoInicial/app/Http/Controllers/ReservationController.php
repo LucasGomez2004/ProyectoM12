@@ -22,6 +22,7 @@ class ReservationController extends Controller
             } else {
                 $title = $reservation->user->name . ' - Participantes: ' . $reservation->participants;
             }
+            $title .= ' - ' . $reservation->location->name;
             $reservations[] = [
                 'title' => $title,
                 'start' => $reservation->start_date,
