@@ -8,10 +8,10 @@
 
 @section('content')
 <div class="container-fluid">
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Reserva</h1>
     </div>
-<div class="card shadow mb-4">
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-danger"> Crear Reserva</h6>
         </div>
@@ -28,7 +28,6 @@
             <form method="POST" action="{{route('reservation.new')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
-
                     {{-- Usuario --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label><span style="color:red;">*</span>Usuario</label>
@@ -50,7 +49,6 @@
                             id="start_date"
                             name="start_date" 
                             value="{{ old('start_date') }}">
-
                     </div>
 
                     {{-- end_date --}}
@@ -62,7 +60,7 @@
                             name="end_date" 
                             value="{{ old('end_date') }}">
                     </div>
-                    
+
                     {{-- service_id --}}
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label><span style="color:red;">*</span>Servicios</label>
@@ -102,7 +100,6 @@
                             <option value="0">-- Escoger, en caso, de limpieza --</option>
                         </select>
                     </div>
-
                 </div>
                 {{-- Save Button --}}
                 <button type="submit" class="btn btn-danger btn-user btn-block">
@@ -110,15 +107,16 @@
                 </button>
                 <br>
                 <a href="{{ route('calendar.calendar') }}" class="btn btn-dark float-right">&laquo; Volver a la lista de Reservas</a>
-
             </form>
         </div>
     </div>
-
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    $(document).ready(function() {
         var start_date = document.getElementById('start_date');
         var end_date = document.getElementById('end_date');
 
@@ -135,6 +133,20 @@
             return newDate;
         }
 
+        function setMinDateTime(input) {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = String(now.getMonth() + 1).padStart(2, '0');
+            var day = String(now.getDate()).padStart(2, '0');
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var formattedDateTime = year + '-' + month + '-' + day + 'T00:00'; // Set the minimum to start of today
+            input.min = formattedDateTime;
+        }
+
+        setMinDateTime(start_date);
+        setMinDateTime(end_date);
+
         [start_date, end_date].forEach(function (input) {
             input.addEventListener('input', function () {
                 var selectedDate = new Date(input.value);
@@ -145,7 +157,5 @@
         });
     });
 </script>
-
-
 
 @stop

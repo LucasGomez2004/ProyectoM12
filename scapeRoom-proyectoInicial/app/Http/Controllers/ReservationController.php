@@ -45,7 +45,7 @@ class ReservationController extends Controller
             });
         }
 
-        $reservation = $reservationFilter->paginate(10);
+        $reservation = $reservationFilter->orderBy('created_at', 'desc')->paginate(10);
         $locations = Location::all();
 
         return view('reservation.list' , ['reservation' => $reservation, 'filterValue' => $filterValue, 'filterLocalidad' => $filterLocalidad, 'locations' => $locations]);

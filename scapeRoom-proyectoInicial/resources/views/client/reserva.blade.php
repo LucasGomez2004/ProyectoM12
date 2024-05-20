@@ -22,7 +22,7 @@
                             <select id="location" class="form-control" name="location_id">
                                 <option value="">Selecciona una ubicación</option>
                                 @foreach ($locations as $location)
-                                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                <option value="{{ $location->id }}" {{ $selectedLocation == $location->name ? 'selected' : '' }}>{{ $location->name }}</option>
                                 @endforeach
                             </select>
                             @error('location_id')
@@ -113,11 +113,29 @@
 <script src="{{ asset('js/welcome.js') }}"></script>
 <script>
     $(document).ready(function () {
+        //Codigo para poner disable los dias que ya han pasado
+        var today = new Date().toISOString().split('T')[0];
+        $('#date').attr('min', today);
+
         // Función para cargar las horas disponibles
         function loadAvailableHours() {
             var selectedDate = $('#date').val();
             var locationId = $('#location').val();
             var serviceId = $('#service').val();
+
+            // Obtener el día de la semana
+            var selectedDay = new Date(selectedDate).getDay();
+
+            // Verificar si es domingo == 0)
+            if (selectedDay === 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Los Domingos no estamos Abiertos!!!.'
+                });
+                $('#date').val('');
+                return;
+            }
 
             if (selectedDate && locationId) {
                 $.ajax({
@@ -153,6 +171,7 @@
             }
         }
 
+
         $('#date').change(function () {
             loadAvailableHours();
         });
@@ -165,11 +184,10 @@
 
 <style>
     .btn-responsive {
-        flex: 1 1 100px; /* Flex-grow, flex-shrink, flex-basis */
+        flex: 1 1 100px;
         margin: 5px;
         padding: 10px;
-        min-width: 100px; /* Anchura mínima para los botones */
+        min-width: 100px; 
     }
-
 </style>
 @endsection
