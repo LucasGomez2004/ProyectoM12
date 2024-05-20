@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // USUARIOS
         User::create([
             'name' => 'BOL',
             'email' => 'bieloscarlucas.escaperoom@gmail.com',
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
         ]);
 
+        // EMPLEADOS
         User::create([
             'name' => 'Empleado 1',
             'email' => 'empleado1@escapeordie.com',
@@ -40,7 +42,25 @@ class UserSeeder extends Seeder
             'avatar' => '',
             'role_id' => 3,
         ]);
+        User::create([
+            'name' => 'Empleado 3',
+            'email' => 'empleado3@escapeordie.com',
+            'password' => Hash::make('empleado3'),
+            'google_id' => '',
+            'avatar' => '',
+            'role_id' => 3,
+        ]);
+        
+        User::create([
+            'name' => 'Empleado 4',
+            'email' => 'empleado4@escapeordie.com',
+            'password' => Hash::make('empleado4'),
+            'google_id' => '',
+            'avatar' => '',
+            'role_id' => 3,
+        ]);
 
+        //CLIENTE
         User::create([
             'name' => 'Cliente 1',
             'email' => 'cliente1@escapeordie.com',

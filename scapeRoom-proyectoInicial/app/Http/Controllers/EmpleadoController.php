@@ -11,17 +11,25 @@ use Illuminate\Validation\Rule;
 
 class EmpleadoController extends Controller
 {
-    public function index(){
-        $all_reservations = Reservation::all();
-        $reservations = []; // Define la variable antes de usarla
+    public function index() {
+        $currentUser = auth()->user(); // Obtener el usuario autenticado
+        $reservations = []; 
         
-        foreach ($all_reservations as $reservation){
-            if ($reservation->user->role_id == 3) { // Verifica el role_id del usuario
+        // Filtrar solo las reservas del usuario autenticado
+        $user_reservations = Reservation::where('user_id', $currentUser->id)->get();
+    
+        foreach ($user_reservations as $reservation) {
+            if ($reservation->user->role_id == 3) { 
                 if ($reservation->participants == 0) {
-                    $title = $reservation->user->name .' - Mantenimiento';
+                    $title = $reservation->user->name . ' - Mantenimiento';
                 } else {
                     $title = $reservation->user->name . ' - Participantes: ' . $reservation->participants;
                 }
+                
+                // Agregar la localidad al título
+                $title .= ' - Localidad: ' . $reservation->location->name;
+    
+                // Añadir la reserva a la lista
                 $reservations[] = [
                     'title' => $title,
                     'start' => $reservation->start_date,
@@ -29,8 +37,10 @@ class EmpleadoController extends Controller
                 ];
             }
         }
+        
         return view('empleado.index', compact('reservations'));
     }
+    
     
     
     function list(Request $request){

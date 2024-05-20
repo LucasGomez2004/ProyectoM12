@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             EscapeRoomSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            ReservationSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
