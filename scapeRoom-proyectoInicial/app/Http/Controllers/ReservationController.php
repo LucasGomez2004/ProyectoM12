@@ -254,8 +254,9 @@ class ReservationController extends Controller
 
     public function pdf(){
         $reservations = Reservation::all();
-        $pdf = Pdf::loadView('reservation.pdf', compact('reservations'));
+        $locations = Location::all();
+        $pdf = Pdf::loadView('reservation.pdf', compact('reservations', 'locations'));
         return $pdf->stream();
-    }
+    }    
 }
 

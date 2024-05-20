@@ -69,30 +69,45 @@
             <img src="images/logo.webp" alt="Logo">
             <h1>Reservas</h1>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Inicio</th>
-                    <th>Final</th>
-                    <th>Participantes</th>
-                    <th>Servicios</th>
-                    <th>Localidad</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($reservations as $reservation)
-                <tr>
-                    <td>@isset($reservation->user) {{ $reservation->user->nom() }} @endisset</td>
-                    <td>{{$reservation->start_date}}</td>
-                    <td>{{$reservation->end_date}}</td>
-                    <td>{{$reservation->participants}}</td>
-                    <td>@isset($reservation->service) {{ $reservation->service->nom() }} @endisset</td>
-                    <td>@isset($reservation->location) {{ $reservation->location->nom() }} @endisset</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        @foreach ($locations as $location)
+        <h2>{{$location->nom()}}</h2>
+        @if ($location->reservations->isEmpty())
+            <p>NO HAY RESERVAS EN ESTA LOCALIDAD</p>
+        @else
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Inicio</th>
+                        <th>Final</th>
+                        <th>Participantes</th>
+                        <th>Servicios</th>
+                        <th>Localidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($reservations as $reservation)
+                        @if ($reservation->location_id == $location->id)
+                        <tr>
+                            <td>@isset($reservation->user) {{ $reservation->user->nom() }} @endisset</td>
+                            <td>{{$reservation->start_date}}</td>
+                            <td>{{$reservation->end_date}}</td>
+                            <td>
+                                @if ($reservation->participants == 0)
+                                    Mantenimiento
+                                @else
+                                    {{$reservation->participants}}
+                                @endif
+                            </td>
+                            <td>@isset($reservation->service) {{ $reservation->service->nom() }} @endisset</td>
+                            <td>@isset($reservation->location) {{ $reservation->location->nom() }} @endisset</td>
+                        </tr>
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+        @endforeach
     </div>
 </body>
 </html>

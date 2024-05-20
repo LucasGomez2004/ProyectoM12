@@ -13,5 +13,10 @@ class Location extends Model
         return ($this->name);
     }
 
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
     protected $table = 'location';
 }
