@@ -84,7 +84,6 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label><span style="color:red;">*</span>Rol</label>
                         <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
-                            <option value="">-- Selecciona un Rol --</option>
                             @foreach ($roles as $role)
                                 <option value="{{ $role->id }}" {{ $defaultRoleId == $role->id ? 'selected' : '' }}>
                                     {{ $role->name }}

@@ -108,6 +108,20 @@
             return newDate;
         }
 
+        function setMinDateTime(input) {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = String(now.getMonth() + 1).padStart(2, '0');
+            var day = String(now.getDate()).padStart(2, '0');
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var formattedDateTime = year + '-' + month + '-' + day + 'T00:00'; // Set the minimum to start of today
+            input.min = formattedDateTime;
+        }
+
+        setMinDateTime(start_date);
+        setMinDateTime(end_date);
+
         [start_date, end_date].forEach(function (input) {
             input.addEventListener('input', function () {
                 var selectedDate = new Date(input.value);

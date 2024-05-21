@@ -63,7 +63,9 @@
                                 <label for="avatar">Foto de perfil: </label>
                                 <input type="file" name="avatar"/>
                                 <br>
-                                <input type="checkbox" name="eliminarimatge"> Eliminar la imagen</input>
+                                @if ($user->avatar)
+                                    <input type="checkbox" name="eliminarimatge"> Eliminar la imagen
+                                @endif
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger btn-user btn-block">

@@ -91,6 +91,11 @@
 
 @section('css')
 <style>
+    @media (max-width: 600px) {
+        .ml-auto {
+            margin-left: 0 !important;
+        }
+    }
 </style>
 @stop
 

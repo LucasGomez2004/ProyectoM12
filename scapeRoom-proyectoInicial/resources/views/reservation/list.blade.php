@@ -17,14 +17,14 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-column flex-md-row justify-content-between align-items-center">
             <div class="mb-2 mb-md-0">
-                <span class="text-danger">Listado de Reservas</span>
+                <span class="text-danger">Listado de Reservas &nbsp</span>
                 @if(isset($filterValue))
                     <p class="mt-2 mt-md-0 mb-0">Búsqueda por nombre de usuario... <b>{{ $filterValue }}</b></p>
                     <a href="{{ route('reservation.list') }}">Limpiar búsqueda</a>
                 @endif
             </div>
 
-            <a href="{{ route('users-reservas.pdf') }}" class="btn btn-danger ml-2">
+            <a id="pdf" href="{{ route('users-reservas.pdf') }}" class="btn btn-danger mr-2">
                 PDF
             </a>
 

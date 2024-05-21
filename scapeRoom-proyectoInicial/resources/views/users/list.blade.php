@@ -27,6 +27,13 @@
 @stop
 
 @section('content')
+<style>
+   @media (max-width: 600px) {
+        #divFiltros {
+            margin-left: 0 !important;
+        }
+    }
+</style>
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -49,7 +56,7 @@
                 @endif
             </div>
 
-            <div class="ml-auto d-flex flex-column flex-sm-row align-items-center">
+            <div id="divFiltros" class="ml-auto d-flex flex-column flex-sm-row align-items-center">
                 <form id="filterForm" action="{{ route('user.list') }}" method="GET" class="form-inline">
                     <label for="filterRol" class="mr-2">Filtrar por Rol</label>
                     <select name="filterRol" id="filterRol" class="form-control mb-2 mb-md-0">

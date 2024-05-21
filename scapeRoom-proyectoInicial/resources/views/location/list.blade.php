@@ -26,7 +26,7 @@
             <a href="{{ route('location.list') }}">Limpiar búsqueda</a>
         @endif
     </div>
-    <div class="ml-auto">
+    <div id="divFiltros" class="ml-auto">
         <form action="{{ route('location.list') }}" method="GET" class="d-flex">
             <div class="input-group">
                 <input type="text" name="filterValue" placeholder="Buscar por nombre" class="form-control rounded border-danger text-secondary">
@@ -83,6 +83,16 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('css')
+<style>
+   @media (max-width: 600px) {
+        #divFiltros {
+            margin-left: 0 !important;
+        }
+    }
+</style>
 @stop
 
 @section('js')
