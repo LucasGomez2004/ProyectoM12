@@ -9,14 +9,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10"> <!-- Ajuste el ancho de la columna -->
+        <div class="col-md-10">
             <div class="card shadow-sm">
                 <div class="card-header bg-danger text-white">Reserva</div>
 
                 <div class="card-body">
                     <form id="formulario" method="POST" action="{{ route('client.reserva') }}">
                         @csrf
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="form-group">
                             <label for="location" class="form-label">Ubicación:</label>
                             <select id="location" class="form-control" name="location_id">
@@ -31,7 +39,6 @@
                                 </span>
                             @enderror
                         </div>
-
                         <div class="form-group">
                             <label for="service" class="form-label">Servicio:</label>
                             <select id="service" class="form-control" name="service_id">

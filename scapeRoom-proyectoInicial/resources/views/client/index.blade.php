@@ -4,39 +4,85 @@
 
 @section('content_header')
     {{ Breadcrumbs::render('home') }}
-@stop
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	@stop
 
 @section('content')
-
-<div class="embed-responsive embed-responsive-16by9" style="max-width: 90%; margin: 0 auto;">
-<iframe src="https://www.youtube.com/embed/JTEIKsBwaQA?si=wxsIHKNGAQLi9s9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000" style="max-width:95%; margin:auto;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/granollers.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
+        <h1>Granollers</h1>
+        <p>Granollers és un municipi de Catalunya, capital i la ciutat més poblada de la comarca del Vallès Oriental. La Porxada, edifici renaixentista que servia de llotja de gra, n'és l'edifici més emblemàtic. </p>
+		<a href="#granollers" class="btn btn-success">Saber más...</a>
+	</div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/cardedeu.webp" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
+        <h1>Cardedeu</h1>
+        <p>Barcelona és una ciutat i metròpoli a la costa mediterrània de la península Ibèrica. És la capital de Catalunya, així com de la comarca del Barcelonès i de la província de Barcelona, i la segona ciutat en població i pes econòmic de la península Ibèrica, després de Madrid. </p>
+		<a href="#cardedeu" class="btn btn-success">Saber más...</a>
+	</div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/franqueses.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
+        <h1>Les Franqueses del Vallès</h1>
+        <p>Les Franqueses del Vallès és un municipi de la comarca del Vallès Oriental. Està ubicat al centre de la comarca i té una extensió de 29,1 quilòmetres quadrats. L'integren quatre pobles i un barri integrat a Corró d'Avall.</p>
+		<a href="#franqueses" class="btn btn-success">Saber más...</a>
+	</div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/mataro.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
+        <h1>Mataró</h1>
+        <p>Mataró és una ciutat de Catalunya, capital de la comarca del Maresme. Situada al litoral mediterrani, a uns 30 km al nord-est de Barcelona, ha estat tradicionalment un centre administratiu de rellevància territorial i un pol de dinamisme econòmic.</p>
+		<a href="#mataro" class="btn btn-success">Saber más...</a>
+	</div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<br>
-<br>
+
+<br><br>
 <section>
 	<div class="container py-2">
-		<div class="h1 text-center text-dark" id="pageHeaderTitle">Localidades</div>
-
-		<article class="postcard light blue">
-			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="images/granollers.jpg" alt="Image Title" />
-			</a>
-			<div class="postcard__text t-dark">
-				<h1 class="postcard__title blue"><a href="#">Granollers</a></h1>
-				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">L'Escape Room de Granollers ofereix una experiència immersiva on els participants han de resoldre énigmes i puzzles en una habitació temàtica per aconseguir escapar abans que s'acabi el temps. Amb temes intrigants com desxifrar codis secrets o resoldre misteris, aquesta atracció promet diversió i emoció per a grups d'amics, famílies o companys de treball que busquen una aventura memorable.</div>
-				<br>
-				<div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
-				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
-					<li class="tag__item play blue">
-					<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
-					</li>
-				</ul>
-			</div>
-		</article>
-		<article class="postcard light red">
+	<article class="postcard light blue" id="granollers">
+            <a class="postcard__img_link">
+                <img class="postcard__img" src="images/granollers.jpg" alt="Image Title" />
+            </a>
+            <div class="postcard__text t-dark">
+                <h1 class="postcard__title blue"><a href="#">Granollers</a></h1>
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt">L'Escape Room de Granollers ofereix una experiència immersiva on els participants han de resoldre énigmes i puzzles en una habitació temàtica per aconseguir escapar abans que s'acabi el temps. Amb temes intrigants com desxifrar codis secrets o resoldre misteris, aquesta atracció promet diversió i emoció per a grups d'amics, famílies o companys de treball que busquen una aventura memorable.</div>
+                <br>
+                <div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
+                <ul class="postcard__tagbox">
+                    <li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
+                    <li class="tag__item play blue">
+                    <a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+		<article class="postcard light red" id="cardedeu">
 			<a class="postcard__img_link" href="#">
 				<img class="postcard__img" src="images/cardedeu.jpg" alt="Image Title" />	
 			</a>
@@ -54,7 +100,7 @@
 				</ul>
 			</div>
 		</article>
-		<article class="postcard light green">
+		<article class="postcard light green" id="franqueses">
 			<a class="postcard__img_link" href="#">
 				<img class="postcard__img" src="images/franqueses.jpg" alt="Image Title" />
 			</a>
@@ -72,7 +118,7 @@
 				</ul>
 			</div>
 		</article>
-		<article class="postcard light yellow">
+		<article class="postcard light yellow" id="mataro">
 			<a class="postcard__img_link" href="#">
 				<img class="postcard__img" src="images/mataro.jpg" alt="Image Title" />
 			</a>
@@ -471,7 +517,13 @@ a, a:hover {
 		);
 	}
 }
-
+/* Carousel */
+.bg-gray-opacity-50 {
+    background-color: rgba(211, 211, 211, 0.8); 
+}
+.text-black {
+    color: black; 
+}
     </style>
 @stop
 

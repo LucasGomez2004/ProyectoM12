@@ -39,7 +39,7 @@ class UserController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
+                'name' => ['required', 'regex:/^[a-zA-Z0-9\s]+$/'],
                 'email' => 'required|email|unique:users',
                 'password' => 'required|min:8',
             ], 
@@ -78,7 +78,7 @@ class UserController extends BaseController
         if ($request->isMethod('post')) {
 
             $request->validate([
-                'name' => ['required', 'regex:/^[\pL\s]+$/u'],
+                'name' => ['required', 'regex:/^[a-zA-Z0-9\s]+$/'],
                 'email' => 'required|email',
                 'password' => 'required|min:8',
             ]);
