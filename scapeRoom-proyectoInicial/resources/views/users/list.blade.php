@@ -163,5 +163,8 @@ function togglePasswordVisibility(inputId) {
     }
 }
 </script>
+    <script>
+        var userListUrl = "{{ route('user.list') }}";
+    </script>
 @stop
 
