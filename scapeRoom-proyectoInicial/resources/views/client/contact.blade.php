@@ -24,6 +24,12 @@
                     </div>
                 </div>
                 @endif
+                @if (session('status'))
+                <div id="status-message" class="alert" style="background-color: green; color: white; width: 100%; transition: opacity 2s ease;">
+                    {{ session('status') }}
+                </div>
+                <script src="{{ asset('js/welcome.js') }}"></script>
+            @endif       
             </div>
     <div class="contact__wrapper shadow-lg mt-n9">
         
@@ -91,7 +97,6 @@
                     </div>
                 </form>
             </div>
-            <!-- End Contact Form Wrapper -->
     
         </div>
     </div>
