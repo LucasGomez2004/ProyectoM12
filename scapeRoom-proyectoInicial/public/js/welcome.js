@@ -85,8 +85,8 @@ function confirmDeleteReservation(deleteUrl) {
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: "Eliminando...",
-                text: "Espere un momento mientras se elimina...",
+                title: "Cancelando Reserva...",
+                text: "Espere un momento...",
                 icon: "info",
                 showConfirmButton: false,
                 allowOutsideClick: false,
