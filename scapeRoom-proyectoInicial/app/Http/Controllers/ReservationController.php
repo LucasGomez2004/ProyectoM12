@@ -11,7 +11,10 @@ use Illuminate\Validation\Rule;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservationConfirmed;
+use App\Mail\ReservationAdminConfirmed;
 use App\Mail\ReservationCancelled;
+use App\Mail\ReservationAdminUpdated;
+use App\Mail\ReservationAdminDeleted;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
@@ -76,8 +79,12 @@ class ReservationController extends Controller
             $reservation->participants = $request->participants;
             $reservation->user_id = $request->user_id;
 
-            $reservation->save();
+            $user = User::find($request->user_id);
+        $userEmail = $user->email;
 
+            $reservation->save();
+            Mail::to($userEmail)->send(new ReservationAdminConfirmed($reservation));
+            
             return redirect()->route('reservation.list')->with('status', 'Nueva Reserva con id '.$reservation->id.' Creada!');
         }
 
@@ -107,7 +114,12 @@ class ReservationController extends Controller
             $reservation->participants = $request->participants;
             $reservation->user_id = $request->user_id;
 
+            $user = User::find($request->user_id);
+            $userEmail = $user->email;
+
             $reservation->save();
+
+            Mail::to($userEmail)->send(new ReservationAdminUpdated($reservation));
 
             return redirect()->route('reservation.list')->with('status', 'Reserva con id '.$reservation->id.' Modificada!');
         }
@@ -121,7 +133,13 @@ class ReservationController extends Controller
     function delete($id) 
     { 
         $reservation = Reservation::find($id);
+
+        $user = User::find($reservation->user_id);
+        $userEmail = $user->email;
+
         $reservation->delete();
+
+        Mail::to($userEmail)->send(new ReservationAdminDeleted($reservation));
 
         return redirect()->route('reservation.list')->with('status', 'Reserva con id '.$reservation->id.' Eliminada!');
     }
