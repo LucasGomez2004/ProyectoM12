@@ -9,6 +9,10 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ReservationConfirmed;
+use App\Mail\ReservationCancelled;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -150,6 +154,7 @@ class ReservationController extends Controller
         // Guardar la reserva en la base de datos
         $reservation->save();
 
+        Mail::to(\Auth::user()->email)->send(new ReservationConfirmed($reservation));
         // Redirigir a una página de reserva después de guardar la reserva
         return redirect()->route('client.user-reservation')->with('status', 'Reserva confirmada con exito!');;
     }
@@ -247,6 +252,8 @@ class ReservationController extends Controller
             return redirect()->route('client.user-reservation')->with('error', 'No tienes permisos para eliminar esta reserva.');
         }
         $reservation->delete();
+
+        Mail::to(\Auth::user()->email)->send(new ReservationCancelled($reservation));
 
         return redirect()->route('client.user-reservation')->with('status', 'Reserva Anulada con Éxito');
     }
