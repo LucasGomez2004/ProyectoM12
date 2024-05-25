@@ -32,7 +32,7 @@
         </div>
 
         <!-- GOOGLE LOGIN  -->
-        <a href="/login-google" class="inline-flex items-center justify-center rounded-md px-3 py-2 text-gray-800 bg-white border border-gray-300 hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:border-gray-700 dark:focus-visible:ring-blue-600 w-full">
+        <a href="/deploy/public/index.php/login-google" class="inline-flex items-center justify-center rounded-md px-3 py-2 text-gray-800 bg-white border border-gray-300 hover:border-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:border-gray-700 dark:focus-visible:ring-blue-600 w-full">
             <!-- Logo de Google con margen a la derecha -->
             <img src="https://www.gstatic.com/images/branding/productlogos/googleg/v6/36px.svg" class="h-5 w-5 mr-2" alt="Logo de Google">&nbsp
             Iniciar sesión con Google
