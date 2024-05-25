@@ -47,9 +47,7 @@
                 <a href="{{ route('user.new') }}" class="text-danger">    
                     <i class="fas fa-plus"></i> Añadir usuario
                 </a>
-                <a href="{{ route('user.pdf') }}" class="btn btn-danger ml-2">    
-                    PDF
-                </a>
+                <a href="{{ route('user.pdf', ['filterValue' => request('filterValue'), 'filterRol' => request('filterRol')]) }}" class="btn btn-danger ml-2">PDF</a>
                 @if(isset($filterValue))
                     <p class="mt-2 mt-sm-0 mb-0">Búsqueda por nombre de usuario... <b>{{ $filterValue }}</b></p>
                     <a href="{{ route('user.list') }}">Limpiar búsqueda</a>

@@ -99,7 +99,7 @@
     <div class="col-lg-12 bg-danger p-5">
     <div class="row">
         <div class="col-md-5 align-self-center">
-            <h1>¿Dónde encontrarnos?</h1>
+            <h1 id='donde'>¿Dónde encontrarnos?</h1>
         </div>
         <div class="col-md">
             <div class="row">
@@ -179,6 +179,12 @@
     }
 }
 
+@media (max-width: 500px) {
+    #donde {
+        font-size:30px;     
+    }
+}
+
 .shadow-lg, .shadow-lg--on-hover:hover {
     box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
 }
@@ -214,10 +220,11 @@
 @stop
 
 @section('footer')
-    <strong>Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></strong>
+    <strong>Copyright &copy; {{ date('Y') }} <a href="https://www.instagram.com/escapeordie_bcn/">Escape Or Die</a></strong>
     <div class="float-right d-none d-sm-inline">
         <strong>
             <a href="{{ route('client.privacidad') }}">Política de privacidad</a> 
         </strong>
     </div>
 @stop
+

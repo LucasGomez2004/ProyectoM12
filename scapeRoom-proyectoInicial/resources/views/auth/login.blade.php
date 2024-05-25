@@ -38,7 +38,7 @@
             Iniciar sesión con Google
         </a>
 
-        <div class="form-group mt-5" style="margin-left: 45px;">
+        <div class="form-group mt-5">
             {!! NoCaptcha::renderJs('es', false, 'recaptchaCallback') !!}
             {!! NoCaptcha::display() !!}
         </div>

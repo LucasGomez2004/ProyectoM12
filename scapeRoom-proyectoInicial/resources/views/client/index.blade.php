@@ -18,36 +18,36 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/granollers.png" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/granollers.png') }}" class="d-block w-100" alt="Granollers">
       <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
         <h1>Granollers</h1>
         <p>Granollers és un municipi de Catalunya, capital i la ciutat més poblada de la comarca del Vallès Oriental. La Porxada, edifici renaixentista que servia de llotja de gra, n'és l'edifici més emblemàtic. </p>
 		<a href="#granollers" class="btn btn-success">Saber más...</a>
-	</div>
+	  </div>
     </div>
     <div class="carousel-item">
-      <img src="images/cardedeu.webp" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/cardedeu.webp') }}" class="d-block w-100" alt="Cardedeu">
       <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
         <h1>Cardedeu</h1>
         <p>Barcelona és una ciutat i metròpoli a la costa mediterrània de la península Ibèrica. És la capital de Catalunya, així com de la comarca del Barcelonès i de la província de Barcelona, i la segona ciutat en població i pes econòmic de la península Ibèrica, després de Madrid. </p>
 		<a href="#cardedeu" class="btn btn-success">Saber más...</a>
-	</div>
+	  </div>
     </div>
     <div class="carousel-item">
-      <img src="images/franqueses.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/franqueses.jpg') }}" class="d-block w-100" alt="Les Franqueses del Vallès">
       <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
         <h1>Les Franqueses del Vallès</h1>
         <p>Les Franqueses del Vallès és un municipi de la comarca del Vallès Oriental. Està ubicat al centre de la comarca i té una extensió de 29,1 quilòmetres quadrats. L'integren quatre pobles i un barri integrat a Corró d'Avall.</p>
 		<a href="#franqueses" class="btn btn-success">Saber más...</a>
-	</div>
+	  </div>
     </div>
     <div class="carousel-item">
-      <img src="images/mataro.jpg" class="d-block w-100" alt="...">
+      <img src="{{ asset('images/mataro.jpg') }}" class="d-block w-100" alt="Mataró">
       <div class="carousel-caption d-none d-md-block bg-gray-opacity-50 text-black">
         <h1>Mataró</h1>
         <p>Mataró és una ciutat de Catalunya, capital de la comarca del Maresme. Situada al litoral mediterrani, a uns 30 km al nord-est de Barcelona, ha estat tradicionalment un centre administratiu de rellevància territorial i un pol de dinamisme econòmic.</p>
 		<a href="#mataro" class="btn btn-success">Saber más...</a>
-	</div>
+	  </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -60,31 +60,30 @@
   </button>
 </div>
 
-
 <br><br>
 <section>
 	<div class="container py-2">
-	<article class="postcard light blue" id="granollers">
-            <a class="postcard__img_link">
-                <img class="postcard__img" src="images/granollers.jpg" alt="Image Title" />
-            </a>
-            <div class="postcard__text t-dark">
-                <h1 class="postcard__title blue"><a href="#">Granollers</a></h1>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">L'Escape Room de Granollers ofereix una experiència immersiva on els participants han de resoldre énigmes i puzzles en una habitació temàtica per aconseguir escapar abans que s'acabi el temps. Amb temes intrigants com desxifrar codis secrets o resoldre misteris, aquesta atracció promet diversió i emoció per a grups d'amics, famílies o companys de treball que busquen una aventura memorable.</div>
-                <br>
-                <div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
-                <ul class="postcard__tagbox">
-                    <li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
-                    <li class="tag__item play blue">
-                    <a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
-                    </li>
-                </ul>
-            </div>
-        </article>
+		<article class="postcard light blue" id="granollers">
+			<a class="postcard__img_link">
+				<img class="postcard__img" src="{{ asset('images/granollers.jpg') }}" alt="Granollers">
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="#">Granollers</a></h1>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">L'Escape Room de Granollers ofereix una experiència immersiva on els participants han de resoldre énigmes i puzzles en una habitació temàtica per aconseguir escapar abans que s'acabi el temps. Amb temes intrigants com desxifrar codis secrets o resoldre misteris, aquesta atracció promet diversió i emoció per a grups d'amics, famílies o companys de treball que busquen una aventura memorable.</div>
+				<br>
+				<div class="postcard__calle-txt"><b>Carrer del Camp de les Moreres, 14, 08401</b></div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
+					<li class="tag__item play blue">
+						<a href="{{ route('client.reserva', ['localidad' => 'Granollers']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
+					</li>
+				</ul>
+			</div>
+		</article>
 		<article class="postcard light red" id="cardedeu">
 			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="images/cardedeu.jpg" alt="Image Title" />	
+				<img class="postcard__img" src="{{ asset('images/cardedeu.jpg') }}" alt="Cardedeu">	
 			</a>
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title red"><a href="#">Cardedeu</a></h1>
@@ -102,32 +101,32 @@
 		</article>
 		<article class="postcard light green" id="franqueses">
 			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="images/franqueses.jpg" alt="Image Title" />
+				<img class="postcard__img" src="{{ asset('images/franqueses.jpg') }}" alt="Les Franqueses del Vallès">
 			</a>
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title green"><a href="#">Les Franqueses del Vallès</a></h1>
 				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">Descobreix una nova dimensió d'entreteniment a Les Franqueses del Vallès amb l'Escape Room local. Amb una combinació de reptes mental i treball en equip, aquesta experiència et transportarà a escenaris emocionants on hauràs de desxifrar codis i trobar pistes per aconseguir escapar. Una opció perfecta per a grups que busquen una activitat estimulant i divertida a Les Franqueses.</div>
+				<div class="postcard__preview-txt">Descobreix l'Escape Room de Les Franqueses del Vallès, on l'aventura i la diversió estan garantides. Aquest espai únic ofereix una varietat de temàtiques i desafiaments que posaran a prova el teu enginy i treball en equip. Perfecte per a grups d'amics, famílies i esdeveniments corporatius, aquesta experiència et farà sentir com un veritable detectiu resolent misteris i escapant en temps rècord.</div>
 				<br>
-				<div class="postcard__calle-txt"><b>Carretera de Ribes, 4, 08520</b></div>
+				<div class="postcard__calle-txt"><b>Carrer de la Indústria, 22, 08520</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play green">
-					<a href="{{ route('client.reserva', ['localidad' => 'Franqueses']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
+						<a href="{{ route('client.reserva', ['localidad' => 'Franqueses']) }}"><i class="fas fa-calendar-plus mr-2"></i>Reserva ya!</a>
 					</li>
 				</ul>
 			</div>
 		</article>
 		<article class="postcard light yellow" id="mataro">
 			<a class="postcard__img_link" href="#">
-				<img class="postcard__img" src="images/mataro.jpg" alt="Image Title" />
+				<img class="postcard__img" src="{{ asset('images/mataro.jpg') }}" alt="Mataró">	
 			</a>
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title yellow"><a href="#">Mataró</a></h1>
 				<div class="postcard__bar"></div>
-				<div class="postcard__preview-txt">L'Escape Room de Mataró et proposa una aventura plena d'emoció i adrenalina en la qual hauràs de posar a prova les teves habilitats detectivesques. Desxifra codis, resol misteris i treballa en equip per superar tots els reptes i aconseguir escapar abans que s'acabi el temps. Amb temes variats i emocionants, és una experiència perfecta per a tot tipus de grups a Mataró.</div>
+				<div class="postcard__preview-txt">Viu l'emoció de l'Escape Room a Mataró, una experiència dissenyada per desafiar la teva ment i els teus sentits. En aquest espai, hauràs de col·laborar amb el teu equip per desxifrar pistes i superar obstacles en un temps limitat. Ideal per a una sortida amb amics, una activitat familiar o una jornada de team building, l'Escape Room de Mataró t'ofereix una aventura plena de diversió i misteri.</div>
 				<br>
-				<div class="postcard__calle-txt"><b>Carrer Puig i Pidemunt, 12, 08302</b></div>
+				<div class="postcard__calle-txt"><b>Carrer de la Riera, 48, 08301</b></div>
 				<ul class="postcard__tagbox">
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>1 h</li>
 					<li class="tag__item play yellow">
@@ -542,16 +541,11 @@ a, a:hover {
 @stop
 
 @section('footer')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-left">
-                <p class="mb-0">Copyright &copy; {{ date('Y') }} <a href="">&nbsp Escape Or Die</a></p>
-            </div>
-            <div class="col-md-6 text-center text-md-right">
-                <p class="mb-0">
-                    <a href="{{ route('client.privacidad') }}">Política de privacidad</a> 
-                </p>
-            </div>
-        </div>
+    <strong>Copyright &copy; {{ date('Y') }} <a href="https://www.instagram.com/escapeordie_bcn/">Escape Or Die</a></strong>
+    <div class="float-right d-none d-sm-inline">
+        <strong>
+            <a href="{{ route('client.privacidad') }}">Política de privacidad</a> 
+        </strong>
     </div>
 @stop
+

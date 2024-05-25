@@ -277,11 +277,33 @@ class ReservationController extends Controller
     }
 
 
-    public function pdf(){
-        $reservations = Reservation::all();
+    public function pdf(Request $request){
+        $filterValue = $request->input('filterValue');
+        $filterLocalidad = $request->input('filterLocalidad');
+    
+        $reservationsFilter = Reservation::query();
+    
+        if ($filterValue) {
+            $reservationsFilter->whereHas('user', function ($query) use ($filterValue) {
+                $query->where('name', 'LIKE', '%' . $filterValue . '%');
+            });
+        }
+    
+        if ($filterLocalidad && $filterLocalidad != '0') {
+            $reservationsFilter->whereHas('location', function ($query) use ($filterLocalidad) {
+                $query->where('name', 'LIKE', '%' . $filterLocalidad . '%');
+            });
+        }
+    
+        if (!$filterValue && (!$filterLocalidad || $filterLocalidad == '0')) {
+            $reservations = Reservation::all();
+        } else {
+            $reservations = $reservationsFilter->get();
+        }
+    
         $locations = Location::all();
         $pdf = Pdf::loadView('reservation.pdf', compact('reservations', 'locations'));
         return $pdf->stream();
-    }    
+    }       
 }
 

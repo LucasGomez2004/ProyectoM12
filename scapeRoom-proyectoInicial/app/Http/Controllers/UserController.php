@@ -125,10 +125,31 @@ class UserController extends BaseController
         return view('users.profile', compact('user'));
     }
 
-    public function pdf(){
-        $users = User::all();
+    public function pdf(Request $request){
+        $filterValue = $request->input('filterValue');
+        $filterRol = $request->input('filterRol');
+        
+        $usersFilter = User::query();
+        
+        if ($filterValue) {
+            $usersFilter->where('name', 'LIKE', '%' . $filterValue . '%');
+        }
+        
+        if ($filterRol && $filterRol != '0') {
+            $usersFilter->whereHas('role', function ($query) use ($filterRol) {
+                $query->where('name', 'LIKE', '%' . $filterRol . '%');
+            });
+        }
+    
+        if (!$filterValue && (!$filterRol || $filterRol == '0')) {
+            $users = User::all();
+        } else {
+            $users = $usersFilter->get();
+        }
+        
         $roles = Role::all();
         $pdf = Pdf::loadView('users.pdf', compact('users', 'roles'));
         return $pdf->stream();
     }
+    
 }

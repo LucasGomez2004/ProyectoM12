@@ -24,9 +24,8 @@
                 @endif
             </div>
 
-            <a id="pdf" href="{{ route('users-reservas.pdf') }}" class="btn btn-danger mr-2">
-                PDF
-            </a>
+            <a href="{{ route('users-reservas.pdf', ['filterValue' => request('filterValue'), 'filterLocalidad' => request('filterLocalidad')]) }}" class="btn btn-danger mr-2">PDF</a>
+
 
             <div class="ml-md-auto">
                 <form id="filterForm" action="{{ route('reservation.list') }}" method="GET" class="form-inline">
@@ -112,6 +111,7 @@
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
+    <script src="{{ asset('js/filtrar.js') }}"></script>
     <script>
         var reservationListUrl = "{{ route('reservation.list') }}";
     </script>
